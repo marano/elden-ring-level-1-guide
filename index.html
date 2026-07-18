@@ -472,6 +472,14 @@
   .step-title .map-link { margin-left: .5rem; }
   .step-title .map-link, .step-body .map-link { text-decoration: none; }
   label.step.done .map-link { opacity: .5; }
+
+  /* reference-section inline links */
+  #builds a, .sec-intro a { color: var(--gold); text-underline-offset: 2px; text-decoration-color: color-mix(in oklab, var(--gold) 45%, transparent); }
+  #builds a:hover, .sec-intro a:hover { color: var(--gold-bright); text-decoration-color: var(--gold-bright); }
+
+  /* build cards reuse the tactic callout; give each a title row */
+  #builds .tactic { margin-top: .8rem; }
+  #builds .tactic p b, #builds .tactic p strong { color: var(--ink); }
 </style>
 
 <header class="hero">
@@ -495,6 +503,7 @@
     <ol>
       <li><a href="#doctrine"><span class="n">§</span><span>The Doctrine</span></a></li>
       <li><a href="#loadout"><span class="n">§</span><span>Loadout Reference</span></a></li>
+      <li><a href="#builds"><span class="n">§</span><span>Broken Builds</span></a></li>
       <li><a href="#cheese-toolkit"><span class="n">§</span><span>Cheese Toolkit</span></a></li>
       <li><a href="#power"><span class="n">§</span><span>Power Priority</span></a></li>
       <li><a href="#checklist"><span class="n">✓</span><span>Playthrough Checklist</span></a></li>
@@ -624,7 +633,7 @@
         <li><span class="item">Quickstep → Bloodhound's Step</span> <span class="where">— evasion Ashes of War with generous i-frames. Bloodhound's Step is the single best defensive tool in the game.</span></li>
         <li><span class="item">Seppuku (Ash of War)</span> <span class="where">— self-inflicts bleed to massively boost your weapon's bleed damage. Use carefully with your small health bar; re-apply from a safe distance.</span></li>
         <li><span class="item">Greases</span> <span class="where">— Blood Grease / Rot Grease let any weapon carry status. Freezing / Fire Grease for weakness targets.</span></li>
-        <li><span class="item">Status pots &amp; bones</span> <span class="where">— crafted Sleep pots and rot pots to prime bosses; Sleepbone/Rotbone arrows for ranged application.</span></li>
+        <li><span class="item">Status pots &amp; bone arrows</span> <span class="where">— your zero-requirement "cast status from range": Rot/Poison/Sleep pots and Rotbone/Poisonbone/Sleepbone/Bloodbone arrows all proc full status with no stat needed. See <a href="#builds">Broken Builds</a>.</span></li>
         <li><span class="item">Cure boluses</span> <span class="where">— Stanching (bleed), Neutralizing (rot/poison), Thawfrost Boluses. Craft a full stack — a status proc on you at RL1 is lethal.</span></li>
         <li><span class="item">Pickled Turtle Neck &amp; Immunizing Cured Meat</span> <span class="where">— stamina regen and status resistance; keep both active for hard fights.</span></li>
       </ul>
@@ -636,6 +645,76 @@
         <li><span class="item">Mimic Tear</span> <span class="where">— copies your gear, so it applies your bleed/rot a second time. Weak health at RL1 but a great status-stacking distraction.</span></li>
         <li><span class="where">Upgrade all of them with Grave/Ghost Glovewort — hand Roderika your Chrysalids' Memento to unlock ash-tuning at the Roundtable Hold.</span></li>
       </ul>
+    </section>
+
+    <!-- ================= BROKEN BUILDS ================= -->
+    <section id="builds" class="reveal">
+      <span class="kicker">Every broken toy in the box</span>
+      <h2 class="sec">Broken Builds</h2>
+      <p class="sec-intro">Raw damage never scales at RL1, so every build here wins one of three ways: <strong>status buildup</strong> (ignores your level entirely), a <strong>fixed-damage gimmick</strong>, or a <strong>summon</strong> doing the work. Two casting rules decide what's possible — (1) unlike weapons, a spell can't be cast <em>at all</em> unless you meet its Int/Faith requirement (there's no under-req penalty-cast), and (2) the only gear that raises casting stats is <a href="https://eldenring.wiki.fextralife.com/Marika's+Soreseal" target="_blank" rel="noopener">Marika's Soreseal</a> (+5 Int/Faith/Arc/Mind, buried late in Elphael). So spell builds are largely an endgame luxury, while pots, bone arrows and weapon-status work from the very first hour.</p>
+
+      <h3 class="sub">Status builds — the win conditions</h3>
+
+      <div class="tactic tactic--bleed">
+        <div class="t-head"><span class="chip c-bleed">bleed</span><b>Hemorrhage stack</b></div>
+        <p>The staple. An innate-bleed weapon (Uchigatana, <a href="https://eldenring.wiki.fextralife.com/Rivers+of+Blood" target="_blank" rel="noopener">Rivers of Blood</a>, Bloody Helice, Hookclaws, Bloodhound's Fang), Blood-infused, buffed by <b>Seppuku</b> + <b>Lord of Blood's Exultation</b> + the <b>White Mask</b> (Mohg's helm, +10% attack after a nearby bleed proc) + <b>Shard of Alexander</b> for skill damage. A bleed proc is ~15% of the target's max HP, so Rivers of Blood's Corpse Piler or a Seppuku'd katana drops most bosses in a handful of procs. Add <a href="https://eldenring.wiki.fextralife.com/Bloodflame+Blade" target="_blank" rel="noopener">Bloodflame Blade</a> (incantation) to give bleed to any weapon that lacks it — though at Faith 12 it needs Marika's Soreseal to cast.</p>
+      </div>
+
+      <div class="tactic tactic--rot">
+        <div class="t-head"><span class="chip c-rot">rot</span><b>Scarlet rot — melee poke</b></div>
+        <p><a href="https://eldenring.wiki.fextralife.com/Antspur+Rapier" target="_blank" rel="noopener">Antspur Rapier</a> (innate rot) + Rot Grease + <b>Kindred of Rot's Exultation</b> (+20% attack near rot) + Rotten Winged Sword Insignia. Poke once or twice through your shield, back off, and rot devours a huge slice of the bar over its duration. Stacks with bleed for two health bars ticking at once.</p>
+      </div>
+
+      <div class="tactic tactic--cheese">
+        <div class="t-head"><span class="chip c-cheese">any status · no stats</span><b>Status at range — pots &amp; bone arrows</b></div>
+        <p>The RL1 "caster" that needs <b>zero</b> stats and works from hour one. Craft <b>Rot / Poison / Sleep / Fire / Freezing pots</b> and <b>Rotbone / Poisonbone / Sleepbone / Bloodbone arrows</b> (any low-Dex shortbow). Full status buildup, thrown from safety — lob a rot pot <em>and</em> a poison pot to stack two damage-over-time bars, or open with a sleep pot for a free critical. This is your always-available answer to "just cheese it from range."</p>
+      </div>
+
+      <div class="tactic tactic--rot">
+        <div class="t-head"><span class="chip c-rot">rot / poison</span><b>Caster breath — rot &amp; poison clouds <span class="chip c-skip">endgame</span></b></div>
+        <p>The spell version, and it's a late unlock. Equip <a href="https://eldenring.wiki.fextralife.com/Marika's+Soreseal" target="_blank" rel="noopener">Marika's Soreseal</a> (→ Faith/Arc 15) and cast <a href="https://eldenring.wiki.fextralife.com/Rotten+Breath" target="_blank" rel="noopener">Rotten Breath</a> (Faith 15 / Arc 12) or <a href="https://eldenring.wiki.fextralife.com/Poison+Mist" target="_blank" rel="noopener">Poison Mist</a> (Faith 12) from any low-req seal — enormous status clouds that melt big bosses from range, buffed further by Kindred of Rot's Exultation. <b>Note:</b> <a href="https://eldenring.wiki.fextralife.com/Ekzykes's+Decay" target="_blank" rel="noopener">Ekzykes's Decay</a> (Faith 23) is <em>not</em> castable even with the Soreseal — Rotten Breath is the rot-breath you'll actually use. (Stacking Godrick's Great Rune's +5 pushes casting stats to 20, opening a few more spells.)</p>
+      </div>
+
+      <div class="tactic tactic--frost">
+        <div class="t-head"><span class="chip c-frost">frost</span><b>Frost — the multiplier</b></div>
+        <p>Hoarfrost Stomp, a Cold-infused weapon, Zamor Ice Storm, or the DLC's Divine Beast Frost Stomp. A frostbite proc bursts HP <em>and</em> raises the target's damage-taken by 20% — so it's less a standalone build than a force-multiplier bolted onto everything else: frost first, then bleed into the debuff.</p>
+      </div>
+
+      <div class="tactic tactic--sleep">
+        <div class="t-head"><span class="chip c-sleep">sleep</span><b>Sleep — the free crit</b></div>
+        <p><a href="https://eldenring.wiki.fextralife.com/Sword+of+St+Trina" target="_blank" rel="noopener">Sword of St. Trina</a> (its <b>Mists of Slumber</b> skill is an AoE sleep cloud; wielded under-requirement the sleep still procs at full) + Sleep pots + Sleepbone arrows + St. Trina's Torch. A slept boss takes a guaranteed charged critical and gives you a breather — deadly on the Godskins and most humanoids.</p>
+      </div>
+
+      <h3 class="sub">Buffs, nukes &amp; carries</h3>
+
+      <div class="tactic tactic--cheese">
+        <div class="t-head"><span class="chip c-cheese">buff</span><b>Great Rune — a temporary second Soreseal</b></div>
+        <p>After a shardbearer falls, restore its <b>Great Rune</b> at the matching Divine Tower and activate it with a <a href="https://eldenring.wiki.fextralife.com/Rune+Arc" target="_blank" rel="noopener">Rune Arc</a> (buff lasts until you die). At RL1 two are gold: <a href="https://eldenring.wiki.fextralife.com/Godrick's+Great+Rune" target="_blank" rel="noopener">Godrick's Great Rune</a> gives <b>+5 to every attribute</b> — extra HP/stamina and the requirement headroom to wield or even <em>cast</em> more (it stacks with Marika's Soreseal), and <b>Morgott's Great Rune</b> gives a large max-HP boost for survivability walls. Rune Arcs are limited, so bank them for boss attempts you're serious about.</p>
+      </div>
+
+      <div class="tactic tactic--cheese">
+        <div class="t-head"><span class="chip c-cheese">one-boss nuke</span><b>Serpent-Hunter (Rykard)</b></div>
+        <p>The great spear in Rykard's arena needs no stats and stun-locks him regardless of poise. Not a build so much as an "I win" button for that one fight — pick it up and spam the skill.</p>
+      </div>
+
+      <div class="tactic tactic--cheese">
+        <div class="t-head"><span class="chip c-cheese">turtle</span><b>Fingerprint Shield + poke</b></div>
+        <p><a href="https://eldenring.wiki.fextralife.com/Fingerprint+Stone+Shield" target="_blank" rel="noopener">Fingerprint Stone Shield</a> (100% physical, elite stability even under-req) in the left hand + a thrusting weapon poked over the top. Purely physical bosses die without landing a hit; the Beast Crest Heater Shield is the early stand-in.</p>
+      </div>
+
+      <div class="tactic tactic--cheese">
+        <div class="t-head"><span class="chip c-cheese">carry</span><b>Spirit-ash carry</b></div>
+        <p>A maxed <a href="https://eldenring.wiki.fextralife.com/Mimic+Tear+Ashes" target="_blank" rel="noopener">Mimic Tear</a> copies your kit and applies your bleed/rot a <em>second</em> time; Black Knife Tiche chunks big health bars. Summon, break line of sight, and let them tank while status ticks. In the DLC, the <b>Dried Bouquet</b> talisman grants +20% attack for 30s after your summon dies.</p>
+      </div>
+
+      <div class="tactic tactic--bleed">
+        <div class="t-head"><span class="chip c-cheese">scadutree</span><b>DLC — status on a rising floor</b></div>
+        <p>Great Katana / Bloodfiend's Arm (bleed) or Divine Beast Frost Stomp (frost), all riding the <b>Scadutree Blessing</b> — the only scaling in the Land of Shadow. Same status plan as the base game, now with a damage floor that climbs with every fragment you bank.</p>
+      </div>
+
+      <div class="note">
+        <b>What doesn't work at RL1.</b> Pure Int/Faith damage spells (Comet Azur, Rock Sling, the lightning spears) scale off stats you don't have — big flashy numbers, tiny at level 1. Frenzy/Madness incantations sit above your Faith ceiling, and Ekzykes's Decay / Scarlet Aeonia are above even the Marika's-Soreseal cap. Rule of thumb: if a build leans on spell <em>damage</em> instead of status buildup, a gimmick, or a summon, it isn't for this run.
+      </div>
     </section>
 
     <!-- ================= CHEESE TOOLKIT ================= -->
@@ -779,7 +858,7 @@
       </details>
 
       <details class="phase-group" id="ph-c" open>
-        <summary><span class="ph-n">C</span><span class="ph-name">Stormveil Castle</span><span class="ph-badge">0/6</span></summary>
+        <summary><span class="ph-n">C</span><span class="ph-name">Stormveil Castle</span><span class="ph-badge">0/7</span></summary>
         <ul class="steps">
           <li><label class="step"><input type="checkbox" id="c1"><div><div class="step-title">Boss: Margit, the Fell Omen <span class="chip c-cheese">shackle</span></div><div class="step-body">Gate boss. Summon Lhutel, pop <b>Margit's Shackle</b> to floor him twice per phase for free critical hits, and bleed in between; chip with Reduvia at range.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="c2"><div><div class="step-title">Take the side route via Gostoc</div><div class="step-body">Avoids the front-gate dragon that torches the courtyard; the stealthier path also leads past your next weapon.</div></div></label></li>
@@ -787,6 +866,7 @@
           <li><label class="step"><input type="checkbox" id="c4"><div><div class="step-title">Loot the Hookclaws <span class="chip c-bleed">bleed</span></div><div class="step-body">Along the wine-cellar stretch. Fast dual bleed claws (Str 8 / Dex 14 — the Soreseal covers it).</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="c5"><div><div class="step-title">Grab the Rusty Key + Chrysalids' Memento</div><div class="step-body">Key opens the cellar shortcut; give the Memento to Roderika (now at the Roundtable) to unlock spirit-ash upgrades with Glovewort.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="c6"><div><div class="step-title">Boss: Godrick the Grafted</div><div class="step-body">Summon Nepheli (sign at the fog) + your spirit to split aggro; flank and bleed; block or roll the dragon-arm fire in phase 2. First Great Rune.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="c7"><div><div class="step-title">Restore &amp; equip Godrick's Great Rune <span class="chip c-cheese">buff</span></div><div class="step-body">Climb to the <span class="loc">Divine Tower of Limgrave</span> (east off Stormveil's ramparts) to restore it, then equip it. Activated with a <b>Rune Arc</b> it grants <b>+5 to every attribute</b> until you die — a temporary second Soreseal (more HP/stamina, easier requirements). Save Rune Arcs for boss attempts; swap to Morgott's Great Rune later for its bigger HP boost.</div></div></label></li>
         </ul>
       </details>
 
@@ -870,12 +950,13 @@
       </details>
 
       <details class="phase-group" id="ph-k">
-        <summary><span class="ph-n">K</span><span class="ph-name">Snowfield &amp; Haligtree <span class="chip c-skip">optional</span></span><span class="ph-badge">0/5</span></summary>
+        <summary><span class="ph-n">K</span><span class="ph-name">Snowfield &amp; Haligtree <span class="chip c-skip">optional</span></span><span class="ph-badge">0/6</span></summary>
         <ul class="steps">
           <li><label class="step"><input type="checkbox" id="k1"><div><div class="step-title">Reach the Consecrated Snowfield</div><div class="step-body">Assemble both halves of the Haligtree Secret Medallion (Village of the Albinaurics + Castle Sol).</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="k2"><div><div class="step-title">Ordina, Liturgical Town — light the 4 torches <span class="chip c-cheese">skip</span></div><div class="step-body">Hold the <b>Sentry's Torch</b> to reveal the invisible Black Knife Assassins, or just sprint the rooftops and light the torches — you don't have to fight. Opens the Haligtree.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="k3"><div><div class="step-title">Boss: Commander Niall (Castle Sol) <span class="chip c-frost">frost</span></div><div class="step-body">Delete his two spectral knights first (bleed), then Niall alone is manageable; frostbite staggers his lunges.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="k4"><div><div class="step-title">Max out spirit ashes (Ghost Glovewort)</div><div class="step-body">Miquella's Haligtree holds the top Glovewort tiers — cap your Mimic and Tiche here before Malenia.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="k6"><div><div class="step-title">Marika's Soreseal — Elphael, Brace of the Haligtree <span class="chip c-cheese">caster unlock</span></div><div class="step-body">In a Stonesword-Key-sealed room in Elphael's lower levels. +5 Int/Faith/Arc/Mind — the <b>only</b> way to raise casting stats, so this is what unlocks the rot/poison-breath caster builds (Rotten Breath, Poison Mist, Bloodflame Blade). Late, but a huge option for the endgame and NG+.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="k5"><div><div class="step-title">Boss: Malenia, Blade of Miquella <span class="chip c-frost">the wall</span></div><div class="step-body">The wall of the run. Never trade — she heals on any hit, even your shield or spirit. Frost-stagger her and let Mimic bait Waterfowl Dance; sprint out of the phase-2 rot bloom with Neutralizing Boluses ready. Expect many attempts.</div></div></label></li>
         </ul>
       </details>
@@ -1068,6 +1149,7 @@
         "c4": FEX + "Hookclaws",
         "c5": FEX + "Chrysalids'+Memento",
         "c6": FEX + "Godrick+the+Grafted",
+        "c7": FEX + "Godrick's+Great+Rune",
         "d1": FEX + "Ash+of+War:+Bloodhound's+Step",
         "d2": FEX + "Ash+of+War:+Hoarfrost+Stomp",
         "d3": FEX + "Smithing-Stone+Miner's+Bell+Bearing+(1)",
@@ -1107,6 +1189,7 @@
         "k3": FEX + "Commander+Niall",
         "k4": FEX + "Miquella's+Haligtree",
         "k5": FEX + "Malenia+Blade+of+Miquella",
+        "k6": FEX + "Marika's+Soreseal",
         "l1": FEX + "Sir+Gideon+Ofnir,+the+All-Knowing+(Boss)",
         "l2": FEX + "Hoarah+Loux,+Warrior",
         "l3": FEX + "Radagon+of+the+Golden+Order",
@@ -1204,5 +1287,6 @@
     }
   })();
 </script>
+
 </body>
 </html>

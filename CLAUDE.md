@@ -6,6 +6,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A single self-contained static page (`index.html`) — an interactive Elden Ring "Rune Level 1 / no level-up" playthrough guide (base game + Shadow of the Erdtree). There is **no build system, no dependencies, and no tests**. The entire site is one HTML file with an inline `<style>` block and one inline `<script>`; `README.md` and `.nojekyll` are the only other tracked files.
 
+## Workflow
+
+**Commit and push after every change.** This repo is the single source of truth (the guide is no longer maintained as a claude.ai Artifact), and pushing to `main` is what publishes the live site. After any edit that leaves the guide in a working state, `git commit` and `git push origin main` — don't batch many edits into an unpushed working tree.
+
 ## Commands
 
 - **Preview locally:** open `index.html` directly, or serve it — `python3 -m http.server` in the repo root, then visit `http://localhost:8000/`. Use a server (not `file://`) when testing checklist progress, since it relies on `localStorage`.

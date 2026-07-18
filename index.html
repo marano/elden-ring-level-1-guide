@@ -503,6 +503,7 @@
     <ol>
       <li><a href="#doctrine"><span class="n">§</span><span>The Doctrine</span></a></li>
       <li><a href="#loadout"><span class="n">§</span><span>Loadout Reference</span></a></li>
+      <li><a href="#attributes"><span class="n">§</span><span>Attribute Ceiling</span></a></li>
       <li><a href="#builds"><span class="n">§</span><span>Broken Builds</span></a></li>
       <li><a href="#cheese-toolkit"><span class="n">§</span><span>Cheese Toolkit</span></a></li>
       <li><a href="#power"><span class="n">§</span><span>Power Priority</span></a></li>
@@ -616,7 +617,7 @@
             <tr><th>Talisman</th><th>What it does at RL1</th><th>Where</th></tr>
           </thead>
           <tbody>
-            <tr><td><span class="w">Radagon's Soreseal</span></td><td>+5 Vig/End/Str/Dex. ~26% HP and the stats to wield your kit. The –15% damage taken is worth it. <b>Cornerstone.</b></td><td>Fort Faroth, Caelid (also has a Golden Seed + a Dectus Medallion half)</td></tr>
+            <tr><td><span class="w">Radagon's Soreseal</span></td><td>+5 Vig/End/Str/Dex. ~26% HP and the stats to wield your kit. It <b>adds +15% damage taken</b>, but the HP and stats far outweigh it. <b>Cornerstone.</b></td><td>Fort Faroth, Caelid (also has a Golden Seed + a Dectus Medallion half)</td></tr>
             <tr><td><span class="w">Radagon's Scarseal</span></td><td>Weaker Soreseal (+3 stats, –10% def). Use as a stand-in until you can reach Caelid.</td><td>Weeping Peninsula (Fourth Church / Evergaol area)</td></tr>
             <tr><td><span class="w">Lord of Blood's Exultation</span></td><td>+20% attack for ~20s whenever blood loss procs nearby. Pairs with any bleed weapon.</td><td>Esgar, Priest of Blood — Leyndell Catacombs</td></tr>
             <tr><td><span class="w">Kindred of Rot's Exultation</span></td><td>+20% attack near poison/rot procs. The rot-build twin of the above.</td><td>Kindred of Rot, Seethewater Cave (Mt. Gelmir)</td></tr>
@@ -647,6 +648,50 @@
       </ul>
     </section>
 
+    <!-- ================= ATTRIBUTE CEILING ================= -->
+    <section id="attributes" class="reveal">
+      <span class="kicker">How strong you can actually get</span>
+      <h2 class="sec">Attribute Ceiling &amp; Great Runes</h2>
+      <p class="sec-intro">Your eight stats are frozen at 10, but three level-independent sources raise them — and they <strong>stack additively</strong>. The ceiling tells you exactly which weapons you can wield without penalty and which spells you can cast at all (spells, unlike weapons, simply won't fire below their requirement). Every build below is bolted onto this.</p>
+
+      <div class="table-wrap">
+        <table>
+          <caption>The RL1 stat ceiling — how high each attribute can go</caption>
+          <thead><tr><th>Configuration</th><th>Vig / End / Str / Dex</th><th>Mnd / Int / Fai / Arc</th><th>Cost</th></tr></thead>
+          <tbody>
+            <tr><td class="w">Base (Wretch, RL1)</td><td class="req">10</td><td class="req">10</td><td>—</td></tr>
+            <tr><td class="w">+ Radagon's Soreseal</td><td class="req">15</td><td class="req">10</td><td>1 talisman, +15% damage taken</td></tr>
+            <tr><td class="w">+ both Sorseals</td><td class="req">15</td><td class="req">15</td><td>2 talismans, <b>+30% damage taken</b></td></tr>
+            <tr><td class="w">+ Godrick's Great Rune (Rune Arc)</td><td class="req">20</td><td class="req">20</td><td>Great Rune slot + a Rune Arc</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>The ceiling is 20 in every stat</strong> — Godrick's Great Rune (+5 all) on top of <a href="https://eldenring.wiki.fextralife.com/Radagon's+Soreseal" target="_blank" rel="noopener">Radagon's Soreseal</a> (+5 Vig/End/Str/Dex) and <a href="https://eldenring.wiki.fextralife.com/Marika's+Soreseal" target="_blank" rel="noopener">Marika's Soreseal</a> (+5 Mnd/Int/Fai/Arc). Two-handing multiplies Strength by 1.5 on top of that, so a two-handed weapon sees up to <b>Str 30</b> for meeting its requirement. That's what unlocks the heavier bleed weapons and the entire status-caster path — Faith/Arcane hit 15 with one Soreseal, 20 with the Great Rune stacked on.</p>
+
+      <div class="note">
+        <b>The Sorseal tax.</b> Each Soreseal <b>increases damage taken by 15%</b> (not less — the item wording reads like a benefit, but it's a penalty). Running both for the caster stats means <b>+30% damage taken</b> on a level-1 health bar, so reserve that config for ranged / caster play where you're not getting hit. For melee, one Soreseal (usually Radagon's) plus a survival talisman is the safer default.
+      </div>
+
+      <h3 class="sub">The Great Rune menu — a swappable second buff</h3>
+      <p>Only one Great Rune is equipped at a time, switched on with a <a href="https://eldenring.wiki.fextralife.com/Rune+Arc" target="_blank" rel="noopener">Rune Arc</a> (the buff holds until you die). Restore each at its Divine Tower, then pick the rune that fits the fight — bank Rune Arcs for the attempts you mean.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>Great Runes ranked for a no-level run</caption>
+          <thead><tr><th>Great Rune</th><th>Effect at RL1</th><th>Restore at</th><th>Best for</th></tr></thead>
+          <tbody>
+            <tr><td class="w">Godrick's</td><td><b>+5 to every attribute</b> — reqs, casting, extra HP &amp; stamina</td><td>Divine Tower of Limgrave</td><td>The default; your only route to all-stats-20</td></tr>
+            <tr><td class="w">Morgott's</td><td>+25% maximum HP</td><td>Divine Tower of East Altus</td><td>Pure-survival walls (Malenia, Consort Radahn)</td></tr>
+            <tr><td class="w">Radahn's</td><td>+15% HP / FP / Stamina</td><td>Divine Tower of Caelid</td><td>More stamina for shield-and-poke; grab it while in Caelid</td></tr>
+            <tr><td class="w">Mohg's</td><td>Blesses your summons — heals &amp; buffs your Spirit Ash</td><td>Divine Tower of East Altus</td><td>Spirit-ash carry runs</td></tr>
+            <tr><td class="w">Rykard's</td><td>Restores HP on every kill</td><td>Divine Tower of West Altus</td><td>Trash-heavy stretches, add clears</td></tr>
+            <tr><td class="w">Malenia's</td><td>Lifesteal on hits — but only after you take damage</td><td>Isolated Divine Tower</td><td>Risky at RL1; generally skip</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mini" style="margin-top:1rem">Godrick's is restored the moment you clear Stormveil (Phase C); the others come online as you pass their towers. You never <em>need</em> more than Godrick's + Morgott's, but the menu is there when a specific fight wants HP, stamina, or a tougher summon.</p>
+    </section>
+
     <!-- ================= BROKEN BUILDS ================= -->
     <section id="builds" class="reveal">
       <span class="kicker">Every broken toy in the box</span>
@@ -672,7 +717,7 @@
 
       <div class="tactic tactic--rot">
         <div class="t-head"><span class="chip c-rot">rot / poison</span><b>Caster breath — rot &amp; poison clouds <span class="chip c-skip">endgame</span></b></div>
-        <p>The spell version, and it's a late unlock. Equip <a href="https://eldenring.wiki.fextralife.com/Marika's+Soreseal" target="_blank" rel="noopener">Marika's Soreseal</a> (→ Faith/Arc 15) and cast <a href="https://eldenring.wiki.fextralife.com/Rotten+Breath" target="_blank" rel="noopener">Rotten Breath</a> (Faith 15 / Arc 12) or <a href="https://eldenring.wiki.fextralife.com/Poison+Mist" target="_blank" rel="noopener">Poison Mist</a> (Faith 12) from any low-req seal — enormous status clouds that melt big bosses from range, buffed further by Kindred of Rot's Exultation. <b>Note:</b> <a href="https://eldenring.wiki.fextralife.com/Ekzykes's+Decay" target="_blank" rel="noopener">Ekzykes's Decay</a> (Faith 23) is <em>not</em> castable even with the Soreseal — Rotten Breath is the rot-breath you'll actually use. (Stacking Godrick's Great Rune's +5 pushes casting stats to 20, opening a few more spells.)</p>
+        <p>The spell version, and it's a late unlock. Equip <a href="https://eldenring.wiki.fextralife.com/Marika's+Soreseal" target="_blank" rel="noopener">Marika's Soreseal</a> (→ Faith/Arc 15) and cast <a href="https://eldenring.wiki.fextralife.com/Rotten+Breath" target="_blank" rel="noopener">Rotten Breath</a> (Faith 15 / Arc 12) or <a href="https://eldenring.wiki.fextralife.com/Poison+Mist" target="_blank" rel="noopener">Poison Mist</a> (Faith 12) from any low-req seal — enormous status clouds that melt big bosses from range, buffed further by Kindred of Rot's Exultation. <b>Note:</b> <a href="https://eldenring.wiki.fextralife.com/Ekzykes's+Decay" target="_blank" rel="noopener">Ekzykes's Decay</a> (Faith 23) is <em>not</em> castable even with the Soreseal — Rotten Breath is the rot-breath you'll actually use. (Stacking Godrick's Great Rune's +5 pushes casting stats to 20, opening a few more spells, and at that 20-cap <a href="https://eldenring.wiki.fextralife.com/Swarm+of+Flies" target="_blank" rel="noopener">Swarm of Flies</a> (Arcane 16) joins the kit as a castable bleed.) You can grab every piece early and bank it — the checklist picks up a Finger Seal, Poison Mist and <a href="https://eldenring.wiki.fextralife.com/Bloodflame+Blade" target="_blank" rel="noopener">Bloodflame Blade</a> (which adds bleed to any weapon) long before you can cast them, so they're ready the instant Marika's Soreseal drops.</p>
       </div>
 
       <div class="tactic tactic--frost">
@@ -778,7 +823,7 @@
     <section id="power" class="reveal">
       <span class="kicker">Get strong before you have to</span>
       <h2 class="sec">Power Priority — be maxed for the moment</h2>
-      <p class="sec-intro">Your RL1 power is almost entirely <strong>level-independent</strong>, and most of it can be grabbed far earlier than the region it "belongs" to. So the checklist front-loads it: whenever a Soreseal, a Smithing Bell Bearing, a shield or a talisman becomes reachable, you detour for it <em>before</em> pushing the story. The goal is to meet every boss — even the first ones — already as strong as an RL1 character can possibly be at that point.</p>
+      <p class="sec-intro">Your RL1 power is almost entirely <strong>level-independent</strong>, and most of it can be grabbed far earlier than the region it "belongs" to. So the checklist front-loads it: whenever a Soreseal, a Smithing Bell Bearing, a shield or a talisman becomes reachable, you detour for it <em>before</em> pushing the story. The goal is to meet every boss — even the first ones — already as strong as an RL1 character can possibly be at that point. See the <a href="#attributes" style="color:var(--gold)">Attribute Ceiling</a> for the stat math that decides what you can wield and cast, and which Great Rune to slot.</p>
 
       <h3 class="sub">Grab these in priority order</h3>
       <ul class="grab">
@@ -838,7 +883,7 @@
       </details>
 
       <details class="phase-group" id="ph-b" open>
-        <summary><span class="ph-n">B</span><span class="ph-name">Early Power Rush — do before Stormveil</span><span class="ph-badge">0/14</span></summary>
+        <summary><span class="ph-n">B</span><span class="ph-name">Early Power Rush — do before Stormveil</span><span class="ph-badge">0/20</span></summary>
         <ul class="steps">
           <li><label class="step"><input type="checkbox" id="b1"><div><div class="step-title">Loot the Uchigatana <span class="chip c-bleed">bleed</span></div><div class="step-body"><span class="loc">Deathtouched Catacombs</span> (NE Limgrave) — a free pickup, you don't need to kill the catacomb boss. Your main weapon; infuse Blood once you have the Iron Whetblade (Stormveil), and add Seppuku later. Until then a crafted Blood Grease adds bleed.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="b2"><div><div class="step-title">Beat Bloody Finger Nerijus → Reduvia <span class="chip c-bleed">bleed</span></div><div class="step-body">By the <span class="loc">Murkwater</span> river; summon NPC Yura to tank. Its skill throws a ranged blood blade — safe chip + bleed from turn one.</div></div></label></li>
@@ -846,7 +891,7 @@
           <li><label class="step"><input type="checkbox" id="b4"><div><div class="step-title">Kill Bloodhound Knight Darriwil → Bloodhound's Fang <span class="chip c-bleed">bleed</span></div><div class="step-body"><span class="loc">Forlorn Hound Evergaol</span>. Summon Blaidd (sign at the gaol) to trivialize it. Curved greatsword with an evasive lunge skill — offense and dodge in one.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="b5"><div><div class="step-title">Pick up Quickstep (Ash of War)</div><div class="step-body">From a Teardrop Scarab. A cheap evasion skill to hold you until Bloodhound's Step in Liurnia.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="b13"><div><div class="step-title">Beast Crest Heater Shield — Stormhill (no boss)</div><div class="step-body">In a chest at a soldier camp on the road west of the <span class="loc">Saintsbridge</span> grace, east Stormhill. <b>100% physical block at only Str 10</b> — which you meet at base. This is your turtle shield for the entire early-mid game; block-and-poke trivializes physical bosses long before the Fingerprint Shield.</div></div></label></li>
-          <li><label class="step"><input type="checkbox" id="b6"><div><div class="step-title">★ Radagon's Soreseal — early dash to Fort Faroth <span class="chip c-cheese">no fight · priority</span></div><div class="step-body">The single biggest power spike in the run, and it needs <b>no boss</b> — just travel. Ride east into Caelid, or take the trapped chest in the <span class="loc">Dragon-Burnt Ruins</span> that flings you to the Bestial Sanctum, then sprint on Torrent to <span class="loc">Fort Faroth</span> and climb the ladders to the rooftop chest. +5 Vigor/Endurance/Str/Dex (~26% HP on a Wretch); the –15% damage taken is easily worth it, and the extra Str/Dex finally lets you wield your kit. Grab the Golden Seed and Dectus Medallion (Right) on the same fort.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b6"><div><div class="step-title">★ Radagon's Soreseal — early dash to Fort Faroth <span class="chip c-cheese">no fight · priority</span></div><div class="step-body">The single biggest power spike in the run, and it needs <b>no boss</b> — just travel. Ride east into Caelid, or take the trapped chest in the <span class="loc">Dragon-Burnt Ruins</span> that flings you to the Bestial Sanctum, then sprint on Torrent to <span class="loc">Fort Faroth</span> and climb the ladders to the rooftop chest. +5 Vigor/Endurance/Str/Dex (~26% HP on a Wretch); the +15% damage-taken penalty it adds is easily worth it, and the extra Str/Dex finally lets you wield your kit. Grab the Golden Seed and Dectus Medallion (Right) on the same fort.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="b7"><div><div class="step-title">Radagon's Scarseal — Weeping Peninsula <span class="chip c-skip">optional</span></div><div class="step-body">A weaker stand-in (+3 stats, –10% def) if you're not ready to brave Caelid for the Soreseal yet. Superseded the moment you get the Soreseal, so skip it if you did the dash above.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="b8"><div><div class="step-title">Great-Jar's Arsenal — cliff-cheese the Duelists <span class="chip c-cheese">cliff</span> <span class="chip c-skip">optional</span></div><div class="step-body">At the Great-Jar in Dragonbarrow (while you're in Caelid): lure each knight to the cliff lip, drop to the ledge, throw a knife; they walk off the edge. +19% equip load for heavier armour.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="b9"><div><div class="step-title">Somberstone Bell Bearing [1] — Sellia Crystal Tunnel <span class="chip c-skip">optional</span></div><div class="step-body">Fallingstar Beast at the end (Caelid). Unlocks Somber Smithing Stones 1–2 at the Twin Maidens — upgrade Bloodhound's Fang now.</div></div></label></li>
@@ -854,6 +899,12 @@
           <li><label class="step"><input type="checkbox" id="b10"><div><div class="step-title">Get Lhutel the Headless</div><div class="step-body"><span class="loc">Tombsward Catacombs</span> (Weeping Peninsula). The best early spirit ash — tanky, teleports, throws spears. Upgrade with Grave Glovewort.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="b11"><div><div class="step-title">Upgrade flasks — Golden Seeds + early Sacred Tears</div><div class="step-body">e.g. the Church of Dragon Communion and Callu Baptismal tears, plus overworld Golden Seeds; spend at any grace. More/stronger flasks matter more than anything else early.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="b12"><div><div class="step-title">Skip the opening Tree Sentinel &amp; Agheel <span class="chip c-skip">optional</span></div><div class="step-body">The gilded Tree Sentinel and Flying Dragon Agheel are optional — ride past, or kite them on Torrent poking the rear. Nothing in the open field is mandatory at RL1.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b15"><div><div class="step-title">Buy a Finger Seal — the zero-req caster tool <span class="chip c-skip">caster prep</span></div><div class="step-body">From the <span class="loc">Twin Maiden Husks</span> at Roundtable Hold, 800 runes. Usable at base stats, it's what lets you cast <em>any</em> incantation once you have the Faith — buy it now and let it sit until Marika's Soreseal turns it on.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b16"><div><div class="step-title">Start Iron Fist Alexander's quest <span class="chip c-bleed">skill dmg</span></div><div class="step-body">Hit the warrior jar stuck in the ground in <span class="loc">NE Limgrave</span> to free him (right by the Deathtouched Catacombs run for the Uchigatana). His questline ends in Farum Azula with the <b>Shard of Alexander</b> (+15% skill damage) — start it now so the payoff is ready when you get there.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b17"><div><div class="step-title">Start Millicent's quest — Gowry's Shack <span class="chip c-rot">ramp</span></div><div class="step-body">Visit <span class="loc">Gowry's Shack</span> (SW of Sellia, Caelid) while you're out for the Soreseal. The chain ends at Elphael with the <b>Rotten Winged Sword Insignia</b> — ramping attack on successive hits, superb on fast bleed weapons and Corpse Piler.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b18"><div><div class="step-title">Sword of St. Trina — Forsaken Ruins <span class="chip c-sleep">sleep</span> <span class="chip c-skip">optional</span></div><div class="step-body">Basement of the <span class="loc">Forsaken Ruins</span> (Caelid), behind an Imp Statue seal (1 Stonesword Key). Its Mists of Slumber skill is an AoE sleep cloud — a free charged-critical opener that procs at full even under-requirement.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b19"><div><div class="step-title">Buy Rotten Breath — Cathedral of Dragon Communion <span class="chip c-rot">caster prep</span> <span class="chip c-skip">optional</span></div><div class="step-body">At the <span class="loc">Cathedral of Dragon Communion</span> (Caelid) for one Dragon Heart. Faith 15 / Arcane 12 — exactly what a single Marika's Soreseal reaches. Bank it now for the endgame rot-cloud caster.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b20"><div><div class="step-title">Poison Mist — Weeping Peninsula <span class="chip c-rot">caster prep</span> <span class="chip c-skip">optional</span></div><div class="step-body">Dropped by a Teardrop Scarab SE of the <span class="loc">Castle Morne Rampart</span>. Faith 12, so it too comes online with Marika's Soreseal — a second stackable damage-over-time cloud. Grab it while you're down here for the Scarseal.</div></div></label></li>
         </ul>
       </details>
 
@@ -871,7 +922,7 @@
       </details>
 
       <details class="phase-group" id="ph-d">
-        <summary><span class="ph-n">D</span><span class="ph-name">Liurnia &amp; Raya Lucaria</span><span class="ph-badge">0/7</span></summary>
+        <summary><span class="ph-n">D</span><span class="ph-name">Liurnia &amp; Raya Lucaria</span><span class="ph-badge">0/8</span></summary>
         <ul class="steps">
           <li><label class="step"><input type="checkbox" id="d1"><div><div class="step-title">Get Bloodhound's Step (Ash of War)</div><div class="step-body">Dropped by a Night's Cavalry patrolling at night. A near-invincible evasion dash — the best defensive tool in the game; replace Quickstep with it.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="d2"><div><div class="step-title">Get Hoarfrost Stomp (Ash of War) <span class="chip c-frost">frost</span></div><div class="step-body">Teardrop Scarab in the swamp. Ranged frost AoE; frostbite makes targets take <b>+20% damage</b> — open with frost, then bleed into it.</div></div></label></li>
@@ -880,6 +931,7 @@
           <li><label class="step"><input type="checkbox" id="d5"><div><div class="step-title">Clear Caria Manor → Royal Knight Loretta</div><div class="step-body">Bleed her from Torrent between magic volleys. Clears the way to Ranni's Rise and the Moonlight Altar.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="d6"><div><div class="step-title">Boss: Rennala, Queen of the Full Moon</div><div class="step-body">Phase 1 gimmick — knock down the glowing students and hit the exposed Rennala ×3. Phase 2, summon + bleed. Nearly free.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="d7"><div><div class="step-title">Upgrade weapons with the new stones</div><div class="step-body">Bring the Uchigatana / Hookclaws up a tier now that Smithing 1–2 are unlimited.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="d8"><div><div class="step-title">Bloodflame Blade — Liurnia Teardrop Scarab <span class="chip c-bleed">bleed</span> <span class="chip c-skip">caster prep</span></div><div class="step-body">From a Teardrop Scarab in the marshes NW of <span class="loc">Rose Church</span>. Faith 12 / Arcane 10 — an incantation that adds <b>bleed to any weapon</b>. Bank it for Marika's Soreseal; it's how you put hemorrhage on a non-bleed weapon you like the moveset of.</div></div></label></li>
         </ul>
       </details>
 
@@ -920,10 +972,12 @@
       </details>
 
       <details class="phase-group" id="ph-h">
-        <summary><span class="ph-n">H</span><span class="ph-name">Mohgwyn Palace <span class="chip c-cheese">DLC gate</span></span><span class="ph-badge">0/3</span></summary>
+        <summary><span class="ph-n">H</span><span class="ph-name">Mohgwyn Palace <span class="chip c-cheese">DLC gate</span></span><span class="ph-badge">0/5</span></summary>
         <ul class="steps">
           <li><label class="step"><input type="checkbox" id="h1"><div><div class="step-title">Reach Mohgwyn Palace</div><div class="step-body">Via White-Faced Varré's questline (Pureblood Knight's Medal) or the teleporter west of the Consecrated Snowfield.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="h2"><div><div class="step-title">Stock up at the Albinauric rune farm <span class="chip c-cheese">farm</span></div><div class="step-body">From the Palace Approach Ledge-Road grace, AoE the crawling Albinaurics, rest, repeat. Buy out max-tier Smithing Stones, greases and pots here.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="h4"><div><div class="step-title">White Mask — grab it before you kill Mohg <span class="chip c-bleed">bleed</span></div><div class="step-body">Drops from the <b>Nameless White Mask</b> invader by the lake in the Palace. <b>+10% attack for 20s whenever bleed procs nearby</b> (the enemy's or your own) — it <em>stacks</em> with Lord of Blood's Exultation for a huge bleed multiplier, and being armor it costs no talisman slot. <b>Beating Mohg locks you out, so get it first.</b></div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="h5"><div><div class="step-title">Swarm of Flies — Mohgwyn corpse <span class="chip c-bleed">caster prep</span> <span class="chip c-skip">optional</span></div><div class="step-body">On a corpse in the shallow cave on the blood marsh's east wall. A bleed <em>incantation</em> (Arcane 16 — needs Marika's Soreseal <b>and</b> Godrick's Great Rune to reach the cap). Bank it for the all-stats-20 caster-bleed hybrid.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="h3"><div><div class="step-title">Boss: Mohg, Lord of Blood <span class="chip c-cheese">tears</span></div><div class="step-body">Bring <b>Mohg's Shackle</b> (palace swamp) to interrupt his ritual, and keep the <b>Purifying Crystal Tear</b> in your Physick to negate the phase-2 Nihil nuke. Bleed him + Tiche. Beating him (plus Radahn) unlocks the DLC — touch the cocoon arm at the back to enter.</div></div></label></li>
         </ul>
       </details>
@@ -939,24 +993,26 @@
       </details>
 
       <details class="phase-group" id="ph-j">
-        <summary><span class="ph-n">J</span><span class="ph-name">Crumbling Farum Azula</span><span class="ph-badge">0/5</span></summary>
+        <summary><span class="ph-n">J</span><span class="ph-name">Crumbling Farum Azula</span><span class="ph-badge">0/6</span></summary>
         <ul class="steps">
           <li><label class="step"><input type="checkbox" id="j1"><div><div class="step-title">Bell Bearings [4]/[5] — max your smithing stones</div><div class="step-body">Smithing-Stone [4] (Godskin Duo drop → Smithing 7–8) and Somberstone [4] &amp; [5] (Tempest-Facing Balcony + a church before the Great Bridge → Somber 7–9). Bring weapons to +25 / +10.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="j2"><div><div class="step-title">Get the Blasphemous Claw <span class="chip c-cheese">parry</span></div><div class="step-body">From Recusant Bernahl (his drop when he invades here, or via his Volcano Manor questline). It parries Maliketh's Black Blade.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="j3"><div><div class="step-title">Boss: Godskin Duo — sleep cheese <span class="chip c-sleep">sleep</span></div><div class="step-body">They share one HP bar. A Sleep pot drops one for free crits while you fight the other; bleed the Apostle, frost the Noble.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="j4"><div><div class="step-title">Boss: Maliketh, the Black Blade <span class="chip c-cheese">claw</span></div><div class="step-body">Use the Blasphemous Claw the instant his sword flashes gold in phase 2 (parries + staggers for a free counter). Otherwise Bloodhound's Step everything, let Mimic mirror your bleed, and punish only his big leaps.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="j5"><div><div class="step-title">Draconic Tree Sentinel <span class="chip c-skip">optional</span></div><div class="step-body">The one by the Great Bridge grace is a wall on foot — bleed it, shield the lightning mace and holy AoE, Mimic splits aggro; or just kite the identical one on the road to Leyndell on Torrent.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="j6"><div><div class="step-title">Shard of Alexander — finish Alexander's quest <span class="chip c-bleed">skill dmg</span></div><div class="step-body">If you freed and followed <b>Iron Fist Alexander</b> (started in Phase B), his final duel is here. Beat him for the <b>Shard of Alexander</b>: <b>+15% skill damage</b> — a flat boost to Corpse Piler, Bloodhound's Finesse, Seppuku'd skills and every Ash of War you spam.</div></div></label></li>
         </ul>
       </details>
 
       <details class="phase-group" id="ph-k">
-        <summary><span class="ph-n">K</span><span class="ph-name">Snowfield &amp; Haligtree <span class="chip c-skip">optional</span></span><span class="ph-badge">0/6</span></summary>
+        <summary><span class="ph-n">K</span><span class="ph-name">Snowfield &amp; Haligtree <span class="chip c-skip">optional</span></span><span class="ph-badge">0/7</span></summary>
         <ul class="steps">
           <li><label class="step"><input type="checkbox" id="k1"><div><div class="step-title">Reach the Consecrated Snowfield</div><div class="step-body">Assemble both halves of the Haligtree Secret Medallion (Village of the Albinaurics + Castle Sol).</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="k2"><div><div class="step-title">Ordina, Liturgical Town — light the 4 torches <span class="chip c-cheese">skip</span></div><div class="step-body">Hold the <b>Sentry's Torch</b> to reveal the invisible Black Knife Assassins, or just sprint the rooftops and light the torches — you don't have to fight. Opens the Haligtree.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="k3"><div><div class="step-title">Boss: Commander Niall (Castle Sol) <span class="chip c-frost">frost</span></div><div class="step-body">Delete his two spectral knights first (bleed), then Niall alone is manageable; frostbite staggers his lunges.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="k4"><div><div class="step-title">Max out spirit ashes (Ghost Glovewort)</div><div class="step-body">Miquella's Haligtree holds the top Glovewort tiers — cap your Mimic and Tiche here before Malenia.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="k6"><div><div class="step-title">Marika's Soreseal — Elphael, Brace of the Haligtree <span class="chip c-cheese">caster unlock</span></div><div class="step-body">In a Stonesword-Key-sealed room in Elphael's lower levels. +5 Int/Faith/Arc/Mind — the <b>only</b> way to raise casting stats, so this is what unlocks the rot/poison-breath caster builds (Rotten Breath, Poison Mist, Bloodflame Blade). Late, but a huge option for the endgame and NG+.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="k7"><div><div class="step-title">Rotten Winged Sword Insignia — finish Millicent's quest <span class="chip c-bleed">ramp</span></div><div class="step-body">Deep in Elphael, help Millicent against her sisters (summon into her fight) to close the quest started in Phase B. The insignia ramps your attack with each successive hit — one of the best talismans for fast bleed weapons and Corpse Piler, and worth having equipped for Malenia.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="k5"><div><div class="step-title">Boss: Malenia, Blade of Miquella <span class="chip c-frost">the wall</span></div><div class="step-body">The wall of the run. Never trade — she heals on any hit, even your shield or spirit. Frost-stagger her and let Mimic bait Waterfowl Dance; sprint out of the phase-2 rot bloom with Neutralizing Boluses ready. Expect many attempts.</div></div></label></li>
         </ul>
       </details>
@@ -1144,6 +1200,12 @@
         "b11": FEX + "Golden+Seed",
         "b13": FEX + "Beast+Crest+Heater+Shield",
         "b14": FEX + "Smithing-Stone+Miner's+Bell+Bearing+(1)",
+        "b15": FEX + "Finger+Seal",
+        "b16": FEX + "Iron+Fist+Alexander",
+        "b17": FEX + "Millicent",
+        "b18": FEX + "Sword+of+St+Trina",
+        "b19": FEX + "Rotten+Breath",
+        "b20": FEX + "Poison+Mist",
         "c1": FEX + "Margit,+The+Fell+Omen",
         "c3": FEX + "Iron+Whetblade",
         "c4": FEX + "Hookclaws",
@@ -1156,6 +1218,7 @@
         "d4": FEX + "Ranni's+Rise",
         "d5": FEX + "Caria+Manor",
         "d6": FEX + "Rennala+Queen+of+the+Full+Moon",
+        "d8": FEX + "Bloodflame+Blade",
         "e1": FEX + "Starscourge+Radahn",
         "e2": FEX + "Black+Knife+Tiche",
         "e3": FEX + "Mimic+Tear+Ashes",
@@ -1175,6 +1238,8 @@
         "g4": FEX + "Godfrey,+First+Elden+Lord+(Golden+Shade)",
         "g5": FEX + "Morgott+the+Omen+King",
         "h1": FEX + "Mohgwyn+Palace",
+        "h4": FEX + "White+Mask",
+        "h5": FEX + "Swarm+of+Flies",
         "h3": FEX + "Mohg,+Lord+of+Blood",
         "i1": FEX + "Rivers+of+Blood",
         "i2": FEX + "Smithing-Stone+Miner's+Bell+Bearing+(3)",
@@ -1184,12 +1249,14 @@
         "j2": FEX + "Blasphemous+Claw",
         "j3": FEX + "Godskin+Duo",
         "j4": FEX + "Maliketh,+the+Black+Blade",
+        "j6": FEX + "Shard+of+Alexander",
         "k1": FEX + "Consecrated+Snowfield",
         "k2": FEX + "Ordina+Liturgical+Town",
         "k3": FEX + "Commander+Niall",
         "k4": FEX + "Miquella's+Haligtree",
         "k5": FEX + "Malenia+Blade+of+Miquella",
         "k6": FEX + "Marika's+Soreseal",
+        "k7": FEX + "Rotten+Winged+Sword+Insignia",
         "l1": FEX + "Sir+Gideon+Ofnir,+the+All-Knowing+(Boss)",
         "l2": FEX + "Hoarah+Loux,+Warrior",
         "l3": FEX + "Radagon+of+the+Golden+Order",

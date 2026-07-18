@@ -628,6 +628,27 @@
         </table>
       </div>
 
+      <div class="table-wrap">
+        <table>
+          <caption>Spells — status &amp; buffs that ignore your level</caption>
+          <thead>
+            <tr><th>Spell</th><th>Req</th><th>What it does at RL1</th><th>Where</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="w">Flame, Grant Me Strength</span> <span class="chip c-cheese">buff</span></td><td class="req">15 Fai</td><td><b>+20% physical &amp; fire attack</b> for 30s — a flat buff for any melee build, no scaling needed.</td><td>Fort Gael, Caelid <span class="mini">· incant</span></td></tr>
+            <tr><td><span class="w">Bloodflame Blade</span> <span class="chip c-bleed">bleed</span></td><td class="req">12 Fai / 10 Arc</td><td>Enchants your weapon with <b>bleed</b> (+ fire) — puts hemorrhage on a non-bleed weapon you like.</td><td>Teardrop Scarab, Liurnia <span class="mini">· incant</span></td></tr>
+            <tr><td><span class="w">Rotten Breath</span> <span class="chip c-rot">rot</span></td><td class="req">15 Fai / 12 Arc</td><td>Scarlet-rot cloud from range — the workhorse status caster; buffed by Kindred of Rot's Exultation.</td><td>Cathedral of Dragon Communion, Caelid <span class="mini">· incant</span></td></tr>
+            <tr><td><span class="w">Poison Mist</span> <span class="chip c-rot">poison</span></td><td class="req">12 Fai</td><td>Poison cloud — stacks a second damage-over-time bar alongside rot.</td><td>Weeping Peninsula <span class="mini">· incant</span></td></tr>
+            <tr><td><span class="w">Swarm of Flies</span> <span class="chip c-bleed">bleed</span></td><td class="req">16 Arc / 11 Fai</td><td>Blood-fly swarm that builds <b>bleed</b>. Arc 16 needs the full 20-cap (Marika's Soreseal <b>+</b> Godrick's Great Rune).</td><td>Mohgwyn Palace <span class="mini">· incant</span></td></tr>
+            <tr><td><span class="w">Frozen Armament</span> <span class="chip c-frost">frost</span></td><td class="req">15 Int</td><td>Enchants your weapon with <b>frost</b> (63 buildup) for 60s — frostbite bursts HP and adds +20% damage taken.</td><td>Caria Manor (after Loretta) <span class="mini">· sorcery</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note">
+        <b>Casting at RL1.</b> Incantations need a Sacred Seal — the <b>Finger Seal</b> (800 runes, Twin Maidens) works at base stats; the one sorcery here needs a staff — the <b>Demi-Human Queen's Staff</b> (Int 10, Weeping Peninsula) is the lowest-requirement and wields at base. But the spells themselves are gated by <b>Marika's Soreseal</b> (→ Int/Fai/Arc 15), with <b>Godrick's Great Rune</b> pushing to 20 for Swarm of Flies. Every spell here applies <b>status or a flat buff</b> — none leans on scaling damage. <b>Golden Vow's incantation is Faith 25, out of reach</b>, so use the no-stat <a href="https://eldenring.wiki.fextralife.com/Ash+of+War:+Golden+Vow" target="_blank" rel="noopener">Ash of War: Golden Vow</a> instead (it buffs you <em>and</em> your summon).
+      </div>
+
       <h3 class="sub">Defense & utility kit</h3>
       <ul class="grab">
         <li><span class="item">A 100%-physical-block shield with a low Str requirement</span> <span class="where">— e.g. the Beast Crest Heater Shield (Str 8). Block-and-poke is your safety net against physical bosses.</span></li>
@@ -883,7 +904,7 @@
       </details>
 
       <details class="phase-group" id="ph-b" open>
-        <summary><span class="ph-n">B</span><span class="ph-name">Early Power Rush — do before Stormveil</span><span class="ph-badge">0/20</span></summary>
+        <summary><span class="ph-n">B</span><span class="ph-name">Early Power Rush — do before Stormveil</span><span class="ph-badge">0/22</span></summary>
         <ul class="steps">
           <li><label class="step"><input type="checkbox" id="b1"><div><div class="step-title">Loot the Uchigatana <span class="chip c-bleed">bleed</span></div><div class="step-body"><span class="loc">Deathtouched Catacombs</span> (NE Limgrave) — a free pickup, you don't need to kill the catacomb boss. Your main weapon; infuse Blood once you have the Iron Whetblade (Stormveil), and add Seppuku later. Until then a crafted Blood Grease adds bleed.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="b2"><div><div class="step-title">Beat Bloody Finger Nerijus → Reduvia <span class="chip c-bleed">bleed</span></div><div class="step-body">By the <span class="loc">Murkwater</span> river; summon NPC Yura to tank. Its skill throws a ranged blood blade — safe chip + bleed from turn one.</div></div></label></li>
@@ -905,6 +926,8 @@
           <li><label class="step"><input type="checkbox" id="b18"><div><div class="step-title">Sword of St. Trina — Forsaken Ruins <span class="chip c-sleep">sleep</span> <span class="chip c-skip">optional</span></div><div class="step-body">Basement of the <span class="loc">Forsaken Ruins</span> (Caelid), behind an Imp Statue seal (1 Stonesword Key). Its Mists of Slumber skill is an AoE sleep cloud — a free charged-critical opener that procs at full even under-requirement.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="b19"><div><div class="step-title">Buy Rotten Breath — Cathedral of Dragon Communion <span class="chip c-rot">caster prep</span> <span class="chip c-skip">optional</span></div><div class="step-body">At the <span class="loc">Cathedral of Dragon Communion</span> (Caelid) for one Dragon Heart. Faith 15 / Arcane 12 — exactly what a single Marika's Soreseal reaches. Bank it now for the endgame rot-cloud caster.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="b20"><div><div class="step-title">Poison Mist — Weeping Peninsula <span class="chip c-rot">caster prep</span> <span class="chip c-skip">optional</span></div><div class="step-body">Dropped by a Teardrop Scarab SE of the <span class="loc">Castle Morne Rampart</span>. Faith 12, so it too comes online with Marika's Soreseal — a second stackable damage-over-time cloud. Grab it while you're down here for the Scarseal.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b21"><div><div class="step-title">Flame, Grant Me Strength — Fort Gael <span class="chip c-cheese">buff</span></div><div class="step-body">On a corpse behind <span class="loc">Fort Gael</span> (Caelid), between two flame chariots. Faith 15 (comes online with Marika's Soreseal) — <b>+20% physical &amp; fire attack for 30s</b>, a flat buff that helps every melee build. Bank it with the other Caelid grabs.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b22"><div><div class="step-title">Demi-Human Queen's Staff — the RL1 caster staff <span class="chip c-skip">caster prep</span></div><div class="step-body">Dropped by the Demi-Human Queen at the <span class="loc">Demi-Human Forest Ruins</span> (SW Weeping Peninsula). Int 10, so it wields at base — the one staff you need to cast Frozen Armament later. Its scaling is irrelevant; you only want the frost buildup.</div></div></label></li>
         </ul>
       </details>
 
@@ -922,7 +945,7 @@
       </details>
 
       <details class="phase-group" id="ph-d">
-        <summary><span class="ph-n">D</span><span class="ph-name">Liurnia &amp; Raya Lucaria</span><span class="ph-badge">0/8</span></summary>
+        <summary><span class="ph-n">D</span><span class="ph-name">Liurnia &amp; Raya Lucaria</span><span class="ph-badge">0/9</span></summary>
         <ul class="steps">
           <li><label class="step"><input type="checkbox" id="d1"><div><div class="step-title">Get Bloodhound's Step (Ash of War)</div><div class="step-body">Dropped by a Night's Cavalry patrolling at night. A near-invincible evasion dash — the best defensive tool in the game; replace Quickstep with it.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="d2"><div><div class="step-title">Get Hoarfrost Stomp (Ash of War) <span class="chip c-frost">frost</span></div><div class="step-body">Teardrop Scarab in the swamp. Ranged frost AoE; frostbite makes targets take <b>+20% damage</b> — open with frost, then bleed into it.</div></div></label></li>
@@ -932,6 +955,7 @@
           <li><label class="step"><input type="checkbox" id="d6"><div><div class="step-title">Boss: Rennala, Queen of the Full Moon</div><div class="step-body">Phase 1 gimmick — knock down the glowing students and hit the exposed Rennala ×3. Phase 2, summon + bleed. Nearly free.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="d7"><div><div class="step-title">Upgrade weapons with the new stones</div><div class="step-body">Bring the Uchigatana / Hookclaws up a tier now that Smithing 1–2 are unlimited.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="d8"><div><div class="step-title">Bloodflame Blade — Liurnia Teardrop Scarab <span class="chip c-bleed">bleed</span> <span class="chip c-skip">caster prep</span></div><div class="step-body">From a Teardrop Scarab in the marshes NW of <span class="loc">Rose Church</span>. Faith 12 / Arcane 10 — an incantation that adds <b>bleed to any weapon</b>. Bank it for Marika's Soreseal; it's how you put hemorrhage on a non-bleed weapon you like the moveset of.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="d9"><div><div class="step-title">Frozen Armament — Caria Manor <span class="chip c-frost">frost</span> <span class="chip c-skip">caster prep</span></div><div class="step-body">From a Teardrop Scarab behind Caria Manor, reachable once Loretta is down (step D5). Int 15 (Marika's Soreseal) — adds <b>frost (63 buildup) to any weapon</b> for 60s; the sorcery counterpart to Bloodflame Blade. Cast it with the Demi-Human Queen's Staff.</div></div></label></li>
         </ul>
       </details>
 
@@ -1206,6 +1230,8 @@
         "b18": FEX + "Sword+of+St+Trina",
         "b19": FEX + "Rotten+Breath",
         "b20": FEX + "Poison+Mist",
+        "b21": FEX + "Flame,+Grant+me+Strength",
+        "b22": FEX + "Demi-Human+Queen's+Staff",
         "c1": FEX + "Margit,+The+Fell+Omen",
         "c3": FEX + "Iron+Whetblade",
         "c4": FEX + "Hookclaws",
@@ -1219,6 +1245,7 @@
         "d5": FEX + "Caria+Manor",
         "d6": FEX + "Rennala+Queen+of+the+Full+Moon",
         "d8": FEX + "Bloodflame+Blade",
+        "d9": FEX + "Frozen+Armament",
         "e1": FEX + "Starscourge+Radahn",
         "e2": FEX + "Black+Knife+Tiche",
         "e3": FEX + "Mimic+Tear+Ashes",

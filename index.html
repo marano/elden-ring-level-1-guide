@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A power-first, cross-region Rune Level 1 (no level-up, Wretched) Elden Ring playthrough checklist — solo, legit cheese, no glitches — covering the base game and Shadow of the Erdtree, with per-step map links.">
+<meta name="color-scheme" content="light dark">
+<meta property="og:title" content="The Level 1 Lands Between — Elden Ring RL1 Cheese Route">
+<meta property="og:description" content="A no-level-up (RL1, Wretched) Elden Ring route: status-effect cheese, an interactive checklist, and Shadow of the Erdtree — solo, no glitches.">
+<meta property="og:type" content="website">
+<title>The Level 1 Lands Between — Elden Ring RL1 Cheese Route</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ctext%20y='.9em'%20font-size='90'%3E%E2%9A%94%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0}
+  img,svg{max-width:100%}
+  button{font:inherit;color:inherit}
+</style>
+</head>
+<body>
+<style>
+  :root {
+    /* ---- Light theme (default) ---- */
+    --bg: #e7e2d5;
+    --bg-2: #f0ece1;
+    --bg-sunken: #ddd7c6;
+    --ink: #26221a;
+    --ink-soft: #55503f;
+    --ink-faint: #837c68;
+    --line: #ccc5b1;
+    --line-soft: #d9d3c2;
+    --gold: #8a6a10;
+    --gold-bright: #a67f14;
+    --bleed: #ac2a26;
+    --rot: #a9531c;
+    --frost: #276f88;
+    --sleep: #63509b;
+    --poison: #5f7018;
+    --shadow: 0 1px 2px rgba(20,17,11,.08), 0 6px 22px rgba(20,17,11,.08);
+
+    --font-display: "Palatino Linotype", "Book Antiqua", Palatino, "Iowan Old Style", Georgia, serif;
+    --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+
+    --wrap: 1240px;
+    --measure: 70ch;
+    --r: 10px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #13100a;
+      --bg-2: #1c170f;
+      --bg-sunken: #0e0b06;
+      --ink: #eae1ce;
+      --ink-soft: #b1a785;
+      --ink-faint: #7b7258;
+      --line: #322a1b;
+      --line-soft: #251f14;
+      --gold: #d8b13f;
+      --gold-bright: #efc95d;
+      --bleed: #e3594d;
+      --rot: #dd8542;
+      --frost: #8ac6d8;
+      --sleep: #ab95db;
+      --poison: #aaba4d;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 34px rgba(0,0,0,.45);
+    }
+  }
+  /* Explicit toggle overrides win in both directions */
+  :root[data-theme="light"] {
+    --bg: #e7e2d5; --bg-2: #f0ece1; --bg-sunken: #ddd7c6;
+    --ink: #26221a; --ink-soft: #55503f; --ink-faint: #837c68;
+    --line: #ccc5b1; --line-soft: #d9d3c2;
+    --gold: #8a6a10; --gold-bright: #a67f14;
+    --bleed: #ac2a26; --rot: #a9531c; --frost: #276f88; --sleep: #63509b; --poison: #5f7018;
+    --shadow: 0 1px 2px rgba(20,17,11,.08), 0 6px 22px rgba(20,17,11,.08);
+  }
+  :root[data-theme="dark"] {
+    --bg: #13100a; --bg-2: #1c170f; --bg-sunken: #0e0b06;
+    --ink: #eae1ce; --ink-soft: #b1a785; --ink-faint: #7b7258;
+    --line: #322a1b; --line-soft: #251f14;
+    --gold: #d8b13f; --gold-bright: #efc95d;
+    --bleed: #e3594d; --rot: #dd8542; --frost: #8ac6d8; --sleep: #ab95db; --poison: #aaba4d;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 34px rgba(0,0,0,.45);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.12; text-wrap: balance; margin: 0; }
+  p { margin: 0; }
+  a { color: inherit; }
+
+  /* ============ Hero ============ */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+    background:
+      radial-gradient(120% 90% at 50% -20%, color-mix(in oklab, var(--gold) 22%, transparent), transparent 60%),
+      var(--bg-sunken);
+  }
+  .hero::after {
+    /* fine erdtree-glow vignette line */
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(60% 60% at 50% 120%, color-mix(in oklab, var(--gold) 10%, transparent), transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: clamp(3.5rem, 8vw, 6.5rem) clamp(1.2rem, 5vw, 3rem) clamp(2.6rem, 6vw, 4rem);
+    position: relative;
+    z-index: 1;
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: .72rem;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.4rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.5rem, 7vw, 4.6rem);
+    letter-spacing: -0.01em;
+    max-width: 16ch;
+  }
+  .hero h1 em { font-style: normal; color: var(--gold-bright); }
+  .hero .lede {
+    margin-top: 1.4rem;
+    max-width: 58ch;
+    font-size: clamp(1.05rem, 2.2vw, 1.28rem);
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .hero-meta {
+    display: flex; flex-wrap: wrap; gap: .5rem;
+    margin-top: 2rem;
+  }
+  .tag {
+    font-family: var(--font-mono);
+    font-size: .74rem;
+    letter-spacing: .04em;
+    padding: .38rem .7rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: color-mix(in oklab, var(--bg-2) 70%, transparent);
+    color: var(--ink-soft);
+  }
+  .tag b { color: var(--gold); font-weight: 600; }
+
+  /* ============ Shell ============ */
+  .shell {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: clamp(2rem, 5vw, 3.5rem) clamp(1.2rem, 5vw, 3rem) 5rem;
+    display: grid;
+    grid-template-columns: 236px minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: start;
+  }
+
+  /* ============ Nav ============ */
+  nav.toc {
+    position: sticky;
+    top: 1.2rem;
+    max-height: calc(100vh - 2.4rem);
+    overflow-y: auto;
+    font-size: .88rem;
+    border-right: 1px solid var(--line-soft);
+    padding-right: 1rem;
+  }
+  nav.toc .toc-title {
+    font-family: var(--font-mono);
+    font-size: .68rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 .8rem;
+  }
+  nav.toc ol { list-style: none; margin: 0 0 1.4rem; padding: 0; display: flex; flex-direction: column; gap: .1rem; }
+  nav.toc a {
+    display: flex; gap: .55rem;
+    text-decoration: none;
+    color: var(--ink-soft);
+    padding: .32rem .5rem;
+    border-radius: 6px;
+    line-height: 1.35;
+    border-left: 2px solid transparent;
+    transition: color .15s, background .15s, border-color .15s;
+  }
+  nav.toc a .n { font-family: var(--font-mono); font-size: .72rem; color: var(--ink-faint); padding-top: .07rem; min-width: 1.4em; }
+  nav.toc a:hover { color: var(--ink); background: color-mix(in oklab, var(--gold) 10%, transparent); }
+  nav.toc a.active { color: var(--gold); border-left-color: var(--gold); background: color-mix(in oklab, var(--gold) 8%, transparent); }
+  nav.toc a.active .n { color: var(--gold); }
+
+  main { min-width: 0; max-width: var(--measure); }
+
+  /* ============ Section rhythm ============ */
+  section { scroll-margin-top: 1.2rem; }
+  section + section { margin-top: clamp(2.6rem, 6vw, 4rem); }
+
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: .72rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: .7rem;
+    display: block;
+  }
+  h2.sec {
+    font-size: clamp(1.7rem, 4vw, 2.35rem);
+    letter-spacing: -0.01em;
+    padding-bottom: .55rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .sec-intro { margin-top: 1rem; color: var(--ink-soft); }
+  main p { margin-top: 1rem; }
+  main p + p { margin-top: .8rem; }
+
+  h3.sub { font-size: 1.28rem; margin-top: 2rem; color: var(--gold-bright); }
+
+  strong { color: var(--ink); font-weight: 600; }
+  .gold { color: var(--gold); font-weight: 600; }
+
+  /* ============ Doctrine pillars ============ */
+  .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; margin-top: 1.6rem; }
+  .pillar {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    padding: 1.1rem 1.15rem;
+    box-shadow: var(--shadow);
+  }
+  .pillar .p-n { font-family: var(--font-mono); font-size: .72rem; color: var(--gold); letter-spacing: .1em; }
+  .pillar h4 { font-size: 1.08rem; margin: .35rem 0 .4rem; }
+  .pillar p { font-size: .9rem; color: var(--ink-soft); line-height: 1.5; margin: 0; }
+
+  /* ============ Legend ============ */
+  .legend {
+    display: flex; flex-wrap: wrap; gap: .5rem .9rem;
+    margin-top: 1.4rem; padding: .9rem 1.1rem;
+    background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--r);
+    font-size: .84rem;
+  }
+  .legend .li { display: inline-flex; align-items: center; gap: .45rem; color: var(--ink-soft); }
+  .dot { width: .7rem; height: .7rem; border-radius: 3px; flex: none; }
+
+  /* ============ Chips ============ */
+  .chip {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: .64rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: .2rem .5rem;
+    border-radius: 5px;
+    vertical-align: middle;
+    font-weight: 600;
+    border: 1px solid currentColor;
+  }
+  .c-bleed  { color: var(--bleed);  background: color-mix(in oklab, var(--bleed) 13%, transparent); }
+  .c-rot    { color: var(--rot);    background: color-mix(in oklab, var(--rot) 14%, transparent); }
+  .c-frost  { color: var(--frost);  background: color-mix(in oklab, var(--frost) 14%, transparent); }
+  .c-sleep  { color: var(--sleep);  background: color-mix(in oklab, var(--sleep) 14%, transparent); }
+  .c-cheese { color: var(--gold);   background: color-mix(in oklab, var(--gold) 13%, transparent); }
+  .c-skip   { color: var(--ink-faint); background: color-mix(in oklab, var(--ink-faint) 12%, transparent); }
+  .c-boss   { color: var(--ink); background: transparent; border-color: var(--line); }
+
+  /* ============ Tactic callouts ============ */
+  .tactic {
+    margin-top: 1rem;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--edge, var(--gold));
+    background: color-mix(in oklab, var(--edge, var(--gold)) 7%, var(--bg-2));
+    border-radius: 0 var(--r) var(--r) 0;
+    padding: .85rem 1.05rem;
+    font-size: .95rem;
+  }
+  .tactic--bleed  { --edge: var(--bleed); }
+  .tactic--rot    { --edge: var(--rot); }
+  .tactic--frost  { --edge: var(--frost); }
+  .tactic--sleep  { --edge: var(--sleep); }
+  .tactic--cheese { --edge: var(--gold); }
+  .tactic .t-head { display: flex; align-items: center; gap: .55rem; margin-bottom: .35rem; }
+  .tactic .t-head b { font-size: .98rem; }
+  .tactic p { margin: 0; color: var(--ink-soft); line-height: 1.55; }
+
+  /* ============ Region cards ============ */
+  .region {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: clamp(1.2rem, 3vw, 1.8rem);
+    box-shadow: var(--shadow);
+  }
+  .region + .region { margin-top: 1.5rem; }
+  .region-head { display: flex; gap: 1rem; align-items: baseline; border-bottom: 1px solid var(--line); padding-bottom: .9rem; margin-bottom: .3rem; }
+  .region-num {
+    font-family: var(--font-mono);
+    font-size: 1.05rem;
+    color: var(--gold);
+    letter-spacing: .02em;
+    flex: none;
+    padding-top: .1rem;
+  }
+  .region-head h3 { font-size: clamp(1.3rem, 3vw, 1.7rem); }
+  .region-head .region-sub { font-size: .85rem; color: var(--ink-faint); margin-top: .25rem; font-family: var(--font-mono); letter-spacing: .02em; }
+
+  .grab-title { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-faint); margin: 1.1rem 0 .5rem; }
+  ul.grab { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .55rem; }
+  ul.grab > li { padding-left: 1.15rem; position: relative; font-size: .95rem; line-height: 1.5; }
+  ul.grab > li::before { content: "◆"; position: absolute; left: 0; top: .05rem; color: var(--gold); font-size: .7rem; }
+  ul.grab .item { font-weight: 600; color: var(--ink); }
+  ul.grab .where { color: var(--ink-faint); }
+
+  /* ============ Tables ============ */
+  .table-wrap { overflow-x: auto; margin-top: 1.2rem; border: 1px solid var(--line); border-radius: var(--r); }
+  table { border-collapse: collapse; width: 100%; font-size: .88rem; min-width: 560px; }
+  caption { text-align: left; font-family: var(--font-mono); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-faint); padding: .8rem 1rem .1rem; }
+  thead th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: .68rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 600;
+    padding: .7rem 1rem;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-sunken);
+    white-space: nowrap;
+  }
+  tbody td { padding: .7rem 1rem; border-bottom: 1px solid var(--line-soft); vertical-align: top; line-height: 1.45; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: color-mix(in oklab, var(--gold) 6%, transparent); }
+  td .w { font-weight: 600; color: var(--ink); }
+  td.req { font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--ink-soft); }
+  .mini { font-size: .8rem; color: var(--ink-faint); }
+
+  /* ============ Callout block (doctrine tips) ============ */
+  .note {
+    margin-top: 1.2rem;
+    padding: 1rem 1.15rem;
+    border: 1px dashed var(--line);
+    border-radius: var(--r);
+    background: var(--bg-sunken);
+    font-size: .92rem;
+    color: var(--ink-soft);
+  }
+  .note b { color: var(--ink); }
+
+  hr.rule { border: none; border-top: 1px solid var(--line); margin: 3rem 0; }
+
+  /* section divider band for DLC */
+  .band {
+    margin-top: clamp(2.6rem,6vw,4rem);
+    padding: 1.6rem clamp(1.2rem,3vw,2rem);
+    border-radius: 14px;
+    border: 1px solid color-mix(in oklab, var(--gold) 35%, var(--line));
+    background:
+      radial-gradient(90% 140% at 100% 0%, color-mix(in oklab, var(--gold) 16%, transparent), transparent 55%),
+      var(--bg-2);
+  }
+  .band .kicker { color: var(--gold-bright); }
+  .band h2 { border: none; padding-bottom: 0; }
+
+  footer.foot {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 2rem clamp(1.2rem, 5vw, 3rem) 4rem;
+    border-top: 1px solid var(--line);
+    color: var(--ink-faint);
+    font-size: .84rem;
+  }
+  footer.foot a { color: var(--gold); }
+
+  /* reveal (progressive enhancement only) */
+  .js-anim .reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+  .js-anim .reveal.in { opacity: 1; transform: none; }
+
+  :where(a, button):focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .js-anim .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+  }
+
+  @media (max-width: 900px) {
+    .shell { grid-template-columns: 1fr; gap: 1.5rem; }
+    nav.toc { position: static; max-height: none; border-right: none; border-bottom: 1px solid var(--line-soft); padding-right: 0; padding-bottom: 1rem; }
+    nav.toc ol { flex-direction: row; flex-wrap: wrap; gap: .3rem; }
+    nav.toc a { border-left: none; }
+    nav.toc a.active { border-left: none; }
+    main { max-width: none; }
+  }
+
+  /* ============ Checklist ============ */
+  .cl-head {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.4rem;
+    margin-top: 1.6rem; padding: 1.1rem 1.25rem;
+    background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow);
+  }
+  .cl-head .cl-count { font-family: var(--font-mono); font-size: 1.35rem; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .cl-head .cl-count b { color: var(--gold); }
+  .cl-head .cl-count span { color: var(--ink-faint); font-size: .82rem; letter-spacing: .04em; }
+  .cl-bar { flex: 1 1 200px; height: 9px; border-radius: 99px; background: var(--bg-sunken); overflow: hidden; border: 1px solid var(--line); }
+  .cl-fill { display: block; height: 100%; width: 0%; background: linear-gradient(90deg, var(--gold), var(--gold-bright)); transition: width .45s ease; }
+  .cl-reset {
+    font-family: var(--font-mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--ink-soft); background: transparent; border: 1px solid var(--line); border-radius: 6px;
+    padding: .48rem .8rem; cursor: pointer; transition: color .15s, border-color .15s;
+  }
+  .cl-reset:hover { color: var(--ink); border-color: var(--gold); }
+
+  .phase-group { margin-top: 1rem; border: 1px solid var(--line); border-radius: 12px; background: var(--bg-2); overflow: hidden; box-shadow: var(--shadow); scroll-margin-top: 1.2rem; }
+  .phase-group > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: .8rem; padding: .95rem 1.1rem; background: var(--bg-sunken); border-bottom: 1px solid transparent; }
+  .phase-group[open] > summary { border-bottom-color: var(--line); }
+  .phase-group > summary::-webkit-details-marker { display: none; }
+  .phase-group > summary::after { content: "▾"; margin-left: auto; color: var(--ink-faint); font-size: .75rem; transition: transform .2s; }
+  .phase-group:not([open]) > summary::after { transform: rotate(-90deg); }
+  .phase-group > summary .ph-n { font-family: var(--font-mono); color: var(--gold); font-size: .85rem; min-width: 2.4em; }
+  .phase-group > summary .ph-name { font-family: var(--font-display); font-size: 1.12rem; font-weight: 600; color: var(--ink); }
+  .phase-group > summary .ph-badge { font-family: var(--font-mono); font-size: .68rem; color: var(--ink-faint); background: var(--bg-2); border: 1px solid var(--line); border-radius: 99px; padding: .18rem .55rem; font-variant-numeric: tabular-nums; }
+  .phase-group > summary .ph-badge.done { color: var(--gold); border-color: var(--gold); background: color-mix(in oklab, var(--gold) 12%, transparent); }
+  .phase-group > summary:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+
+  ul.steps { list-style: none; margin: 0; padding: .45rem; display: flex; flex-direction: column; gap: .15rem; }
+  label.step { display: grid; grid-template-columns: auto 1fr; gap: .85rem; align-items: start; padding: .7rem .8rem; border-radius: 8px; cursor: pointer; transition: background .12s; }
+  label.step:hover { background: color-mix(in oklab, var(--gold) 7%, transparent); }
+  label.step input {
+    appearance: none; -webkit-appearance: none; width: 1.25rem; height: 1.25rem; margin: .12rem 0 0; flex: none;
+    border: 2px solid var(--ink-faint); border-radius: 5px; background: transparent; cursor: pointer; position: relative;
+    transition: border-color .15s, background .15s;
+  }
+  label.step input:checked { border-color: var(--gold); background: var(--gold); }
+  label.step input:checked::after { content: "✓"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--bg-sunken); font-size: .82rem; font-weight: 800; }
+  label.step input:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .step-title { font-weight: 600; color: var(--ink); line-height: 1.4; }
+  .step-body { font-size: .9rem; color: var(--ink-soft); line-height: 1.5; margin-top: .25rem; }
+  .step-body .loc { color: var(--gold); font-weight: 600; }
+  label.step.done .step-title { color: var(--ink-faint); text-decoration: line-through; text-decoration-color: color-mix(in oklab, var(--ink-faint) 70%, transparent); }
+  label.step.done .step-body { opacity: .5; }
+  label.step .chip { margin-right: .2rem; }
+
+  /* map-pin links */
+  .map-link {
+    display: inline-flex; align-items: center; gap: .22rem;
+    font-family: var(--font-mono); font-size: .6rem; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--ink-faint); text-decoration: none;
+    border: 1px solid var(--line); border-radius: 5px; padding: .1rem .4rem .1rem .3rem;
+    vertical-align: middle; white-space: nowrap; line-height: 1.4;
+    transition: color .15s, border-color .15s, background .15s;
+  }
+  .map-link:hover { color: var(--gold); border-color: var(--gold); background: color-mix(in oklab, var(--gold) 10%, transparent); }
+  .map-link .pin { font-size: .72rem; line-height: 1; filter: grayscale(.15); }
+  .step-title .map-link { margin-left: .5rem; }
+  .step-title .map-link, .step-body .map-link { text-decoration: none; }
+  label.step.done .map-link { opacity: .5; }
+</style>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow reveal">Elden Ring · Challenge Route · Shadow of the Erdtree included</div>
+    <h1 class="reveal">The <em>Level&nbsp;1</em> Lands Between — a no-leveling cheese route</h1>
+    <p class="lede reveal">A full linear playthrough for a Wretched run held at <strong>Rune Level 1</strong>, start to Elden Beast and into the expansion. You never spend a rune on stats. Instead you let <strong>status effects</strong>, <strong>weapon upgrades</strong>, a <strong>turtle shield</strong>, and <strong>spirit ashes</strong> do the killing — every legit trick, no glitches.</p>
+    <div class="hero-meta reveal">
+      <span class="tag">Class <b>Wretched</b></span>
+      <span class="tag">Level held at <b>1</b></span>
+      <span class="tag">Solo / offline</span>
+      <span class="tag">Legit cheese · <b>no glitches</b></span>
+      <span class="tag">Base game <b>+ DLC</b></span>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="toc" aria-label="Route contents">
+    <p class="toc-title">The Route</p>
+    <ol>
+      <li><a href="#doctrine"><span class="n">§</span><span>The Doctrine</span></a></li>
+      <li><a href="#loadout"><span class="n">§</span><span>Loadout Reference</span></a></li>
+      <li><a href="#cheese-toolkit"><span class="n">§</span><span>Cheese Toolkit</span></a></li>
+      <li><a href="#power"><span class="n">§</span><span>Power Priority</span></a></li>
+      <li><a href="#checklist"><span class="n">✓</span><span>Playthrough Checklist</span></a></li>
+      <li><a href="#ph-a"><span class="n">A</span><span>Character &amp; First Steps</span></a></li>
+      <li><a href="#ph-b"><span class="n">B</span><span>Early Power Rush</span></a></li>
+      <li><a href="#ph-c"><span class="n">C</span><span>Stormveil Castle</span></a></li>
+      <li><a href="#ph-d"><span class="n">D</span><span>Liurnia &amp; Raya Lucaria</span></a></li>
+      <li><a href="#ph-e"><span class="n">E</span><span>Radahn &amp; Underground</span></a></li>
+      <li><a href="#ph-f"><span class="n">F</span><span>Altus &amp; Mt. Gelmir</span></a></li>
+      <li><a href="#ph-g"><span class="n">G</span><span>Leyndell</span></a></li>
+      <li><a href="#ph-h"><span class="n">H</span><span>Mohgwyn Palace</span></a></li>
+      <li><a href="#ph-i"><span class="n">I</span><span>Mountaintops</span></a></li>
+      <li><a href="#ph-j"><span class="n">J</span><span>Crumbling Farum Azula</span></a></li>
+      <li><a href="#ph-k"><span class="n">K</span><span>Snowfield &amp; Haligtree</span></a></li>
+      <li><a href="#ph-l"><span class="n">L</span><span>Ashen Capital · Ending</span></a></li>
+      <li><a href="#ph-m1"><span class="n">D1</span><span>DLC · Gravesite &amp; Belurat</span></a></li>
+      <li><a href="#ph-m2"><span class="n">D2</span><span>DLC · Ensis &amp; Scadu Altus</span></a></li>
+      <li><a href="#ph-m3"><span class="n">D3</span><span>DLC · Shadow Keep</span></a></li>
+      <li><a href="#ph-m4"><span class="n">D4</span><span>DLC · The Far Reaches</span></a></li>
+      <li><a href="#ph-m5"><span class="n">D5</span><span>DLC · Enir-Ilim Finale</span></a></li>
+      <li><a href="#bosses"><span class="n">☠</span><span>Boss Cheat-Sheet</span></a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <!-- ================= DOCTRINE ================= -->
+    <section id="doctrine" class="reveal">
+      <span class="kicker">First, the rules of engagement</span>
+      <h2 class="sec">The Doctrine</h2>
+      <p class="sec-intro">At Rune Level 1 your stats are frozen at 10 across the board. You will never out-damage or out-tank anything by leveling — so the entire run is built on damage sources that <strong>ignore your level</strong>. Internalize these six pillars and the rest is just knowing where to find the pieces.</p>
+
+      <div class="pillars">
+        <div class="pillar">
+          <div class="p-n">PILLAR I</div>
+          <h4>Status &gt; stats</h4>
+          <p>Bleed, rot, frost and sleep deal damage as a % of the target's health or as flat ticks — none of it scales with your level. This is your main gun.</p>
+        </div>
+        <div class="pillar">
+          <div class="p-n">PILLAR II</div>
+          <h4>Upgrade, don't level</h4>
+          <p>Smithing Stones raise a weapon's base damage regardless of your stats. Every rune goes to upgrades, flasks, stones and consumables — never to a level.</p>
+        </div>
+        <div class="pillar">
+          <div class="p-n">PILLAR III</div>
+          <h4>The Soreseal crutch</h4>
+          <p>Radagon's Soreseal grants +5 Vigor, Endurance, Str &amp; Dex. On a Wretch that's ~26% more HP and enough stats to actually wield your key weapons.</p>
+        </div>
+        <div class="pillar">
+          <div class="p-n">PILLAR IV</div>
+          <h4>Turtle &amp; roll</h4>
+          <p>A 100%-physical-block shield plus an evasion Ash of War (Quickstep → Bloodhound's Step) means most hits cost stamina, not your tiny health bar.</p>
+        </div>
+        <div class="pillar">
+          <div class="p-n">PILLAR V</div>
+          <h4>Let others fight</h4>
+          <p>Spirit Ashes tank aggro and stack their own status. Upgraded with Glovewort, their power is independent of your level entirely.</p>
+        </div>
+        <div class="pillar">
+          <div class="p-n">PILLAR VI</div>
+          <h4>Scadutree (DLC)</h4>
+          <p>In Shadow of the Erdtree, Scadutree Fragments raise damage &amp; defense with zero regard for level. They are your only "leveling" in the DLC — hoard them.</p>
+        </div>
+      </div>
+
+      <h3 class="sub">The single most important rule</h3>
+      <p>A weapon you don't meet the stat requirements for still <strong>applies its full status buildup</strong> — only the raw physical/elemental damage is penalized. That's why a Rivers of Blood or an Antspur Rapier is devastating at RL1: the bleed and rot procs land at full strength no matter how weak your Arcane or Dexterity is. Two-handing also multiplies your Strength by 1.5× (so 10 Str counts as 15) for meeting requirements.</p>
+
+      <div class="note">
+        <b>Rune economy.</b> Farm just enough runes for: flask upgrades (Golden Seeds/Sacred Tears are found, not bought), Smithing Stone Bell Bearings' stock, greases and pots, and a spirit ash or two. Because you never level, runes pile up fast — hold them and dump into upgrades whenever you unlock a new stone tier.
+      </div>
+
+      <div class="legend" aria-label="Color code">
+        <span class="li"><span class="dot" style="background:var(--bleed)"></span> Bleed / hemorrhage</span>
+        <span class="li"><span class="dot" style="background:var(--rot)"></span> Scarlet rot</span>
+        <span class="li"><span class="dot" style="background:var(--frost)"></span> Frost</span>
+        <span class="li"><span class="dot" style="background:var(--sleep)"></span> Sleep</span>
+        <span class="li"><span class="dot" style="background:var(--gold)"></span> General cheese</span>
+      </div>
+    </section>
+
+    <!-- ================= LOADOUT ================= -->
+    <section id="loadout" class="reveal">
+      <span class="kicker">The shopping list</span>
+      <h2 class="sec">Loadout Reference</h2>
+      <p class="sec-intro">The weapons, talismans, shields and consumables the whole route revolves around. Requirements are listed so you can see what the Soreseal (+5 Str/Dex) unlocks — and remember, even below requirement the status buildup still procs.</p>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Weapons — your win conditions</caption>
+          <thead>
+            <tr><th>Weapon</th><th>Damage identity</th><th>Req (Str/Dex/other)</th><th>Where</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="w">Uchigatana</span> <span class="chip c-bleed">bleed</span></td><td>All-purpose katana; infuse <b>Blood</b> (+ Seppuku) or <b>Cold</b> for frost. Your workhorse.</td><td class="req">11 / 15</td><td>Pickup in Deathtouched Catacombs, Limgrave (or Samurai start)</td></tr>
+            <tr><td><span class="w">Reduvia</span> <span class="chip c-bleed">bleed</span></td><td>Dagger with a <b>ranged</b> blood projectile skill — snipe bleed from safety.</td><td class="req">5 / 13 / 13 Arc</td><td>Drop from invader Bloody Finger Nerijus, Murkwater area</td></tr>
+            <tr><td><span class="w">Hookclaws</span> <span class="chip c-bleed">bleed</span></td><td>Fast dual claws, feather-light, rapid bleed stacking.</td><td class="req">8 / 14</td><td>Corpse in Stormveil's wine-cellar route</td></tr>
+            <tr><td><span class="w">Bloodhound's Fang</span> <span class="chip c-bleed">bleed</span></td><td>Curved greatsword; its skill is an <b>evasive</b> lunging combo — offense and dodge in one.</td><td class="req">18 / 17</td><td>Bloodhound Knight Darriwil, Forlorn Hound Evergaol (Limgrave)</td></tr>
+            <tr><td><span class="w">Antspur Rapier</span> <span class="chip c-rot">rot</span></td><td>Innate <b>scarlet rot</b>; poke through your shield and let rot tick bosses down.</td><td class="req">10 / 15</td><td>Maleigh Marais, fields near The Shaded Castle (Altus)</td></tr>
+            <tr><td><span class="w">Rivers of Blood</span> <span class="chip c-bleed">bleed</span></td><td>Corpse Piler multi-hit builds bleed absurdly fast — the classic RL1 finisher even under-requirement.</td><td class="req">12 / 18 / 20 Arc</td><td>Bloody Finger Okina, Church of Repose (Mountaintops)</td></tr>
+            <tr><td><span class="w">Bloody Helice</span> <span class="chip c-bleed">bleed</span></td><td>Heavy thrusting sword; evasive skill (Dynast's Finesse) + strong bleed. Community RL1 favorite.</td><td class="req">16 / 19 / 17 Arc</td><td>Chest behind Sanguine Noble, Writheblood Ruins (Altus)</td></tr>
+            <tr><td><span class="w">Serpent-Hunter</span> <span class="chip c-cheese">special</span></td><td>Great spear that ignores stats; its skill stuns Rykard on hit. <b>Trivializes that boss.</b></td><td class="req">— none —</td><td>Corpse in Rykard's boss room, Volcano Manor</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Talismans — the multipliers</caption>
+          <thead>
+            <tr><th>Talisman</th><th>What it does at RL1</th><th>Where</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="w">Radagon's Soreseal</span></td><td>+5 Vig/End/Str/Dex. ~26% HP and the stats to wield your kit. The –15% damage taken is worth it. <b>Cornerstone.</b></td><td>Fort Faroth, Caelid (also has a Golden Seed + a Dectus Medallion half)</td></tr>
+            <tr><td><span class="w">Radagon's Scarseal</span></td><td>Weaker Soreseal (+3 stats, –10% def). Use as a stand-in until you can reach Caelid.</td><td>Weeping Peninsula (Fourth Church / Evergaol area)</td></tr>
+            <tr><td><span class="w">Lord of Blood's Exultation</span></td><td>+20% attack for ~20s whenever blood loss procs nearby. Pairs with any bleed weapon.</td><td>Esgar, Priest of Blood — Leyndell Catacombs</td></tr>
+            <tr><td><span class="w">Kindred of Rot's Exultation</span></td><td>+20% attack near poison/rot procs. The rot-build twin of the above.</td><td>Kindred of Rot, Seethewater Cave (Mt. Gelmir)</td></tr>
+            <tr><td><span class="w">Rotten Winged Sword Insignia</span></td><td>Successive hits ramp your attack hard — huge on fast weapons (Hookclaws, Corpse Piler).</td><td>End of Millicent's questline</td></tr>
+            <tr><td><span class="w">Shard of Alexander</span></td><td>+15% weapon-skill damage — boosts Corpse Piler, Bloodhound's Finesse, Ash-of-War spam.</td><td>End of Iron Fist Alexander's questline</td></tr>
+            <tr><td><span class="w">Great-Jar's Arsenal</span></td><td>+19% equip load — wear heavier armor for poise and absorption without over-encumbering.</td><td>Great-Jar's three duels, Dragonbarrow (Caelid)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">Defense & utility kit</h3>
+      <ul class="grab">
+        <li><span class="item">A 100%-physical-block shield with a low Str requirement</span> <span class="where">— e.g. the Beast Crest Heater Shield (Str 8). Block-and-poke is your safety net against physical bosses.</span></li>
+        <li><span class="item">Quickstep → Bloodhound's Step</span> <span class="where">— evasion Ashes of War with generous i-frames. Bloodhound's Step is the single best defensive tool in the game.</span></li>
+        <li><span class="item">Seppuku (Ash of War)</span> <span class="where">— self-inflicts bleed to massively boost your weapon's bleed damage. Use carefully with your small health bar; re-apply from a safe distance.</span></li>
+        <li><span class="item">Greases</span> <span class="where">— Blood Grease / Rot Grease let any weapon carry status. Freezing / Fire Grease for weakness targets.</span></li>
+        <li><span class="item">Status pots &amp; bones</span> <span class="where">— crafted Sleep pots and rot pots to prime bosses; Sleepbone/Rotbone arrows for ranged application.</span></li>
+        <li><span class="item">Cure boluses</span> <span class="where">— Stanching (bleed), Neutralizing (rot/poison), Thawfrost Boluses. Craft a full stack — a status proc on you at RL1 is lethal.</span></li>
+        <li><span class="item">Pickled Turtle Neck &amp; Immunizing Cured Meat</span> <span class="where">— stamina regen and status resistance; keep both active for hard fights.</span></li>
+      </ul>
+
+      <h3 class="sub">Spirit Ashes worth upgrading</h3>
+      <ul class="grab">
+        <li><span class="item">Lhutel the Headless</span> <span class="where">— early, tanky, teleports and throws spears. Superb aggro-sponge from the Weeping Peninsula catacombs.</span></li>
+        <li><span class="item">Black Knife Tiche</span> <span class="where">— late-game elite; high damage and a HP-cutting effect. Ringleader's Evergaol, Moonlight Altar (Liurnia).</span></li>
+        <li><span class="item">Mimic Tear</span> <span class="where">— copies your gear, so it applies your bleed/rot a second time. Weak health at RL1 but a great status-stacking distraction.</span></li>
+        <li><span class="where">Upgrade all of them with Grave/Ghost Glovewort — hand Roderika your Chrysalids' Memento to unlock ash-tuning at the Roundtable Hold.</span></li>
+      </ul>
+    </section>
+
+    <!-- ================= CHEESE TOOLKIT ================= -->
+    <section id="cheese-toolkit" class="reveal">
+      <span class="kicker">Techniques, not items</span>
+      <h2 class="sec">Universal Cheese Toolkit</h2>
+      <p class="sec-intro">These tricks work everywhere and rely only on the game's own AI, terrain and physics — no glitches. Learn them once and reuse them all run. Most bypass damage entirely, which is exactly what a Level 1 character needs.</p>
+
+      <h3 class="sub">Margit's Shackle — the Swiss-army cheese</h3>
+      <p>You already buy it for the Margit fight (5,000 runes from Patches in Murkwater Cave). It does far more than stun a boss: the Shackle fires an <strong>invisible, no-damage AoE that "hits" everything in a wide radius</strong>, ignoring walls and obstructions. That one item does four jobs:</p>
+      <ul class="grab">
+        <li><span class="item">Stuns shackle-vulnerable bosses</span> <span class="where">— Margit &amp; Morgott (both forms) and Godrick: yanks them to the ground for a free critical, twice per phase.</span></li>
+        <li><span class="item">Destroys catacomb Chariots</span> <span class="where">— see the callout below; clears the deadliest hazard in the Hero's Grave dungeons for free.</span></li>
+        <li><span class="item">Reveals illusory walls</span> <span class="where">— the AoE registers as a hit on hidden walls, so you never have to guess-attack every surface.</span></li>
+        <li><span class="item">Triggers pillar &amp; fire traps from safety</span> <span class="where">— pop trap mechanisms from across the room instead of standing in them.</span></li>
+      </ul>
+      <div class="tactic tactic--cheese">
+        <div class="t-head"><span class="chip c-cheese">chariots</span><b>How the Shackle kills a Chariot</b></div>
+        <p>In the Hero's Grave dungeons (Auriza Hero's Grave in Altus, Gelmir Hero's Grave, etc.) the rolling spiked Chariots are summoned by sigils on the floor. Fire the Shackle at the long ramp holding two chariots — it registers as a hit that <strong>spawns the next chariot early, so they crash into and destroy each other</strong>. On the three-chariot puzzle it also raises the trap pillar for you from across the room. No dodging, no timing — and Auriza hands you the Tree Sentinel armor set + Ash of War: Holy Ground once all three are wrecked.</p>
+      </div>
+
+      <h3 class="sub">Gravity does your damage</h3>
+      <p>Fall damage is lethal in a way that <strong>completely ignores your level</strong>, so walking a boss off a ledge is the ultimate RL1 equalizer. Enemy AI pathfinds badly around cliffs — especially while chasing you — so bait, back off, and let them misstep.</p>
+      <ul class="grab">
+        <li><span class="item">Great-Jar Duelists</span> <span class="where">— get a knight stuck on the invisible arena wall, drop to a protruding lip of the cliff, throw a dagger/knife to keep its attention, and it shuffles forward off the edge. Repeat for all three. (Fails only if a knight rolls a ranged weapon like Mohg's Spear — reset for a melee set.)</span></li>
+        <li><span class="item">Fire Giant</span> <span class="where">— lure him to the tall rock on the arena's right edge, drop down with Torrent's double-jump, then coax him off. A fall instantly triggers his phase change (or kills him). See region 10.</span></li>
+        <li><span class="item">Valiant Gargoyles</span> <span class="where">— fight near the cliff edge; dodge into open air and the flying gargoyles frequently sail off to their deaths. See region 08.</span></li>
+        <li><span class="item">Tree Sentinels &amp; Runebears</span> <span class="where">— genuinely dangerous on foot, trivial off a ledge; lure them onto uneven terrain where the AI stumbles over the drop.</span></li>
+      </ul>
+
+      <h3 class="sub">Reusable habits</h3>
+      <ul class="grab">
+        <li><span class="item">Summon &amp; break line-of-sight</span> <span class="where">— send in a Spirit Ash/NPC, then duck behind a pillar or wall. The boss commits to the summon while your bleed/rot ticks it down and you heal safely.</span></li>
+        <li><span class="item">Torrent hit-and-run</span> <span class="where">— any open arena (including the underground Ancestor Spirit / Regal Spirit fights, where Torrent is allowed) becomes a kiting game. Ride in, one combo, ride out.</span></li>
+        <li><span class="item">Drop / plunging attacks</span> <span class="where">— a jumping attack from a ledge deals big stagger and posture damage; several field bosses can be poked from above repeatedly.</span></li>
+        <li><span class="item">Sleep-pot opener</span> <span class="where">— on any sleep-vulnerable boss (Godskins, many humanoids), a thrown Sleep pot buys a guaranteed charged critical to open the fight.</span></li>
+        <li><span class="item">Crouch to reset aggro</span> <span class="where">— crouch-walking behind cover drops enemy awareness, letting you reposition, re-summon, or line up a backstab.</span></li>
+        <li><span class="item">Disarm the copycats</span> <span class="where">— the Mimic Tear <em>boss</em> in Nokron copies whatever you have equipped. Strip everything before the fog and it spawns in its underwear, punching for nothing (see region 08).</span></li>
+        <li><span class="item">Parry items beat "unblockable" attacks</span> <span class="where">— some special items deflect a boss's signature move regardless of your stats. The Blasphemous Claw parries Maliketh's Black Blade (see region 11).</span></li>
+      </ul>
+
+      <h3 class="sub">Stealth & detection</h3>
+      <ul class="grab">
+        <li><span class="item">Mimic's Veil</span> <span class="where">— disguise yourself as an object to shed aggro, slip past a room, or reset a bad pull. Great for skipping fights you don't need.</span></li>
+        <li><span class="item">Sentry's Torch</span> <span class="where">— hold it (or two-hand your weapon to sling it on your back) to reveal invisible enemies — the fix for Ordina's Black Knife Assassins.</span></li>
+        <li><span class="item">Concealing Veil / crouch-sneak</span> <span class="where">— stay undetected to walk past packs, or line up a free opening backstab.</span></li>
+      </ul>
+
+      <h3 class="sub">Stakes of Marika — free retries</h3>
+      <p>Many hard bosses have a <strong>Stake of Marika</strong> planted right by their fog wall. Die to anything except fall damage and you can respawn there with a full flask — no run-back. Confirmed examples: outside Flying Dragon Agheel's lake and the opening Tree Sentinel (Limgrave), beside Decaying Ekzykes (Caelid), and at the Fire Giant's entrance (Mountaintops). Not every boss has one — night-only and NPC-triggered bosses often don't — but where a stake exists it turns a brutal fight into pure pattern practice with zero downtime.</p>
+
+      <h3 class="sub">Runes fund upgrades, not levels</h3>
+      <p>Because you never level, every rune goes to Smithing Stones, greases, pots and flask stock. Two legit farms cover the whole run:</p>
+      <ul class="grab">
+        <li><span class="item">Greyoll (Caelid)</span> <span class="where">— the sleeping dragon in Dragonbarrow. A single kill dumps ~14,000+ runes plus its dragonkin — an enormous early bankroll for buying out your first Smithing Stone tiers.</span></li>
+        <li><span class="item">Mohgwyn Palace Albinaurics</span> <span class="where">— from the Palace Approach Ledge-Road grace, sweep an AoE through the crawling Albinaurics on the slope, rest at the grace, repeat. Still one of the fastest farms in the game and completely legit (normal enemy respawns).</span></li>
+      </ul>
+    </section>
+
+    <!-- ================= POWER PRIORITY ================= -->
+    <section id="power" class="reveal">
+      <span class="kicker">Get strong before you have to</span>
+      <h2 class="sec">Power Priority — be maxed for the moment</h2>
+      <p class="sec-intro">Your RL1 power is almost entirely <strong>level-independent</strong>, and most of it can be grabbed far earlier than the region it "belongs" to. So the checklist front-loads it: whenever a Soreseal, a Smithing Bell Bearing, a shield or a talisman becomes reachable, you detour for it <em>before</em> pushing the story. The goal is to meet every boss — even the first ones — already as strong as an RL1 character can possibly be at that point.</p>
+
+      <h3 class="sub">Grab these in priority order</h3>
+      <ul class="grab">
+        <li><span class="item">1 · Radagon's Soreseal</span> <span class="where">— Fort Faroth, <b>no boss</b>. ~26% more HP plus the Str/Dex to actually wield your kit. Get it almost first (Phase B).</span></li>
+        <li><span class="item">2 · Weapon upgrade level</span> <span class="where">— your single biggest damage lever. Smithing Bell Bearing [1] is reachable <b>before Godrick</b> via the Stormhill→Liurnia skip; buy out the stones and keep every weapon at its tier cap. A +6 weapon at Stormveil hits like a much later one.</span></li>
+        <li><span class="item">3 · 100% shield + Bloodhound's Step</span> <span class="where">— the Beast Crest Heater Shield (Stormhill, no boss) blocks all physical; Bloodhound's Step (Liurnia) is your i-frame dodge. Together that's near-total mitigation from the first legacy dungeon onward.</span></li>
+        <li><span class="item">4 · Mimic Tear</span> <span class="where">— the moment the Radahn festival is available (reach Altus, or progress Ranni's quest), rush Radahn → Nokron for it. It doubles your status output and tanks — the biggest mid-game spike.</span></li>
+        <li><span class="item">5 · Exultation talismans + Seppuku</span> <span class="where">— Lord of Blood's / Kindred of Rot's each add +20% attack on a proc; Seppuku's self-bleed multiplies hemorrhage. Flat multipliers on everything you already do.</span></li>
+        <li><span class="item">6 · Maxed Spirit Ashes + flasks</span> <span class="where">— feed Glovewort to your Mimic/Tiche and sweep every Golden Seed &amp; Sacred Tear. Pure free scaling.</span></li>
+        <li><span class="item">7 · DLC — Scadutree Blessing + Revered Ashes</span> <span class="where">— the only scaling in the Land of Shadow; top it up before every fight.</span></li>
+      </ul>
+
+      <h3 class="sub">Be this strong by the time you fight…</h3>
+      <div class="table-wrap">
+        <table>
+          <caption>RL1 power ladder — target loadout per milestone</caption>
+          <thead><tr><th>Boss</th><th>Weapon at</th><th>Should already own</th></tr></thead>
+          <tbody>
+            <tr><td class="w">Margit</td><td class="req">+3</td><td>Soreseal, a 100% shield, Bloodhound's Step, an innate-bleed weapon, Lhutel, Margit's Shackle, ~7 flask charges</td></tr>
+            <tr><td class="w">Godrick</td><td class="req">+6</td><td>Smithing Bell Bearing [1] bought out, Blood-infused Uchigatana (Iron Whetblade), Great-Jar's Arsenal, Fang at +2 (Somber [1])</td></tr>
+            <tr><td class="w">Rennala / Radahn</td><td class="req">+6 →</td><td><b>Mimic Tear</b> (rush Nokron), Hoarfrost Stomp, upgraded Lhutel / Tiche</td></tr>
+            <tr><td class="w">Morgott (Leyndell)</td><td class="req">+12</td><td>Smithing [2], Lord of Blood's Exultation, Antspur + Kindred of Rot's, Rotten Winged Insignia (if Millicent done), near-maxed Mimic</td></tr>
+            <tr><td class="w">Fire Giant (Mountaintops)</td><td class="req">+18</td><td>Smithing [3], Seppuku, Rivers of Blood, flasks near max</td></tr>
+            <tr><td class="w">Maliketh (Farum Azula)</td><td class="req">+24–25</td><td>Smithing [4], Blasphemous Claw, Fingerprint Stone Shield, fully-maxed Mimic &amp; Tiche</td></tr>
+            <tr><td class="w">Malenia</td><td class="req">maxed</td><td>Everything above — frost + a maxed Mimic. This is the base-game ceiling.</td></tr>
+            <tr><td class="w">DLC bosses</td><td class="req">maxed</td><td>Rising Scadutree Blessing (aim ~5 → 8 → 12 → 18+) and a Revered-buffed Mimic</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note">
+        <b>Two routing caveats.</b> The early Liurnia skip (Stormhill → the cliffside passage north of Margit) runs you past wolf packs — do it on Torrent and it's worth it to have Smithing [1] and Bloodhound's Step <em>before</em> Godrick. And the Mimic Tear rush needs the Radahn festival active (Altus access or Ranni progress), so it realistically lands in the Liurnia→Altus window, not before Stormveil.
+      </div>
+    </section>
+
+    <!-- ================= CHECKLIST ================= -->
+    <section id="checklist" class="reveal">
+      <span class="kicker">The whole run, one list</span>
+      <h2 class="sec">Playthrough Checklist</h2>
+      <p class="sec-intro">Everything is in this single ordered to-do list — it replaces the old region-by-region walkthrough, so there's one place to follow. It's sequenced by the <a href="#power" style="color:var(--gold)">Power Priority</a> above, not tidy geography: the biggest low-risk gains — the Soreseal, an early 100% shield, and weapon upgrades pulled forward via the Liurnia skip — are front-loaded so you meet even the first bosses already maxed for the moment. Tick steps off; progress saves in this browser. Phases tagged <span class="chip c-skip">optional</span> can be skipped on a pure critical path, and each real location carries a 📍 link to its Fextralife page.</p>
+
+      <div class="cl-head">
+        <div class="cl-count"><b id="cl-done">0</b> / <span id="cl-total">0</span> <span>steps done</span></div>
+        <div class="cl-bar"><span class="cl-fill" id="cl-fill"></span></div>
+        <button type="button" class="cl-reset" id="cl-reset">Reset progress</button>
+      </div>
+
+      <details class="phase-group" id="ph-a" open>
+        <summary><span class="ph-n">A</span><span class="ph-name">Character &amp; First Steps</span><span class="ph-badge">0/5</span></summary>
+        <ul class="steps">
+          <li><label class="step"><input type="checkbox" id="a1"><div><div class="step-title">Create a Wretched — keepsake: Golden Seed</div><div class="step-body">The only class that begins at Level 1 with every stat at 10 — the whole premise. Golden Seed grants an extra flask charge from the start. From here on the golden rule: <b>never spend a rune on a level</b> — runes fund upgrades, flasks and consumables only.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="a2"><div><div class="step-title">Grab the Whetstone Knife</div><div class="step-body">Cellar of the ruin just south of <span class="loc">The First Step</span> grace. Unlocks Ashes of War so you can swap skills and apply affinities.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="a3"><div><div class="step-title">Buy the Crafting Kit from Kalé</div><div class="step-body"><span class="loc">Church of Elleh</span>. Enables pots, greases and cure boluses — your whole consumable engine.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="a4"><div><div class="step-title">Reach the 3rd Grace → meet Melina → Torrent</div><div class="step-body">Unlocks your horse and rune-spending. Torrent is your kiting/escape tool all run — ride past most overworld enemies rather than fighting them.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="a5"><div><div class="step-title">Get the Spirit Calling Bell + Lone Wolf Ashes</div><div class="step-body">Rest until Renna appears at the <span class="loc">Church of Elleh</span> (or buy from the Twin Maidens at Roundtable). Spirit summons are mandatory at RL1 — they tank aggro while your status ticks.</div></div></label></li>
+        </ul>
+      </details>
+
+      <details class="phase-group" id="ph-b" open>
+        <summary><span class="ph-n">B</span><span class="ph-name">Early Power Rush — do before Stormveil</span><span class="ph-badge">0/14</span></summary>
+        <ul class="steps">
+          <li><label class="step"><input type="checkbox" id="b1"><div><div class="step-title">Loot the Uchigatana <span class="chip c-bleed">bleed</span></div><div class="step-body"><span class="loc">Deathtouched Catacombs</span> (NE Limgrave) — a free pickup, you don't need to kill the catacomb boss. Your main weapon; infuse Blood once you have the Iron Whetblade (Stormveil), and add Seppuku later. Until then a crafted Blood Grease adds bleed.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b2"><div><div class="step-title">Beat Bloody Finger Nerijus → Reduvia <span class="chip c-bleed">bleed</span></div><div class="step-body">By the <span class="loc">Murkwater</span> river; summon NPC Yura to tank. Its skill throws a ranged blood blade — safe chip + bleed from turn one.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b3"><div><div class="step-title">Buy Margit's Shackle from Patches <span class="chip c-cheese">cheese</span></div><div class="step-body"><span class="loc">Murkwater Cave</span> — hit Patches once during his ambush and he yields, then shop (5,000 runes). No fight. Stuns Margit/Godrick for free crits, collides catacomb chariots, and reveals illusory walls.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b4"><div><div class="step-title">Kill Bloodhound Knight Darriwil → Bloodhound's Fang <span class="chip c-bleed">bleed</span></div><div class="step-body"><span class="loc">Forlorn Hound Evergaol</span>. Summon Blaidd (sign at the gaol) to trivialize it. Curved greatsword with an evasive lunge skill — offense and dodge in one.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b5"><div><div class="step-title">Pick up Quickstep (Ash of War)</div><div class="step-body">From a Teardrop Scarab. A cheap evasion skill to hold you until Bloodhound's Step in Liurnia.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b13"><div><div class="step-title">Beast Crest Heater Shield — Stormhill (no boss)</div><div class="step-body">In a chest at a soldier camp on the road west of the <span class="loc">Saintsbridge</span> grace, east Stormhill. <b>100% physical block at only Str 10</b> — which you meet at base. This is your turtle shield for the entire early-mid game; block-and-poke trivializes physical bosses long before the Fingerprint Shield.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b6"><div><div class="step-title">★ Radagon's Soreseal — early dash to Fort Faroth <span class="chip c-cheese">no fight · priority</span></div><div class="step-body">The single biggest power spike in the run, and it needs <b>no boss</b> — just travel. Ride east into Caelid, or take the trapped chest in the <span class="loc">Dragon-Burnt Ruins</span> that flings you to the Bestial Sanctum, then sprint on Torrent to <span class="loc">Fort Faroth</span> and climb the ladders to the rooftop chest. +5 Vigor/Endurance/Str/Dex (~26% HP on a Wretch); the –15% damage taken is easily worth it, and the extra Str/Dex finally lets you wield your kit. Grab the Golden Seed and Dectus Medallion (Right) on the same fort.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b7"><div><div class="step-title">Radagon's Scarseal — Weeping Peninsula <span class="chip c-skip">optional</span></div><div class="step-body">A weaker stand-in (+3 stats, –10% def) if you're not ready to brave Caelid for the Soreseal yet. Superseded the moment you get the Soreseal, so skip it if you did the dash above.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b8"><div><div class="step-title">Great-Jar's Arsenal — cliff-cheese the Duelists <span class="chip c-cheese">cliff</span> <span class="chip c-skip">optional</span></div><div class="step-body">At the Great-Jar in Dragonbarrow (while you're in Caelid): lure each knight to the cliff lip, drop to the ledge, throw a knife; they walk off the edge. +19% equip load for heavier armour.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b9"><div><div class="step-title">Somberstone Bell Bearing [1] — Sellia Crystal Tunnel <span class="chip c-skip">optional</span></div><div class="step-body">Fallingstar Beast at the end (Caelid). Unlocks Somber Smithing Stones 1–2 at the Twin Maidens — upgrade Bloodhound's Fang now.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b14"><div><div class="step-title">★ Early Liurnia skip → Smithing Bell Bearing [1] → upgrade to +6 <span class="chip c-cheese">power</span></div><div class="step-body">From the <span class="loc">Stormhill Shack</span> grace, ride north past Margit's arch, drop down the crumbled bridge and follow the cliffside passage (wolves — do it on Torrent) into Liurnia. Clear the <b>Raya Lucaria Crystal Tunnel</b> (Crystalian) for Smithing Bell Bearing [1], hand it to the Twin Maidens, then <b>buy out Smithing Stones 1–2 and push your main weapon to +6 before you ever fight Godrick.</b> This is the biggest "be strong early" move in the run.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b10"><div><div class="step-title">Get Lhutel the Headless</div><div class="step-body"><span class="loc">Tombsward Catacombs</span> (Weeping Peninsula). The best early spirit ash — tanky, teleports, throws spears. Upgrade with Grave Glovewort.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b11"><div><div class="step-title">Upgrade flasks — Golden Seeds + early Sacred Tears</div><div class="step-body">e.g. the Church of Dragon Communion and Callu Baptismal tears, plus overworld Golden Seeds; spend at any grace. More/stronger flasks matter more than anything else early.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b12"><div><div class="step-title">Skip the opening Tree Sentinel &amp; Agheel <span class="chip c-skip">optional</span></div><div class="step-body">The gilded Tree Sentinel and Flying Dragon Agheel are optional — ride past, or kite them on Torrent poking the rear. Nothing in the open field is mandatory at RL1.</div></div></label></li>
+        </ul>
+      </details>
+
+      <details class="phase-group" id="ph-c" open>
+        <summary><span class="ph-n">C</span><span class="ph-name">Stormveil Castle</span><span class="ph-badge">0/6</span></summary>
+        <ul class="steps">
+          <li><label class="step"><input type="checkbox" id="c1"><div><div class="step-title">Boss: Margit, the Fell Omen <span class="chip c-cheese">shackle</span></div><div class="step-body">Gate boss. Summon Lhutel, pop <b>Margit's Shackle</b> to floor him twice per phase for free critical hits, and bleed in between; chip with Reduvia at range.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="c2"><div><div class="step-title">Take the side route via Gostoc</div><div class="step-body">Avoids the front-gate dragon that torches the courtyard; the stealthier path also leads past your next weapon.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="c3"><div><div class="step-title">Get the Iron Whetblade → infuse Blood</div><div class="step-body">Found inside the castle. Put the <b>Blood</b> affinity on your Uchigatana (and Seppuku once you have it) — bleed is now your main damage.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="c4"><div><div class="step-title">Loot the Hookclaws <span class="chip c-bleed">bleed</span></div><div class="step-body">Along the wine-cellar stretch. Fast dual bleed claws (Str 8 / Dex 14 — the Soreseal covers it).</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="c5"><div><div class="step-title">Grab the Rusty Key + Chrysalids' Memento</div><div class="step-body">Key opens the cellar shortcut; give the Memento to Roderika (now at the Roundtable) to unlock spirit-ash upgrades with Glovewort.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="c6"><div><div class="step-title">Boss: Godrick the Grafted</div><div class="step-body">Summon Nepheli (sign at the fog) + your spirit to split aggro; flank and bleed; block or roll the dragon-arm fire in phase 2. First Great Rune.</div></div></label></li>
+        </ul>
+      </details>
+
+      <details class="phase-group" id="ph-d">
+        <summary><span class="ph-n">D</span><span class="ph-name">Liurnia &amp; Raya Lucaria</span><span class="ph-badge">0/7</span></summary>
+        <ul class="steps">
+          <li><label class="step"><input type="checkbox" id="d1"><div><div class="step-title">Get Bloodhound's Step (Ash of War)</div><div class="step-body">Dropped by a Night's Cavalry patrolling at night. A near-invincible evasion dash — the best defensive tool in the game; replace Quickstep with it.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="d2"><div><div class="step-title">Get Hoarfrost Stomp (Ash of War) <span class="chip c-frost">frost</span></div><div class="step-body">Teardrop Scarab in the swamp. Ranged frost AoE; frostbite makes targets take <b>+20% damage</b> — open with frost, then bleed into it.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="d3"><div><div class="step-title">Weapon-upgrade check — keep everything at tier cap</div><div class="step-body">If you did the early Liurnia skip (Phase B) you already own Smithing Bell Bearing [1]; if not, grab it now from the Crystalian in the <span class="loc">Raya Lucaria Crystal Tunnel</span>. Either way, buy out Smithing 1–2 and top every weapon to +6.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="d4"><div><div class="step-title">Start Ranni's questline</div><div class="step-body">Speak to Ranni at <span class="loc">Ranni's Rise</span>. Opens the path to Black Knife Tiche and the underground cities.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="d5"><div><div class="step-title">Clear Caria Manor → Royal Knight Loretta</div><div class="step-body">Bleed her from Torrent between magic volleys. Clears the way to Ranni's Rise and the Moonlight Altar.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="d6"><div><div class="step-title">Boss: Rennala, Queen of the Full Moon</div><div class="step-body">Phase 1 gimmick — knock down the glowing students and hit the exposed Rennala ×3. Phase 2, summon + bleed. Nearly free.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="d7"><div><div class="step-title">Upgrade weapons with the new stones</div><div class="step-body">Bring the Uchigatana / Hookclaws up a tier now that Smithing 1–2 are unlimited.</div></div></label></li>
+        </ul>
+      </details>
+
+      <details class="phase-group" id="ph-e">
+        <summary><span class="ph-n">E</span><span class="ph-name">Radahn &amp; the Underground — rush for the Mimic Tear <span class="chip c-cheese">priority</span></span><span class="ph-badge">0/6</span></summary>
+        <ul class="steps">
+          <li><label class="step"><input type="checkbox" id="e1"><div><div class="step-title">Boss: Starscourge Radahn — do this ASAP <span class="chip c-cheese">summons</span></div><div class="step-body">The festival opens as soon as you reach Altus <em>or</em> progress Ranni's quest — trigger it early, because his death opens Nokron and the <b>Mimic Tear</b>, your biggest mid-game power spike. Summon <b>every</b> NPC sign around the arena to soak his arrows, ride Torrent in for bleed, and re-summon fallen signs. Also required to enter the DLC later.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="e2"><div><div class="step-title">Black Knife Tiche — Ringleader's Evergaol</div><div class="step-body"><span class="loc">Moonlight Altar</span>, SW Liurnia. Your strongest solo spirit ash. Upgrade with Ghost Glovewort.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="e3"><div><div class="step-title">Mimic Tear Ashes — Nokron chest</div><div class="step-body">Copies your equipped kit, so it re-applies your bleed/rot. Your best all-round summon.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="e4"><div><div class="step-title">Boss: Mimic Tear — strip cheese <span class="chip c-cheese">strip</span></div><div class="step-body">The Nokron boss clones whatever you have equipped. <b>Unequip everything before the fog</b> so its clone spawns unarmed; re-equip from the menu and bleed the harmless copy.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="e5"><div><div class="step-title">Boss: Valiant Gargoyles — cliff cheese <span class="chip c-cheese">cliff</span></div><div class="step-body">On the route to Deeproot Depths. Bait their flying lunges over the ledge; Tiche splits aggro for the rest.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="e6"><div><div class="step-title">Lake of Rot → Astel <span class="chip c-skip">optional</span></div><div class="step-body">Sprint the rot platforms; keep Neutralizing Boluses and Immunizing Cured Meat active. Astel folds to bleed + Tiche.</div></div></label></li>
+        </ul>
+      </details>
+
+      <details class="phase-group" id="ph-f">
+        <summary><span class="ph-n">F</span><span class="ph-name">Altus Plateau &amp; Mt. Gelmir</span><span class="ph-badge">0/7</span></summary>
+        <ul class="steps">
+          <li><label class="step"><input type="checkbox" id="f1"><div><div class="step-title">Ride the Grand Lift of Dectus</div><div class="step-body">Use both medallion halves (Left is at Fort Haight, SE Limgrave; Right you grabbed at Fort Faroth), or climb the Ruin-Strewn Precipice.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="f2"><div><div class="step-title">Antspur Rapier — near The Shaded Castle <span class="chip c-rot">rot</span></div><div class="step-body">Kill Maleigh Marais. Innate scarlet rot — poke once or twice, retreat behind your shield, and let rot tick the boss's bar down for free.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="f3"><div><div class="step-title">Bloody Helice — Writheblood Ruins <span class="chip c-bleed">bleed</span></div><div class="step-body">Chest behind the Sanguine Noble. Evasive thrusting skill + strong bleed; a top RL1 pick.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="f4"><div><div class="step-title">Kindred of Rot's Exultation — Seethewater Cave</div><div class="step-body">+20% attack near rot procs — the Antspur's best friend. Also grab Somberstone Bell Bearing [2] from the Altus Tunnel Crystalians (Somber 3–4).</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="f5"><div><div class="step-title">Auriza Hero's Grave → chariot cheese <span class="chip c-cheese">shackle</span></div><div class="step-body">Fire Margit's Shackle at the two-chariot ramp so they spawn early and collide. Clears the hazard and hands you the Tree Sentinel set + Ash of War: Holy Ground.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="f6"><div><div class="step-title">Join Volcano Manor (via Rya)</div><div class="step-body">Grants access to Rykard plus easy assassination-target rewards (runes/gear).</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="f7"><div><div class="step-title">Boss: Rykard, Lord of Blasphemy <span class="chip c-cheese">serpent-hunter</span></div><div class="step-body">Pick up the <b>Serpent-Hunter</b> from the corpse on the left as you enter — no stats needed, and its skill stuns Rykard regardless of poise. Stun-lock him from range on Torrent. A free win.</div></div></label></li>
+        </ul>
+      </details>
+
+      <details class="phase-group" id="ph-g">
+        <summary><span class="ph-n">G</span><span class="ph-name">Leyndell, Royal Capital</span><span class="ph-badge">0/5</span></summary>
+        <ul class="steps">
+          <li><label class="step"><input type="checkbox" id="g1"><div><div class="step-title">Lord of Blood's Exultation — Leyndell Catacombs <span class="chip c-bleed">bleed</span></div><div class="step-body">Kill Esgar, Priest of Blood. +20% attack whenever blood loss procs nearby — pairs with every bleed weapon.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="g2"><div><div class="step-title">Fingerprint Stone Shield — Subterranean Shunning-Grounds</div><div class="step-body">100% physical block with elite stability; the physical negation holds even below its Str requirement. Your endgame turtle shield.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="g3"><div><div class="step-title">Erdtree's Favor (+2) + Sacred Tears</div><div class="step-body">HP / stamina / equip-load talisman among the rooftops; top off your flasks.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="g4"><div><div class="step-title">Boss: Godfrey, the Golden Shade <span class="chip c-sleep">sleep</span></div><div class="step-body">A thrown Sleep pot buys a free charged critical to open; then bleed.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="g5"><div><div class="step-title">Boss: Morgott, the Omen King <span class="chip c-cheese">shackle</span></div><div class="step-body">Margit's Shackle still stuns his phase-1 form; shield the sword-flurry, bleed during recovery, spirit tanks. Second Great Rune + the Rold Medallion for the Mountaintops.</div></div></label></li>
+        </ul>
+      </details>
+
+      <details class="phase-group" id="ph-h">
+        <summary><span class="ph-n">H</span><span class="ph-name">Mohgwyn Palace <span class="chip c-cheese">DLC gate</span></span><span class="ph-badge">0/3</span></summary>
+        <ul class="steps">
+          <li><label class="step"><input type="checkbox" id="h1"><div><div class="step-title">Reach Mohgwyn Palace</div><div class="step-body">Via White-Faced Varré's questline (Pureblood Knight's Medal) or the teleporter west of the Consecrated Snowfield.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="h2"><div><div class="step-title">Stock up at the Albinauric rune farm <span class="chip c-cheese">farm</span></div><div class="step-body">From the Palace Approach Ledge-Road grace, AoE the crawling Albinaurics, rest, repeat. Buy out max-tier Smithing Stones, greases and pots here.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="h3"><div><div class="step-title">Boss: Mohg, Lord of Blood <span class="chip c-cheese">tears</span></div><div class="step-body">Bring <b>Mohg's Shackle</b> (palace swamp) to interrupt his ritual, and keep the <b>Purifying Crystal Tear</b> in your Physick to negate the phase-2 Nihil nuke. Bleed him + Tiche. Beating him (plus Radahn) unlocks the DLC — touch the cocoon arm at the back to enter.</div></div></label></li>
+        </ul>
+      </details>
+
+      <details class="phase-group" id="ph-i">
+        <summary><span class="ph-n">I</span><span class="ph-name">Mountaintops of the Giants</span><span class="ph-badge">0/4</span></summary>
+        <ul class="steps">
+          <li><label class="step"><input type="checkbox" id="i1"><div><div class="step-title">Rivers of Blood — Church of Repose <span class="chip c-bleed">bleed</span></div><div class="step-body">Beat Bloody Finger Okina. Its Corpse Piler multi-hit builds bleed insanely fast — even under-requirement the proc lands at full strength.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="i2"><div><div class="step-title">Bell Bearings [3] — Zamor Ruins + First Church of Marika</div><div class="step-body">Smithing-Stone [3] (Zamor Ruins → Smithing 5–6) and Somberstone [3] (First Church of Marika → Somber 5–6). Push everything another tier.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="i3"><div><div class="step-title">Seppuku (Ash of War) — near the Giant's Gravepost <span class="chip c-bleed">bleed</span></div><div class="step-body">The strongest bleed self-buff in the game. Apply it from a safe distance before engaging.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="i4"><div><div class="step-title">Boss: Fire Giant — cliff cheese <span class="chip c-cheese">cliff</span></div><div class="step-body">Lure him to the tall rock on the arena's right edge, double-jump down on Torrent, and coax him off the cliff for an instant phase skip (repeat to end phase 2). Or stay under him and frost the ankle. A Stake of Marika at the entrance gives free retries.</div></div></label></li>
+        </ul>
+      </details>
+
+      <details class="phase-group" id="ph-j">
+        <summary><span class="ph-n">J</span><span class="ph-name">Crumbling Farum Azula</span><span class="ph-badge">0/5</span></summary>
+        <ul class="steps">
+          <li><label class="step"><input type="checkbox" id="j1"><div><div class="step-title">Bell Bearings [4]/[5] — max your smithing stones</div><div class="step-body">Smithing-Stone [4] (Godskin Duo drop → Smithing 7–8) and Somberstone [4] &amp; [5] (Tempest-Facing Balcony + a church before the Great Bridge → Somber 7–9). Bring weapons to +25 / +10.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="j2"><div><div class="step-title">Get the Blasphemous Claw <span class="chip c-cheese">parry</span></div><div class="step-body">From Recusant Bernahl (his drop when he invades here, or via his Volcano Manor questline). It parries Maliketh's Black Blade.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="j3"><div><div class="step-title">Boss: Godskin Duo — sleep cheese <span class="chip c-sleep">sleep</span></div><div class="step-body">They share one HP bar. A Sleep pot drops one for free crits while you fight the other; bleed the Apostle, frost the Noble.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="j4"><div><div class="step-title">Boss: Maliketh, the Black Blade <span class="chip c-cheese">claw</span></div><div class="step-body">Use the Blasphemous Claw the instant his sword flashes gold in phase 2 (parries + staggers for a free counter). Otherwise Bloodhound's Step everything, let Mimic mirror your bleed, and punish only his big leaps.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="j5"><div><div class="step-title">Draconic Tree Sentinel <span class="chip c-skip">optional</span></div><div class="step-body">The one by the Great Bridge grace is a wall on foot — bleed it, shield the lightning mace and holy AoE, Mimic splits aggro; or just kite the identical one on the road to Leyndell on Torrent.</div></div></label></li>
+        </ul>
+      </details>
+
+      <details class="phase-group" id="ph-k">
+        <summary><span class="ph-n">K</span><span class="ph-name">Snowfield &amp; Haligtree <span class="chip c-skip">optional</span></span><span class="ph-badge">0/5</span></summary>
+        <ul class="steps">
+          <li><label class="step"><input type="checkbox" id="k1"><div><div class="step-title">Reach the Consecrated Snowfield</div><div class="step-body">Assemble both halves of the Haligtree Secret Medallion (Village of the Albinaurics + Castle Sol).</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="k2"><div><div class="step-title">Ordina, Liturgical Town — light the 4 torches <span class="chip c-cheese">skip</span></div><div class="step-body">Hold the <b>Sentry's Torch</b> to reveal the invisible Black Knife Assassins, or just sprint the rooftops and light the torches — you don't have to fight. Opens the Haligtree.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="k3"><div><div class="step-title">Boss: Commander Niall (Castle Sol) <span class="chip c-frost">frost</span></div><div class="step-body">Delete his two spectral knights first (bleed), then Niall alone is manageable; frostbite staggers his lunges.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="k4"><div><div class="step-title">Max out spirit ashes (Ghost Glovewort)</div><div class="step-body">Miquella's Haligtree holds the top Glovewort tiers — cap your Mimic and Tiche here before Malenia.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="k5"><div><div class="step-title">Boss: Malenia, Blade of Miquella <span class="chip c-frost">the wall</span></div><div class="step-body">The wall of the run. Never trade — she heals on any hit, even your shield or spirit. Frost-stagger her and let Mimic bait Waterfowl Dance; sprint out of the phase-2 rot bloom with Neutralizing Boluses ready. Expect many attempts.</div></div></label></li>
+        </ul>
+      </details>
+
+      <details class="phase-group" id="ph-l">
+        <summary><span class="ph-n">L</span><span class="ph-name">Ashen Capital &amp; Ending</span><span class="ph-badge">0/4</span></summary>
+        <ul class="steps">
+          <li><label class="step"><input type="checkbox" id="l1"><div><div class="step-title">Boss: Sir Gideon Ofnir</div><div class="step-body">He only casts spells you've already "seen." Summon Mimic, close the gap, and bleed him out before he chains sorceries.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="l2"><div><div class="step-title">Boss: Godfrey → Hoarah Loux <span class="chip c-sleep">sleep</span></div><div class="step-body">Sleep-pot opener; shield the stomps, roll the phase-2 grabs, bleed during recovery while your spirit holds aggro.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="l3"><div><div class="step-title">Boss: Radagon of the Golden Order</div><div class="step-body">Frost + bleed him fast; Bloodhound's Step through the hammer slams.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="l4"><div><div class="step-title">Boss: Elden Beast — become Elden Lord at RL1</div><div class="step-body">Chase it (it kites), Corpse Piler when it lands, a maxed Mimic roughly doubles your DPS, and save Cerulean flasks for skill casts.</div></div></label></li>
+        </ul>
+      </details>
+
+      <details class="phase-group" id="ph-m1" open>
+        <summary><span class="ph-n">D1</span><span class="ph-name">Shadow of the Erdtree — Arrival: Gravesite Plain &amp; Belurat</span><span class="ph-badge">0/9</span></summary>
+        <ul class="steps">
+          <li><label class="step"><input type="checkbox" id="m1"><div><div class="step-title">Enter via Mohg's cocoon arm</div><div class="step-body">Requires Mohg + Radahn dead. Interact with the arm at the back of Mohg's arena to be carried into the Land of Shadow.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m2"><div><div class="step-title">★ PRIORITY: start collecting Scadutree Fragments <span class="chip c-cheese">scaling</span></div><div class="step-body">There are <b>50</b> in the Land of Shadow (Blessing caps at 20), and each level is ~+4% damage / +2% defence — your <b>only</b> level-independent scaling here, so this replaces leveling entirely. Around 10 sit in Gravesite Plain alone, enough for Blessing ~5 before your first boss. They cluster near the six Miquella's Crosses, at churches, and by notable corpses. <b>Explore before every fight.</b></div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m3"><div><div class="step-title">Collect Revered Spirit Ashes</div><div class="step-body">25 total, maxing your summon blessing at +10 — the same level-independent boost, but for your Mimic/Tiche. Sweep them up alongside the fragments; a maxed Revered Mimic is your best asset in every hard DLC fight.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m4"><div><div class="step-title">Bloodfiend's Arm — Prospect Town <span class="chip c-bleed">bleed</span></div><div class="step-body">Off an enemy in <span class="loc">Prospect Town</span>, south of Belurat. A heavy weapon with innate bleed — infuse Blood and it becomes a premier RL1 hemorrhage tool, backed now by Scadutree scaling.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m5"><div><div class="step-title">Dried Bouquet (talisman) — Belurat rooftops</div><div class="step-body">Behind a hidden door on the spider rooftops, via a Miquella's Cross. <b>+20% attack for 30s after your Spirit Ash dies</b> — tailor-made for solo RL1, where your Mimic/Tiche will die often.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m6"><div><div class="step-title">Outer God Heirloom (talisman) — Prospect Town rooftop chest</div><div class="step-body">Steadily restores FP, letting you spam Ashes of War and weapon skills without burning Cerulean flasks.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m7"><div><div class="step-title">Savage Lion's Claw (Ash of War) — camp north of Three-Path Cross</div><div class="step-body">From the Three-Path Cross grace, hug the left wall north to a small camp. A powerful early flip-attack skill with strong poise damage — a great default on a non-status weapon.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m8"><div><div class="step-title">Boss: Divine Beast Dancing Lion (Belurat) <span class="chip c-bleed">bleed</span></div><div class="step-body">The first big DLC fight — extremely bleed-weak, almost to the point of cheese. Seppuku before the fog + Redmane Freyja's summon sign, then hemorrhage it as it cycles its lightning/frost/wind phases.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m9"><div><div class="step-title">Claim Ash of War: Divine Beast Frost Stomp <span class="chip c-frost">frost</span></div><div class="step-body">Trade the Dancing Lion's Remembrance at any grace for this — a wide frost AoE. Frostbite staggers and adds +20% damage-taken; it's one of your best RL1 tools for the rest of the DLC.</div></div></label></li>
+        </ul>
+      </details>
+
+      <details class="phase-group" id="ph-m2">
+        <summary><span class="ph-n">D2</span><span class="ph-name">DLC — Castle Ensis &amp; Scadu Altus</span><span class="ph-badge">0/5</span></summary>
+        <ul class="steps">
+          <li><label class="step"><input type="checkbox" id="m10"><div><div class="step-title">Climb to Castle Ensis</div><div class="step-body">North from Gravesite Plain along the ridge (grab the fragments on the way). This legacy dungeon gates the route up to the central plateau.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m11"><div><div class="step-title">Boss: Rellana, Twin Moon Knight</div><div class="step-body">A fast dual-blade duelist. Bleed/frost, Bloodhound's Step through her twin-moon flurry, and let a Revered-buffed Mimic split her aggro. Come in well-blessed.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m12"><div><div class="step-title">Reach Scadu Altus — the central plateau</div><div class="step-body">The DLC's hub and its richest fragment / Revered-ash farm. Sweep it thoroughly <b>before</b> Shadow Keep — every Blessing level you bank here softens the entire back half of the run.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m13"><div><div class="step-title">Great Katana — near the Ghostflame Dragon <span class="chip c-bleed">bleed</span></div><div class="step-body">An open pickup by the Ghostflame Dragon in Scadu Altus. Innate 55 bleed and huge poise damage — a superb RL1 bleed weapon; two-hand it.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m14"><div><div class="step-title">Two-Handed Sword Talisman — Temple Town Ruins</div><div class="step-body">+15% damage while two-handing — free value for the Great Katana or any two-handed bleed weapon. Past the Horned Warrior, up the stairs to the chest.</div></div></label></li>
+        </ul>
+      </details>
+
+      <details class="phase-group" id="ph-m3">
+        <summary><span class="ph-n">D3</span><span class="ph-name">DLC — Shadow Keep</span><span class="ph-badge">0/4</span></summary>
+        <ul class="steps">
+          <li><label class="step"><input type="checkbox" id="m15"><div><div class="step-title">Push through Scadu Altus into Shadow Keep</div><div class="step-body">The DLC's central legacy dungeon. Keep grabbing fragments and Revered ashes inside as you go.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m16"><div><div class="step-title">Boss: Golden Hippopotamus <span class="chip c-bleed">bleed</span></div><div class="step-body">Weak to bleed; it staggers hard the moment its spikes retract — pour on hemorrhage and roll the charges.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m17"><div><div class="step-title">Boss: Messmer the Impaler <span class="chip c-frost">frost</span></div><div class="step-body">The DLC's Maliketh-tier wall. Bring your highest Scadutree Blessing, dodge the snake-spear thrusts with Bloodhound's Step, frost to break him, and burst the stagger windows. Drops <b>Messmer's Kindling</b> — used to burn the sealing tree and open the final regions.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m18"><div><div class="step-title">Boss: Commander Gaius — pillar cheese <span class="chip c-cheese">pillar</span> <span class="chip c-skip">optional</span></div><div class="step-body">At the back of the Keep. Bait his boar charge into the pillar on the right wall to pin him, bleed from behind cover, and break line of sight to reset him onto it.</div></div></label></li>
+        </ul>
+      </details>
+
+      <details class="phase-group" id="ph-m4">
+        <summary><span class="ph-n">D4</span><span class="ph-name">DLC — The Far Reaches <span class="chip c-skip">optional</span></span><span class="ph-badge">0/5</span></summary>
+        <ul class="steps">
+          <li><label class="step"><input type="checkbox" id="m19"><div><div class="step-title">Cerulean Coast &amp; Charo's Hidden Grave → Putrescent Knight <span class="chip c-frost">frost</span></div><div class="step-body">The southern coast is dense with fragments. Putrescent Knight is a spectral-cavalry fight — bleed/frost it while your Mimic tanks; frostbite staggers it.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m20"><div><div class="step-title">Rakshasa's Great Katana — Eastern Nameless Mausoleum <span class="chip c-bleed">bleed</span></div><div class="step-body">Beat Rakshasa for the endgame bleed katana; its Weed Cutter skill hits hard and stacks hemorrhage fast — a straight upgrade for the finale.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m21"><div><div class="step-title">Jagged Peak → Bayle the Dread <span class="chip c-frost">frost</span></div><div class="step-body">Down the south-east dragon path. Bayle is weak to frost &amp; rot and takes big posture damage; summon Igon (his sign) to bait its breath. Optional, but great loot and a Remembrance.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m22"><div><div class="step-title">Abyssal Woods → Midra, Lord of Frenzied Flame <span class="chip c-bleed">bleed</span></div><div class="step-body">Creep past the Winter Lanterns — never let them see you (their song inflicts madness) — to Midra's Manse. Midra himself is a clean bleed fight; dodge the frenzy beams.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m23"><div><div class="step-title">Finger Ruins of Miyr → Metyr, Mother of Fingers</div><div class="step-body">Reached via Count Ymir's questline (Church District). Hug directly underneath her so the star-spray and finger-beams sail overhead; a Revered Mimic pulls aggro.</div></div></label></li>
+        </ul>
+      </details>
+
+      <details class="phase-group" id="ph-m5">
+        <summary><span class="ph-n">D5</span><span class="ph-name">DLC — Finale: Scaduview → Enir-Ilim</span><span class="ph-badge">0/5</span></summary>
+        <ul class="steps">
+          <li><label class="step"><input type="checkbox" id="m24"><div><div class="step-title">Burn the sealing tree → open the Church of the Bud</div><div class="step-body">Use Messmer's Kindling at the Shadow Keep's sealed tree to open Scaduview and the path to the finale.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m25"><div><div class="step-title">Boss: Scadutree Avatar (Scadutree Base) <span class="chip c-skip">optional</span></div><div class="step-body">An optional Remembrance boss — bleed it down. Not required, but the Remembrance and runes are worth the detour.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m26"><div><div class="step-title">Boss: Romina, Saint of the Bud — gate to Enir-Ilim <span class="chip c-bleed">bleed</span></div><div class="step-body">Rot-immune, so bleed her; summon Dryleaf Dane + your Mimic to distract, and keep Neutralizing Boluses ready for the phase-2 rot clouds.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m27"><div><div class="step-title">Max your Scadutree Blessing before the finale <span class="chip c-cheese">scaling</span></div><div class="step-body">Do a final fragment (and Revered-ash) sweep — for Consort Radahn you want your Blessing as close to the cap of 20 as you can get. This is the difference between impossible and doable at RL1.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m28"><div><div class="step-title">Boss: Promised Consort Radahn (Enir-Ilim, finale) <span class="chip c-frost">the summit</span></div><div class="step-body">The hardest fight in the whole game. Max Blessing + a maxed Revered Mimic to bait the phase-2 light-flurry; hug his left, Bloodhound's Step on reaction, and bleed + frost in the brief downtime. Finishing this at Level 1 is the summit of the run.</div></div></label></li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- ================= BOSS CHEAT SHEET ================= -->
+    <section id="bosses" class="reveal">
+      <span class="kicker">Quick reference</span>
+      <h2 class="sec">Boss Cheat-Sheet</h2>
+      <p class="sec-intro">The one-line answer for every major wall. "Summon" always means a maxed Spirit Ash (Mimic or Tiche) plus any NPC signs available.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>Major bosses — the RL1 line</caption>
+          <thead><tr><th>Boss</th><th>Primary tool</th><th>The trick</th></tr></thead>
+          <tbody>
+            <tr><td class="w">Margit / Morgott</td><td><span class="chip c-cheese">shackle</span></td><td>Margit's Shackle for free stuns + bleed between them</td></tr>
+            <tr><td class="w">Great-Jar Duelists</td><td><span class="chip c-cheese">cliff</span></td><td>Lure onto the cliff lip; throw a knife, they fall off</td></tr>
+            <tr><td class="w">Catacomb Chariots</td><td><span class="chip c-cheese">shackle</span></td><td>Shackle spawns the next chariot early → they collide</td></tr>
+            <tr><td class="w">Godrick</td><td><span class="chip c-bleed">bleed</span></td><td>Nepheli + spirit ash split aggro; flank bleed</td></tr>
+            <tr><td class="w">Rennala</td><td><span class="chip c-cheese">gimmick</span></td><td>Knock down students in P1; bleed in P2</td></tr>
+            <tr><td class="w">Radahn (base)</td><td><span class="chip c-cheese">summons</span></td><td>Spam every NPC sign; Torrent hit-and-run</td></tr>
+            <tr><td class="w">Rykard</td><td><span class="chip c-cheese">Serpent-Hunter</span></td><td>Stun-lock from range with the free spear</td></tr>
+            <tr><td class="w">Mimic Tear (boss)</td><td><span class="chip c-cheese">strip</span></td><td>Unequip everything at the fog — it copies nothing</td></tr>
+            <tr><td class="w">Godskin Duo</td><td><span class="chip c-sleep">sleep</span></td><td>Sleep pots down one; focus shared HP bar</td></tr>
+            <tr><td class="w">Fire Giant</td><td><span class="chip c-cheese">cliff</span></td><td>Push him off the ledge, or stay under him + frost the ankle</td></tr>
+            <tr><td class="w">Valiant Gargoyles</td><td><span class="chip c-cheese">cliff</span></td><td>Bait flying lunges over the edge; Tiche splits aggro</td></tr>
+            <tr><td class="w">Maliketh</td><td><span class="chip c-cheese">claw</span></td><td>Blasphemous Claw parries his Black Blade; else bleed + dodge</td></tr>
+            <tr><td class="w">Mohg</td><td><span class="chip c-cheese">tears</span></td><td>Mohg's Shackle + Purifying Tear vs Nihil</td></tr>
+            <tr><td class="w">Malenia</td><td><span class="chip c-frost">frost</span></td><td>Frost-stagger + Mimic baits Waterfowl; never trade</td></tr>
+            <tr><td class="w">Elden Beast</td><td><span class="chip c-bleed">bleed</span></td><td>Maxed Mimic doubles DPS; Corpse Piler on landing</td></tr>
+            <tr><td class="w">Dancing Lion (DLC)</td><td><span class="chip c-bleed">bleed</span></td><td>Seppuku + Freyja summon; bleed melts it fast</td></tr>
+            <tr><td class="w">Rellana (DLC)</td><td><span class="chip c-frost">frost</span></td><td>Bleed/frost; Bloodhound's Step the twin-moon flurry</td></tr>
+            <tr><td class="w">Golden Hippo (DLC)</td><td><span class="chip c-bleed">bleed</span></td><td>Bleed; it staggers hard when the spikes retract</td></tr>
+            <tr><td class="w">Messmer (DLC)</td><td><span class="chip c-frost">frost</span></td><td>High Scadutree; dodge thrusts, burst stagger</td></tr>
+            <tr><td class="w">Commander Gaius (DLC)</td><td><span class="chip c-cheese">pillar</span></td><td>Bait his charge into the pillar; bleed from cover</td></tr>
+            <tr><td class="w">Putrescent Knight (DLC)</td><td><span class="chip c-frost">frost</span></td><td>Frost-stagger; Mimic tanks the cavalry rushes</td></tr>
+            <tr><td class="w">Bayle the Dread (DLC)</td><td><span class="chip c-frost">frost</span></td><td>Frost/rot-weak; summon Igon to bait its breath</td></tr>
+            <tr><td class="w">Midra (DLC)</td><td><span class="chip c-bleed">bleed</span></td><td>Clean bleed fight; sneak past the Winter Lanterns first</td></tr>
+            <tr><td class="w">Romina (DLC)</td><td><span class="chip c-bleed">bleed</span></td><td>Rot-immune — bleed her; Dryleaf Dane + Mimic distract</td></tr>
+            <tr><td class="w">Consort Radahn (DLC)</td><td><span class="chip c-frost">frost</span></td><td>Max Blessing + Revered Mimic baits the light-flurry</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="foot">
+  <p>A linear RL1 (Rune Level 1, Wretched) route for Elden Ring + Shadow of the Erdtree — solo, legit cheese, no glitches. Item locations and stat requirements reflect the current patch; boss tactics assume maxed, Glovewort-upgraded Spirit Ashes and a full flask suite. Sources: Fextralife, Game8, ScreenRant, Escapist, PowerPyx, GameRant, Bandai Namco support. Everything here is doable without exploits — just knowledge, patience, and a lot of bleeding.</p>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Progressive-enhancement reveal
+    if (!reduce && 'IntersectionObserver' in window) {
+      root.classList.add('js-anim');
+      var revIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); revIO.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+      document.querySelectorAll('.reveal').forEach(function (el) { revIO.observe(el); });
+    }
+
+    // Active TOC highlight
+    var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+    var byId = {};
+    links.forEach(function (a) {
+      var id = a.getAttribute('href').slice(1);
+      byId[id] = a;
+      a.addEventListener('click', function () {
+        var t = document.getElementById(id);
+        if (t && t.tagName === 'DETAILS') t.open = true;
+      });
+    });
+    var sections = Object.keys(byId)
+      .map(function (id) { return document.getElementById(id); })
+      .filter(Boolean);
+
+    if ('IntersectionObserver' in window) {
+      var current = null;
+      var navIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            if (current) current.classList.remove('active');
+            var link = byId[e.target.id];
+            if (link) { link.classList.add('active'); current = link; }
+          }
+        });
+      }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+      sections.forEach(function (s) { navIO.observe(s); });
+    }
+
+    // ---- Checklist progress + persistence ----
+    var STORE_KEY = 'er-rl1-checklist-v1';
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('.steps input[type="checkbox"]'));
+    if (boxes.length) {
+      // Map-pin links (Fextralife) injected per step id — anchors inside a <label> navigate without toggling the box
+      var FEX = "https://eldenring.wiki.fextralife.com/";
+      var MAP_URLS = {
+        "a2": FEX + "Whetstone+Knife",
+        "a3": FEX + "Crafting+Kit",
+        "a5": FEX + "Spirit+Calling+Bell",
+        "b1": FEX + "Uchigatana",
+        "b2": FEX + "Reduvia",
+        "b3": FEX + "Margit's+Shackle",
+        "b4": FEX + "Bloodhound's+Fang",
+        "b5": FEX + "Ash+of+War:+Quickstep",
+        "b6": FEX + "Radagon's+Soreseal",
+        "b7": FEX + "Radagon's+Scarseal",
+        "b8": FEX + "Great-Jar's+Arsenal",
+        "b9": FEX + "Somberstone+Miner's+Bell+Bearing+(1)",
+        "b10": FEX + "Lhutel+the+Headless",
+        "b11": FEX + "Golden+Seed",
+        "b13": FEX + "Beast+Crest+Heater+Shield",
+        "b14": FEX + "Smithing-Stone+Miner's+Bell+Bearing+(1)",
+        "c1": FEX + "Margit,+The+Fell+Omen",
+        "c3": FEX + "Iron+Whetblade",
+        "c4": FEX + "Hookclaws",
+        "c5": FEX + "Chrysalids'+Memento",
+        "c6": FEX + "Godrick+the+Grafted",
+        "d1": FEX + "Ash+of+War:+Bloodhound's+Step",
+        "d2": FEX + "Ash+of+War:+Hoarfrost+Stomp",
+        "d3": FEX + "Smithing-Stone+Miner's+Bell+Bearing+(1)",
+        "d4": FEX + "Ranni's+Rise",
+        "d5": FEX + "Caria+Manor",
+        "d6": FEX + "Rennala+Queen+of+the+Full+Moon",
+        "e1": FEX + "Starscourge+Radahn",
+        "e2": FEX + "Black+Knife+Tiche",
+        "e3": FEX + "Mimic+Tear+Ashes",
+        "e4": FEX + "Mimic+Tear",
+        "e5": FEX + "Valiant+Gargoyle",
+        "e6": FEX + "Astel+Naturalborn+of+the+Void",
+        "f1": FEX + "Grand+Lift+of+Dectus",
+        "f2": FEX + "Antspur+Rapier",
+        "f3": FEX + "Bloody+Helice",
+        "f4": FEX + "Kindred+of+Rot's+Exultation",
+        "f5": FEX + "Auriza+Hero's+Grave",
+        "f6": FEX + "Volcano+Manor",
+        "f7": FEX + "Serpent-Hunter",
+        "g1": FEX + "Lord+of+Blood's+Exultation",
+        "g2": FEX + "Fingerprint+Stone+Shield",
+        "g3": FEX + "Erdtree's+Favor",
+        "g4": FEX + "Godfrey,+First+Elden+Lord+(Golden+Shade)",
+        "g5": FEX + "Morgott+the+Omen+King",
+        "h1": FEX + "Mohgwyn+Palace",
+        "h3": FEX + "Mohg,+Lord+of+Blood",
+        "i1": FEX + "Rivers+of+Blood",
+        "i2": FEX + "Smithing-Stone+Miner's+Bell+Bearing+(3)",
+        "i3": FEX + "Ash+of+War:+Seppuku",
+        "i4": FEX + "Fire+Giant",
+        "j1": FEX + "Smithing-Stone+Miner's+Bell+Bearing+(4)",
+        "j2": FEX + "Blasphemous+Claw",
+        "j3": FEX + "Godskin+Duo",
+        "j4": FEX + "Maliketh,+the+Black+Blade",
+        "k1": FEX + "Consecrated+Snowfield",
+        "k2": FEX + "Ordina+Liturgical+Town",
+        "k3": FEX + "Commander+Niall",
+        "k4": FEX + "Miquella's+Haligtree",
+        "k5": FEX + "Malenia+Blade+of+Miquella",
+        "l1": FEX + "Sir+Gideon+Ofnir,+the+All-Knowing+(Boss)",
+        "l2": FEX + "Hoarah+Loux,+Warrior",
+        "l3": FEX + "Radagon+of+the+Golden+Order",
+        "l4": FEX + "Elden+Beast",
+        "m2": FEX + "Scadutree+Fragment",
+        "m3": FEX + "Revered+Spirit+Ash",
+        "m4": FEX + "Bloodfiend's+Arm",
+        "m5": FEX + "Dried+Bouquet",
+        "m6": FEX + "Outer+God+Heirloom",
+        "m7": FEX + "Ash+of+War:+Savage+Lion's+Claw",
+        "m8": FEX + "Divine+Beast+Dancing+Lion",
+        "m9": FEX + "Ash+of+War:+Divine+Beast+Frost+Stomp",
+        "m10": FEX + "Castle+Ensis",
+        "m11": FEX + "Rellana+Twin+Moon+Knight",
+        "m12": FEX + "Scadu+Altus",
+        "m13": FEX + "Great+Katana",
+        "m14": FEX + "Two-Handed+Sword+Talisman",
+        "m15": FEX + "Shadow+Keep",
+        "m16": FEX + "Golden+Hippopotamus",
+        "m17": FEX + "Messmer+the+Impaler",
+        "m18": FEX + "Commander+Gaius",
+        "m19": FEX + "Putrescent+Knight",
+        "m20": FEX + "Rakshasa's+Great+Katana",
+        "m21": FEX + "Bayle+The+Dread",
+        "m22": FEX + "Midra+Lord+of+Frenzied+Flame",
+        "m23": FEX + "Metyr+Mother+of+Fingers",
+        "m24": FEX + "Church+of+the+Bud",
+        "m25": FEX + "Scadutree+Avatar",
+        "m26": FEX + "Romina+Saint+of+the+Bud",
+        "m27": FEX + "Scadutree+Fragment",
+        "m28": FEX + "Promised+Consort+Radahn"
+      };
+      boxes.forEach(function (b) {
+        var url = MAP_URLS[b.id];
+        if (!url) return;
+        var titleEl = b.parentNode && b.parentNode.querySelector('.step-title');
+        if (!titleEl) return;
+        var a = document.createElement('a');
+        a.className = 'map-link';
+        a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+        a.setAttribute('aria-label', 'Open this location on Fextralife (opens in a new tab)');
+        a.innerHTML = '<span class="pin" aria-hidden="true">📍</span>map';
+        a.addEventListener('click', function (e) { e.stopPropagation(); });
+        titleEl.appendChild(a);
+      });
+
+      var saved = {};
+      try { saved = JSON.parse(localStorage.getItem(STORE_KEY) || '{}') || {}; } catch (e) { saved = {}; }
+
+      var doneEl = document.getElementById('cl-done');
+      var totalEl = document.getElementById('cl-total');
+      var fillEl = document.getElementById('cl-fill');
+      var groups = Array.prototype.slice.call(document.querySelectorAll('.phase-group'));
+
+      var persist = function () {
+        var data = {};
+        boxes.forEach(function (b) { if (b.checked) data[b.id] = 1; });
+        try { localStorage.setItem(STORE_KEY, JSON.stringify(data)); } catch (e) {}
+      };
+
+      var refresh = function () {
+        var done = 0;
+        boxes.forEach(function (b) {
+          var step = b.parentNode; // the <label class="step">
+          if (b.checked) { done++; if (step) step.classList.add('done'); }
+          else if (step) step.classList.remove('done');
+        });
+        if (doneEl) doneEl.textContent = done;
+        if (totalEl) totalEl.textContent = boxes.length;
+        if (fillEl) fillEl.style.width = (boxes.length ? (done / boxes.length * 100) : 0).toFixed(1) + '%';
+        groups.forEach(function (g) {
+          var gb = Array.prototype.slice.call(g.querySelectorAll('input[type="checkbox"]'));
+          var gd = gb.filter(function (b) { return b.checked; }).length;
+          var badge = g.querySelector('.ph-badge');
+          if (badge) {
+            badge.textContent = gd + '/' + gb.length;
+            badge.classList.toggle('done', gb.length > 0 && gd === gb.length);
+          }
+        });
+      };
+
+      boxes.forEach(function (b) {
+        if (saved[b.id]) b.checked = true;
+        b.addEventListener('change', function () { persist(); refresh(); });
+      });
+
+      var resetBtn = document.getElementById('cl-reset');
+      if (resetBtn) resetBtn.addEventListener('click', function () {
+        boxes.forEach(function (b) { b.checked = false; });
+        try { localStorage.removeItem(STORE_KEY); } catch (e) {}
+        refresh();
+      });
+
+      refresh();
+    }
+  })();
+</script>
+</body>
+</html>

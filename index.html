@@ -458,8 +458,8 @@
   label.step.done .step-body { opacity: .5; }
   label.step .chip { margin-right: .2rem; }
 
-  /* map-pin links */
-  .map-link {
+  /* step links (wiki entry + map pin) */
+  .step-link {
     display: inline-flex; align-items: center; gap: .22rem;
     font-family: var(--font-mono); font-size: .6rem; letter-spacing: .12em; text-transform: uppercase;
     color: var(--ink-faint); text-decoration: none;
@@ -467,11 +467,11 @@
     vertical-align: middle; white-space: nowrap; line-height: 1.4;
     transition: color .15s, border-color .15s, background .15s;
   }
-  .map-link:hover { color: var(--gold); border-color: var(--gold); background: color-mix(in oklab, var(--gold) 10%, transparent); }
-  .map-link .pin { font-size: .72rem; line-height: 1; filter: grayscale(.15); }
-  .step-title .map-link { margin-left: .5rem; }
-  .step-title .map-link, .step-body .map-link { text-decoration: none; }
-  label.step.done .map-link { opacity: .5; }
+  .step-link:hover { color: var(--gold); border-color: var(--gold); background: color-mix(in oklab, var(--gold) 10%, transparent); }
+  .step-link .pin { font-size: .72rem; line-height: 1; filter: grayscale(.15); }
+  .step-title .step-link { margin-left: .5rem; }
+  .step-title .step-link, .step-body .step-link { text-decoration: none; }
+  label.step.done .step-link { opacity: .5; }
 
   /* reference-section inline links */
   #builds a, .sec-intro a { color: var(--gold); text-underline-offset: 2px; text-decoration-color: color-mix(in oklab, var(--gold) 45%, transparent); }
@@ -922,7 +922,7 @@
     <section id="checklist" class="reveal">
       <span class="kicker">The whole run, one list</span>
       <h2 class="sec">Playthrough Checklist</h2>
-      <p class="sec-intro">Everything is in this single ordered to-do list — it replaces the old region-by-region walkthrough, so there's one place to follow. It's sequenced by the <a href="#power" style="color:var(--gold)">Power Priority</a> above, not tidy geography: the biggest low-risk gains — the Soreseal, an early 100% shield, and weapon upgrades pulled forward via the Liurnia skip — are front-loaded so you meet even the first bosses already maxed for the moment. Tick steps off; progress saves in this browser. Phases tagged <span class="chip c-skip">optional</span> can be skipped on a pure critical path, and each real location carries a 📍 link to its Fextralife page.</p>
+      <p class="sec-intro">Everything is in this single ordered to-do list — it replaces the old region-by-region walkthrough, so there's one place to follow. It's sequenced by the <a href="#power" style="color:var(--gold)">Power Priority</a> above, not tidy geography: the biggest low-risk gains — the Soreseal, an early 100% shield, and weapon upgrades pulled forward via the Liurnia skip — are front-loaded so you meet even the first bosses already maxed for the moment. Tick steps off; progress saves in this browser. Phases tagged <span class="chip c-skip">optional</span> can be skipped on a pure critical path, and each real location carries a 📖 wiki link to its Fextralife page plus a 📍 map link that drops a pin on the exact spot.</p>
 
       <div class="cl-head">
         <div class="cl-count"><b id="cl-done">0</b> / <span id="cl-total">0</span> <span>steps done</span></div>
@@ -1248,7 +1248,9 @@
     if (boxes.length) {
       // Map-pin links (Fextralife) injected per step id — anchors inside a <label> navigate without toggling the box
       var FEX = "https://eldenring.wiki.fextralife.com/";
-      var MAP_URLS = {
+      var MAP = FEX + "Interactive+Map?";
+      // Fextralife entry pages — item / boss / location details.
+      var WIKI_URLS = {
         "a2": FEX + "Whetstone+Knife",
         "a3": FEX + "Crafting+Kit",
         "a5": FEX + "Spirit+Calling+Bell",
@@ -1360,18 +1362,135 @@
         "m27": FEX + "Scadutree+Fragment",
         "m28": FEX + "Promised+Consort+Radahn"
       };
+      // Fextralife interactive-map deep-links — each drops a pin on the exact
+      // spot. Value is the query string after "Interactive+Map?" (an id, plus
+      // the map layer: mapA overworld · mapB underground · mapC Ashen Leyndell
+      // · mapD the DLC Realm of Shadow). A step with no known pin is simply
+      // absent here — it gets a wiki link only.
+      var MAP_PINS = {
+        "a2": "id=363&code=mapA",
+        "a3": "id=4&code=mapA",
+        "a5": "id=467&code=mapA",
+        "b1": "id=846&code=mapA",
+        "b2": "id=1217&code=mapA",
+        "b3": "id=1218&code=mapA",
+        "b4": "id=1757&code=mapA",
+        "b5": "id=1349&code=mapA",
+        "b6": "id=2960&code=mapA",
+        "b7": "id=2455&code=mapA",
+        "b8": "id=5753&code=mapA",
+        "b9": "id=2958&code=mapA",
+        "b10": "id=2501&code=mapA",
+        "b11": "id=520&code=mapA",
+        "b13": "id=711&code=mapA",
+        "b14": "id=1763&code=mapA",
+        "b16": "id=772&code=mapA",
+        "b17": "id=6120&code=mapA",
+        "b18": "id=3178&code=mapA",
+        "b19": "id=2931&code=mapA",
+        "b20": "id=492&code=mapA",
+        "b21": "id=5952&code=mapA",
+        "b22": "id=1810&code=mapA",
+        "b23": "id=708&code=mapA",
+        "b24": "id=602&code=mapA",
+        "c1": "id=1885&code=mapA",
+        "c3": "id=923&code=mapA",
+        "c4": "id=915&code=mapA",
+        "c5": "id=925&code=mapA",
+        "c6": "id=1128&code=mapA",
+        "c7": "id=8351&lat=-173.4375&lng=86.32521&code=mapA",
+        "d1": "id=5930&lat=-160.15&lng=163.5928&code=mapA",
+        "d2": "id=1510&code=mapA",
+        "d3": "id=1763&lat=-124.754688&lng=66.26635&code=mapA",
+        "d4": "id=1802&lat=-106.421875&lng=50.012044&code=mapA",
+        "d5": "id=1518&lat=-107.210937&lng=57.830831&code=mapA",
+        "d6": "id=793&code=mapA",
+        "d8": "id=1321&lat=-145.434375&lng=54.274836&code=mapA",
+        "d9": "id=1860&code=mapA",
+        "e1": "id=2362&code=mapA",
+        "e2": "id=2103&code=mapA",
+        "e3": "id=1898&lat=-183.34687&lng=130.1417&code=mapB",
+        "e4": "id=1565&lat=-188.132812&lng=128.731198&code=mapB",
+        "e5": "id=2976&code=mapB",
+        "e6": "id=3006&code=mapB",
+        "f1": "id=2361&code=mapA",
+        "f2": "id=2204&code=mapA",
+        "f3": "id=5821&code=mapA",
+        "f4": "id=3572&code=mapA",
+        "f5": "id=1159&code=mapA",
+        "f6": "id=1234&code=mapA",
+        "f7": "id=4103&code=mapA",
+        "g1": "id=6693&code=mapA",
+        "g2": "id=4611&code=mapA",
+        "g3": "id=2505&code=mapA",
+        "g4": "id=6667&code=mapA",
+        "g5": "id=3232&code=mapA",
+        "h1": "id=3170&code=mapA",
+        "h3": "id=4677&code=mapB",
+        "h4": "id=4614&code=mapB",
+        "h5": "id=4615&code=mapB",
+        "i1": "id=2762&code=mapA",
+        "i2": "id=3302&code=mapA",
+        "i3": "id=5939&code=mapA",
+        "i4": "id=3552&code=mapA",
+        "j1": "id=4278&code=mapA",
+        "j2": "id=4506&code=mapA",
+        "j3": "id=3967&code=mapA",
+        "j4": "id=4660&code=mapA",
+        "j6": "id=5916&code=mapA",
+        "j7": "id=3355&code=mapA",
+        "k1": "id=2966&code=mapA",
+        "k2": "id=2986&code=mapA",
+        "k3": "id=3807&code=mapA",
+        "k4": "id=4451&code=mapA",
+        "k5": "id=4457&code=mapA",
+        "k6": "id=3364&code=mapA",
+        "k7": "id=8708&code=mapA",
+        "l2": "id=6059&code=mapC",
+        "l3": "id=7661&code=mapC",
+        "l4": "id=7661&code=mapC",
+        "m2": "id=654879&code=mapD",
+        "m3": "id=654837&code=mapD",
+        "m4": "id=659417&code=mapD",
+        "m5": "id=654985&code=mapD",
+        "m6": "id=655235&code=mapD",
+        "m7": "id=654972&code=mapD",
+        "m8": "id=654965&code=mapD",
+        "m10": "id=654991&code=mapD",
+        "m11": "id=655153&code=mapD",
+        "m12": "id=655195&code=mapD",
+        "m13": "id=654989&code=mapD",
+        "m14": "id=655430&code=mapD",
+        "m15": "id=655346&code=mapD",
+        "m16": "id=655342&code=mapD",
+        "m17": "id=655484&code=mapD",
+        "m18": "id=655366&code=mapD",
+        "m19": "id=655538&code=mapD",
+        "m20": "id=655822&code=mapD",
+        "m21": "id=655842&code=mapD",
+        "m22": "id=655461&code=mapD",
+        "m23": "id=655728&code=mapD",
+        "m25": "id=655367&code=mapD",
+        "m26": "id=655463&code=mapD",
+        "m27": "id=659046&code=mapD",
+        "m28": "id=655561&code=mapD"
+      };
+      var mkStepLink = function (href, label, emoji, aria) {
+        var a = document.createElement('a');
+        a.className = 'step-link';
+        a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer';
+        a.setAttribute('aria-label', aria);
+        a.innerHTML = '<span class="pin" aria-hidden="true">' + emoji + '</span>' + label;
+        a.addEventListener('click', function (e) { e.stopPropagation(); });
+        return a;
+      };
       boxes.forEach(function (b) {
-        var url = MAP_URLS[b.id];
-        if (!url) return;
         var titleEl = b.parentNode && b.parentNode.querySelector('.step-title');
         if (!titleEl) return;
-        var a = document.createElement('a');
-        a.className = 'map-link';
-        a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
-        a.setAttribute('aria-label', 'Open this location on Fextralife (opens in a new tab)');
-        a.innerHTML = '<span class="pin" aria-hidden="true">📍</span>map';
-        a.addEventListener('click', function (e) { e.stopPropagation(); });
-        titleEl.appendChild(a);
+        var wiki = WIKI_URLS[b.id];
+        if (wiki) titleEl.appendChild(mkStepLink(wiki, 'wiki', '📖', "Open this step's Fextralife wiki page (opens in a new tab)"));
+        var pin = MAP_PINS[b.id];
+        if (pin) titleEl.appendChild(mkStepLink(MAP + pin, 'map', '📍', 'Show this location on the Fextralife interactive map (opens in a new tab)'));
       });
 
       var saved = {};

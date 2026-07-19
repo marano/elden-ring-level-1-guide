@@ -24,6 +24,15 @@ A single self-contained static page (`index.html`) — an interactive Elden Ring
     grep -q "id=\"$k\"" index.html || echo "ORPHAN WIKI KEY: $k"; done
   for k in $(grep -oE '"[a-z]+[0-9]+": "id=' index.html | grep -oE '[a-z]+[0-9]+'); do
     grep -q "id=\"$k\"" index.html || echo "ORPHAN MAP KEY: $k"; done
+  # every reference-item slug (data-item="…") must have an ITEMS registry entry, and
+  # vice-versa (see "Reference-item links" below):
+  grep -oE '"[a-z0-9-]+": (stepRef|refLink)\(' index.html | grep -oE '"[a-z0-9-]+"' | tr -d '"' | sort -u > /tmp/keys
+  grep -oE 'data-item="[a-z0-9-]+"' index.html | grep -oE '"[a-z0-9-]+"' | tr -d '"' | sort -u > /tmp/slugs
+  comm -23 /tmp/slugs /tmp/keys | sed 's/^/SLUG WITH NO ITEMS ENTRY: /'
+  comm -13 /tmp/slugs /tmp/keys | sed 's/^/UNUSED ITEMS ENTRY: /'
+  # every stepRef("id") must reference a real WIKI_URLS step key:
+  for id in $(grep -oE 'stepRef\("[a-z]+[0-9]+"\)' index.html | grep -oE '[a-z]+[0-9]+'); do
+    grep -q "\"$id\": FEX" index.html || echo "BAD stepRef id: $id"; done
   ```
 
 ## Hard constraint: stay self-contained
@@ -47,6 +56,11 @@ Step ids encode the phase: `a1`,`a2`… / `b1`… / … / `m1`…`m28` (DLC). Th
 2. **Step links** — two objects key off `stepid`: `WIKI_URLS` (`stepid → Fextralife entry-page URL`, via the `FEX` base const) and `MAP_PINS` (`stepid → interactive-map query string` — the part after `Interactive+Map?`, via the `MAP = FEX + "Interactive+Map?"` base const). For each step the script (`mkStepLink` helper) injects up to two `.step-link` anchors (`target="_blank"`) into `.step-title`: a 📖 **wiki** link (the entry page) and a 📍 **map** link (a pin dropped on the exact spot). Each sits inside the `<label>` but, being an `<a>`, navigates without toggling the checkbox. A step absent from an object just gets no such link — a handful have a wiki link but no map pin (the item/boss page has no interactive-map deep-link).
 
 **Editing invariant:** a step's checkbox `id`, its `WIKI_URLS` / `MAP_PINS` keys, and the phase's `ph-badge` "0/N" count must stay in sync, and nav `href="#ph-*"` must match a `phase-group` id. When adding/removing/renumbering steps, update all of these together, then run the sanity check above.
+
+### Reference-item links (the second link system)
+Outside the checklist, the same 📖/📍 pills are injected onto every named **equipment / talisman / spell / armor / rune** shown in the reference tables (`#loadout`, `#attributes`), the Broken-Builds loadout cards, and the prose lists (Power Priority, Cheese Toolkit, the Loadout grab-lists). Mark an item by wrapping its name in an element carrying `data-item="<slug>"` (a `.w` / `td.w` / `.lc-item` / bare `<span>` — any element works; the script reuses the same `mkStepLink` helper and appends the anchors *inside* the marked element). The slug → link mapping lives in one `ITEMS` registry in the script, built two ways: `stepRef("<stepid>")` **reuses** an item's already-verified checklist links (single source of truth — don't re-enter a URL that a step already has), and `refLink(FEX + "Wiki+Title", "id=…&code=mapX" | null)` is for items that never appear as a checklist step (their own verified page + pin; `null` map = wiki-only, for enemy drops / purchases with no world pin). Multi-item cells wrap each concrete item in its own `data-item` span; skills (Corpse Piler…), infusions (Blood/Cold) and generic phrases ("survival talismans") are intentionally left unwrapped, as are explanatory prose cells (the single-stat-ceiling and power-ladder tables). `mkStepLink` wraps its visible label in a `.lbl` span so CSS can hide it: inside a table cell (`td .step-link`) the links render as **bare 📖/📍 icons** — no pill box, no "wiki"/"map" text — so they don't crowd the status `.chip`s; everywhere else (checklist, cards, prose lists) they keep the full labelled pill. The `aria-label` carries the description either way.
+
+**Editing invariant:** every `data-item` slug must have exactly one `ITEMS` entry and vice-versa; every `stepRef("id")` must name a real step. The sanity check above verifies all three. Same item can be marked in several places — they share one registry entry, so links stay consistent.
 
 ### Fextralife URL convention (for new step links)
 **Wiki entry (`WIKI_URLS`):** page path = the exact wiki title with spaces → `+`; apostrophes, hyphens, and parentheses kept literally. **Commas are inconsistent** on Fextralife (kept on some pages, dropped on others) and some titles have quirks (e.g. `Bayle+The+Dread` capitalizes "The"; the boss vs. spirit-ash pages differ). Verify any new URL against the live wiki rather than assuming.

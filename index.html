@@ -514,6 +514,19 @@
   .step-title .step-link, .step-body .step-link { text-decoration: none; }
   label.step.done .step-link { opacity: .5; }
 
+  /* item-reference links (wiki + map) — the same step-link pill, appended after named
+     items in the loadout / attribute / build tables, the build cards, and the prose lists */
+  [data-item] > .step-link { margin-left: .35rem; }
+  .lc-item .step-link { position: relative; top: -.05em; }
+  /* In the dense reference tables the labelled pill boxes crowd the status chips, so
+     there the wiki/map links collapse to bare 📖/📍 icons — no box, no text (the
+     anchor's aria-label still names the destination for screen readers). */
+  td .step-link { border: none; background: none; padding: 0 .1rem; margin-left: .28rem; gap: 0; }
+  td .step-link .lbl { display: none; }
+  td .step-link .pin { font-size: 1rem; filter: none; opacity: .82; transition: opacity .15s; }
+  td .step-link:hover { background: none; }
+  td .step-link:hover .pin { opacity: 1; }
+
   /* reference-section inline links */
   #builds a, .sec-intro a { color: var(--gold); text-underline-offset: 2px; text-decoration-color: color-mix(in oklab, var(--gold) 45%, transparent); }
   #builds a:hover, .sec-intro a:hover { color: var(--gold-bright); text-decoration-color: var(--gold-bright); }
@@ -639,14 +652,14 @@
             <tr><th>Weapon</th><th>Damage identity</th><th>Req (Str/Dex/other)</th><th>Where</th></tr>
           </thead>
           <tbody>
-            <tr><td><span class="w">Uchigatana</span> <span class="chip c-bleed">bleed</span></td><td>All-purpose katana; infuse <b>Blood</b> (+ Seppuku) or <b>Cold</b> for frost. Your workhorse.</td><td class="req">11 / 15</td><td>Pickup in Deathtouched Catacombs, Limgrave (or Samurai start)</td></tr>
-            <tr><td><span class="w">Reduvia</span> <span class="chip c-bleed">bleed</span></td><td>Dagger with a <b>ranged</b> blood projectile skill — snipe bleed from safety.</td><td class="req">5 / 13 / 13 Arc</td><td>Drop from invader Bloody Finger Nerijus, Murkwater area</td></tr>
-            <tr><td><span class="w">Hookclaws</span> <span class="chip c-bleed">bleed</span></td><td>Fast dual claws, feather-light, rapid bleed stacking.</td><td class="req">8 / 14</td><td>Corpse in Stormveil's wine-cellar route</td></tr>
-            <tr><td><span class="w">Bloodhound's Fang</span> <span class="chip c-bleed">bleed</span></td><td>Curved greatsword; its skill is an <b>evasive</b> lunging combo — offense and dodge in one.</td><td class="req">18 / 17</td><td>Bloodhound Knight Darriwil, Forlorn Hound Evergaol (Limgrave)</td></tr>
-            <tr><td><span class="w">Antspur Rapier</span> <span class="chip c-rot">rot</span></td><td>Innate <b>scarlet rot</b>; poke through your shield and let rot tick bosses down.</td><td class="req">10 / 20</td><td>Maleigh Marais, fields near The Shaded Castle (Altus)</td></tr>
-            <tr><td><span class="w">Rivers of Blood</span> <span class="chip c-bleed">bleed</span></td><td>Corpse Piler multi-hit builds bleed absurdly fast — the classic RL1 finisher even under-requirement.</td><td class="req">12 / 18 / 20 Arc</td><td>Bloody Finger Okina, Church of Repose (Mountaintops)</td></tr>
-            <tr><td><span class="w">Bloody Helice</span> <span class="chip c-bleed">bleed</span></td><td>Heavy thrusting sword; evasive skill (Dynast's Finesse) + strong bleed. Community RL1 favorite.</td><td class="req">16 / 19 / 17 Arc</td><td>Chest behind Sanguine Noble, Writheblood Ruins (Altus)</td></tr>
-            <tr><td><span class="w">Serpent-Hunter</span> <span class="chip c-cheese">special</span></td><td>Great spear that ignores stats; its skill stuns Rykard on hit. <b>Trivializes that boss.</b></td><td class="req">— none —</td><td>Corpse in Rykard's boss room, Volcano Manor</td></tr>
+            <tr><td><span class="w" data-item="uchigatana">Uchigatana</span> <span class="chip c-bleed">bleed</span></td><td>All-purpose katana; infuse <b>Blood</b> (+ Seppuku) or <b>Cold</b> for frost. Your workhorse.</td><td class="req">11 / 15</td><td>Pickup in Deathtouched Catacombs, Limgrave (or Samurai start)</td></tr>
+            <tr><td><span class="w" data-item="reduvia">Reduvia</span> <span class="chip c-bleed">bleed</span></td><td>Dagger with a <b>ranged</b> blood projectile skill — snipe bleed from safety.</td><td class="req">5 / 13 / 13 Arc</td><td>Drop from invader Bloody Finger Nerijus, Murkwater area</td></tr>
+            <tr><td><span class="w" data-item="hookclaws">Hookclaws</span> <span class="chip c-bleed">bleed</span></td><td>Fast dual claws, feather-light, rapid bleed stacking.</td><td class="req">8 / 14</td><td>Corpse in Stormveil's wine-cellar route</td></tr>
+            <tr><td><span class="w" data-item="bloodhounds-fang">Bloodhound's Fang</span> <span class="chip c-bleed">bleed</span></td><td>Curved greatsword; its skill is an <b>evasive</b> lunging combo — offense and dodge in one.</td><td class="req">18 / 17</td><td>Bloodhound Knight Darriwil, Forlorn Hound Evergaol (Limgrave)</td></tr>
+            <tr><td><span class="w" data-item="antspur-rapier">Antspur Rapier</span> <span class="chip c-rot">rot</span></td><td>Innate <b>scarlet rot</b>; poke through your shield and let rot tick bosses down.</td><td class="req">10 / 20</td><td>Maleigh Marais, fields near The Shaded Castle (Altus)</td></tr>
+            <tr><td><span class="w" data-item="rivers-of-blood">Rivers of Blood</span> <span class="chip c-bleed">bleed</span></td><td>Corpse Piler multi-hit builds bleed absurdly fast — the classic RL1 finisher even under-requirement.</td><td class="req">12 / 18 / 20 Arc</td><td>Bloody Finger Okina, Church of Repose (Mountaintops)</td></tr>
+            <tr><td><span class="w" data-item="bloody-helice">Bloody Helice</span> <span class="chip c-bleed">bleed</span></td><td>Heavy thrusting sword; evasive skill (Dynast's Finesse) + strong bleed. Community RL1 favorite.</td><td class="req">16 / 19 / 17 Arc</td><td>Chest behind Sanguine Noble, Writheblood Ruins (Altus)</td></tr>
+            <tr><td><span class="w" data-item="serpent-hunter">Serpent-Hunter</span> <span class="chip c-cheese">special</span></td><td>Great spear that ignores stats; its skill stuns Rykard on hit. <b>Trivializes that boss.</b></td><td class="req">— none —</td><td>Corpse in Rykard's boss room, Volcano Manor</td></tr>
           </tbody>
         </table>
       </div>
@@ -658,16 +671,16 @@
             <tr><th>Talisman</th><th>What it does at RL1</th><th>Where</th></tr>
           </thead>
           <tbody>
-            <tr><td><span class="w">Radagon's Soreseal</span></td><td>+5 Vig/End/Str/Dex. ~26% HP and the stats to wield your kit. It <b>adds +15% damage taken</b>, but the HP and stats far outweigh it. <b>Cornerstone.</b></td><td>Fort Faroth, Caelid (also has a Golden Seed + a Dectus Medallion half)</td></tr>
-            <tr><td><span class="w">Radagon's Scarseal</span></td><td>Weaker Soreseal (+3 stats, –10% def). Use as a stand-in until you can reach Caelid.</td><td>Weeping Peninsula (Fourth Church / Evergaol area)</td></tr>
-            <tr><td><span class="w">Lord of Blood's Exultation</span></td><td>+20% attack for ~20s whenever blood loss procs nearby. Pairs with any bleed weapon.</td><td>Esgar, Priest of Blood — Leyndell Catacombs</td></tr>
-            <tr><td><span class="w">Kindred of Rot's Exultation</span></td><td>+20% attack near poison/rot procs. The rot-build twin of the above.</td><td>Kindred of Rot, Seethewater Cave (Mt. Gelmir)</td></tr>
-            <tr><td><span class="w">Rotten Winged Sword Insignia</span></td><td>Successive hits ramp your attack hard — huge on fast weapons (Hookclaws, Corpse Piler).</td><td>End of Millicent's questline</td></tr>
-            <tr><td><span class="w">Shard of Alexander</span></td><td>+15% weapon-skill damage — boosts Corpse Piler, Bloodhound's Finesse, Ash-of-War spam.</td><td>End of Iron Fist Alexander's questline</td></tr>
-            <tr><td><span class="w">Great-Jar's Arsenal</span></td><td>+19% equip load — wear heavier armor for poise and absorption without over-encumbering.</td><td>Great-Jar's three duels, Dragonbarrow (Caelid)</td></tr>
-            <tr><td><span class="w">Old Lord's Talisman</span></td><td>+30% duration on <b>spells</b> — stretches Frozen Armament, Bloodflame Blade, Flame Grant Me Strength &amp; the rot/poison breaths. (Does <em>not</em> extend Ash-of-War buffs like Seppuku or Golden Vow.)</td><td>Crumbling Farum Azula (Dragon Temple rooftop chest)</td></tr>
-            <tr><td><span class="w">Ritual Sword Talisman</span></td><td>+10% attack while at <b>full HP</b> — near-free damage for a shield-and-poke turtle who rarely gets hit.</td><td>Lux Ruins, Altus Plateau (behind Demi-Human Queen Gilika)</td></tr>
-            <tr><td><span class="w">Godfrey Icon</span></td><td>+15% to <b>charged</b> skills &amp; spells — boosts a charged Corpse Piler, charged Ashes of War, or a charged Rotten Breath's damage.</td><td>Godefroy the Grafted, Golden Lineage Evergaol (Altus)</td></tr>
+            <tr><td><span class="w" data-item="radagons-soreseal">Radagon's Soreseal</span></td><td>+5 Vig/End/Str/Dex. ~26% HP and the stats to wield your kit. It <b>adds +15% damage taken</b>, but the HP and stats far outweigh it. <b>Cornerstone.</b></td><td>Fort Faroth, Caelid (also has a Golden Seed + a Dectus Medallion half)</td></tr>
+            <tr><td><span class="w" data-item="radagons-scarseal">Radagon's Scarseal</span></td><td>Weaker Soreseal (+3 stats, –10% def). Use as a stand-in until you can reach Caelid.</td><td>Weeping Peninsula (Fourth Church / Evergaol area)</td></tr>
+            <tr><td><span class="w" data-item="lord-of-bloods-exultation">Lord of Blood's Exultation</span></td><td>+20% attack for ~20s whenever blood loss procs nearby. Pairs with any bleed weapon.</td><td>Esgar, Priest of Blood — Leyndell Catacombs</td></tr>
+            <tr><td><span class="w" data-item="kindred-of-rots-exultation">Kindred of Rot's Exultation</span></td><td>+20% attack near poison/rot procs. The rot-build twin of the above.</td><td>Kindred of Rot, Seethewater Cave (Mt. Gelmir)</td></tr>
+            <tr><td><span class="w" data-item="rotten-winged-sword-insignia">Rotten Winged Sword Insignia</span></td><td>Successive hits ramp your attack hard — huge on fast weapons (Hookclaws, Corpse Piler).</td><td>End of Millicent's questline</td></tr>
+            <tr><td><span class="w" data-item="shard-of-alexander">Shard of Alexander</span></td><td>+15% weapon-skill damage — boosts Corpse Piler, Bloodhound's Finesse, Ash-of-War spam.</td><td>End of Iron Fist Alexander's questline</td></tr>
+            <tr><td><span class="w" data-item="great-jars-arsenal">Great-Jar's Arsenal</span></td><td>+19% equip load — wear heavier armor for poise and absorption without over-encumbering.</td><td>Great-Jar's three duels, Dragonbarrow (Caelid)</td></tr>
+            <tr><td><span class="w" data-item="old-lords-talisman">Old Lord's Talisman</span></td><td>+30% duration on <b>spells</b> — stretches Frozen Armament, Bloodflame Blade, Flame Grant Me Strength &amp; the rot/poison breaths. (Does <em>not</em> extend Ash-of-War buffs like Seppuku or Golden Vow.)</td><td>Crumbling Farum Azula (Dragon Temple rooftop chest)</td></tr>
+            <tr><td><span class="w" data-item="ritual-sword-talisman">Ritual Sword Talisman</span></td><td>+10% attack while at <b>full HP</b> — near-free damage for a shield-and-poke turtle who rarely gets hit.</td><td>Lux Ruins, Altus Plateau (behind Demi-Human Queen Gilika)</td></tr>
+            <tr><td><span class="w" data-item="godfrey-icon">Godfrey Icon</span></td><td>+15% to <b>charged</b> skills &amp; spells — boosts a charged Corpse Piler, charged Ashes of War, or a charged Rotten Breath's damage.</td><td>Godefroy the Grafted, Golden Lineage Evergaol (Altus)</td></tr>
           </tbody>
         </table>
       </div>
@@ -679,13 +692,13 @@
             <tr><th>Spell</th><th>Req</th><th>What it does at RL1</th><th>Where</th></tr>
           </thead>
           <tbody>
-            <tr><td><span class="w">Flame, Grant Me Strength</span> <span class="chip c-cheese">buff</span></td><td class="req">15 Fai</td><td><b>+20% physical &amp; fire attack</b> for 30s — a flat buff for any melee build, no scaling needed.</td><td>Fort Gael, Caelid <span class="mini">· incant</span></td></tr>
-            <tr><td><span class="w">Bloodflame Blade</span> <span class="chip c-bleed">bleed</span></td><td class="req">12 Fai / 10 Arc</td><td>Enchants your weapon with <b>bleed</b> (+ fire) — puts hemorrhage on a non-bleed weapon you like.</td><td>Teardrop Scarab, Liurnia <span class="mini">· incant</span></td></tr>
-            <tr><td><span class="w">Rotten Breath</span> <span class="chip c-rot">rot</span></td><td class="req">15 Fai / 12 Arc</td><td>Scarlet-rot cloud from range — the workhorse status caster; buffed by Kindred of Rot's Exultation.</td><td>Cathedral of Dragon Communion, Caelid <span class="mini">· incant</span></td></tr>
-            <tr><td><span class="w">Poison Mist</span> <span class="chip c-rot">poison</span></td><td class="req">12 Fai</td><td>Poison cloud — stacks a second damage-over-time bar alongside rot.</td><td>Weeping Peninsula <span class="mini">· incant</span></td></tr>
-            <tr><td><span class="w">Swarm of Flies</span> <span class="chip c-bleed">bleed</span></td><td class="req">16 Arc / 11 Fai</td><td>Blood-fly swarm that builds <b>bleed</b>. Arc 16 needs the full 20-cap (Marika's Soreseal <b>+</b> Godrick's Great Rune).</td><td>Mohgwyn Palace <span class="mini">· incant</span></td></tr>
-            <tr><td><span class="w">Black Flame</span> <span class="chip c-cheese">%HP burn</span></td><td class="req">20 Fai</td><td>Black-fire burst plus a burn that ticks <b>~2.5% of the target's <em>max</em> HP</b> over 2s — it partly ignores your low damage, so it bites hardest on big boss bars. Faith 20 is the full Marika's + Godrick's stack, making it an <b>endgame</b> unlock (same tier as Swarm of Flies).</td><td>Godskin Prayerbook (Stormveil, Rampart Tower — needs a Stonesword Key) → give to Corhyn/Miriel <span class="mini">· incant</span></td></tr>
-            <tr><td><span class="w">Frozen Armament</span> <span class="chip c-frost">frost</span></td><td class="req">15 Int</td><td>Enchants your weapon with <b>frost</b> (63 buildup) for 60s — frostbite bursts HP and adds +20% damage taken.</td><td>Caria Manor (after Loretta) <span class="mini">· sorcery</span></td></tr>
+            <tr><td><span class="w" data-item="flame-grant-me-strength">Flame, Grant Me Strength</span> <span class="chip c-cheese">buff</span></td><td class="req">15 Fai</td><td><b>+20% physical &amp; fire attack</b> for 30s — a flat buff for any melee build, no scaling needed.</td><td>Fort Gael, Caelid <span class="mini">· incant</span></td></tr>
+            <tr><td><span class="w" data-item="bloodflame-blade">Bloodflame Blade</span> <span class="chip c-bleed">bleed</span></td><td class="req">12 Fai / 10 Arc</td><td>Enchants your weapon with <b>bleed</b> (+ fire) — puts hemorrhage on a non-bleed weapon you like.</td><td>Teardrop Scarab, Liurnia <span class="mini">· incant</span></td></tr>
+            <tr><td><span class="w" data-item="rotten-breath">Rotten Breath</span> <span class="chip c-rot">rot</span></td><td class="req">15 Fai / 12 Arc</td><td>Scarlet-rot cloud from range — the workhorse status caster; buffed by Kindred of Rot's Exultation.</td><td>Cathedral of Dragon Communion, Caelid <span class="mini">· incant</span></td></tr>
+            <tr><td><span class="w" data-item="poison-mist">Poison Mist</span> <span class="chip c-rot">poison</span></td><td class="req">12 Fai</td><td>Poison cloud — stacks a second damage-over-time bar alongside rot.</td><td>Weeping Peninsula <span class="mini">· incant</span></td></tr>
+            <tr><td><span class="w" data-item="swarm-of-flies">Swarm of Flies</span> <span class="chip c-bleed">bleed</span></td><td class="req">16 Arc / 11 Fai</td><td>Blood-fly swarm that builds <b>bleed</b>. Arc 16 needs the full 20-cap (Marika's Soreseal <b>+</b> Godrick's Great Rune).</td><td>Mohgwyn Palace <span class="mini">· incant</span></td></tr>
+            <tr><td><span class="w" data-item="black-flame">Black Flame</span> <span class="chip c-cheese">%HP burn</span></td><td class="req">20 Fai</td><td>Black-fire burst plus a burn that ticks <b>~2.5% of the target's <em>max</em> HP</b> over 2s — it partly ignores your low damage, so it bites hardest on big boss bars. Faith 20 is the full Marika's + Godrick's stack, making it an <b>endgame</b> unlock (same tier as Swarm of Flies).</td><td>Godskin Prayerbook (Stormveil, Rampart Tower — needs a Stonesword Key) → give to Corhyn/Miriel <span class="mini">· incant</span></td></tr>
+            <tr><td><span class="w" data-item="frozen-armament">Frozen Armament</span> <span class="chip c-frost">frost</span></td><td class="req">15 Int</td><td>Enchants your weapon with <b>frost</b> (63 buildup) for 60s — frostbite bursts HP and adds +20% damage taken.</td><td>Caria Manor (after Loretta) <span class="mini">· sorcery</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -699,34 +712,34 @@
           <caption>Ashes of War — skills that ignore your level (no stat needed to use)</caption>
           <thead><tr><th>Ash of War</th><th>What it does at RL1</th><th>Where</th></tr></thead>
           <tbody>
-            <tr><td><span class="w">Bloodhound's Step</span> <span class="chip c-cheese">dodge</span></td><td>Near-invincible evasion dash — the best defensive tool in the game.</td><td>Night's Cavalry (night), Liurnia</td></tr>
-            <tr><td><span class="w">Seppuku</span> <span class="chip c-bleed">bleed</span></td><td>Self-buff adding <b>+80 flat bleed buildup</b> (~60s) — the biggest hemorrhage multiplier. Costs HP; apply from safety.</td><td>Teardrop Scarab, Mountaintops</td></tr>
-            <tr><td><span class="w">Hoarfrost Stomp</span> <span class="chip c-frost">frost</span></td><td>Ranged frost AoE; frostbite adds +20% damage taken. No Int or staff needed.</td><td>Teardrop Scarab, Liurnia swamp</td></tr>
-            <tr><td><span class="w">Golden Vow</span> <span class="chip c-cheese">buff</span></td><td>+11.5% attack &amp; +7.5% negation to <b>you and your summon</b>, 45s. The stat-free form of the Faith-25 incantation.</td><td>Godrick Knight, Limgrave (near Warmaster's Shack)</td></tr>
-            <tr><td><span class="w">Determination</span> <span class="chip c-cheese">burst</span></td><td>Next landing hit <b>+60%</b>. Load a charged heavy or a critical.</td><td>Teardrop Scarab, Limgrave (NE of Agheel Lake)</td></tr>
-            <tr><td><span class="w">Royal Knight's Resolve</span> <span class="chip c-cheese">burst</span></td><td>Next hit <b>+80%</b> plus huge stance damage — the bigger sibling of Determination.</td><td>Temple of Eiglay, Volcano Manor</td></tr>
-            <tr><td><span class="w">Barricade Shield</span> <span class="chip c-cheese">turtle</span></td><td>Hardens your shield — deflects attacks and roughly halves block stamina cost (~10s).</td><td>Night's Cavalry, Weeping Peninsula</td></tr>
-            <tr><td><span class="w">Cragblade</span> <span class="chip c-cheese">flat</span></td><td>Flat +15% <em>physical</em> attack, 60s — a stat-free damage buff for a non-status weapon.</td><td>Teardrop Scarab, Caelid</td></tr>
+            <tr><td><span class="w" data-item="bloodhounds-step">Bloodhound's Step</span> <span class="chip c-cheese">dodge</span></td><td>Near-invincible evasion dash — the best defensive tool in the game.</td><td>Night's Cavalry (night), Liurnia</td></tr>
+            <tr><td><span class="w" data-item="seppuku">Seppuku</span> <span class="chip c-bleed">bleed</span></td><td>Self-buff adding <b>+80 flat bleed buildup</b> (~60s) — the biggest hemorrhage multiplier. Costs HP; apply from safety.</td><td>Teardrop Scarab, Mountaintops</td></tr>
+            <tr><td><span class="w" data-item="hoarfrost-stomp">Hoarfrost Stomp</span> <span class="chip c-frost">frost</span></td><td>Ranged frost AoE; frostbite adds +20% damage taken. No Int or staff needed.</td><td>Teardrop Scarab, Liurnia swamp</td></tr>
+            <tr><td><span class="w" data-item="golden-vow">Golden Vow</span> <span class="chip c-cheese">buff</span></td><td>+11.5% attack &amp; +7.5% negation to <b>you and your summon</b>, 45s. The stat-free form of the Faith-25 incantation.</td><td>Godrick Knight, Limgrave (near Warmaster's Shack)</td></tr>
+            <tr><td><span class="w" data-item="determination">Determination</span> <span class="chip c-cheese">burst</span></td><td>Next landing hit <b>+60%</b>. Load a charged heavy or a critical.</td><td>Teardrop Scarab, Limgrave (NE of Agheel Lake)</td></tr>
+            <tr><td><span class="w" data-item="royal-knights-resolve">Royal Knight's Resolve</span> <span class="chip c-cheese">burst</span></td><td>Next hit <b>+80%</b> plus huge stance damage — the bigger sibling of Determination.</td><td>Temple of Eiglay, Volcano Manor</td></tr>
+            <tr><td><span class="w" data-item="barricade-shield">Barricade Shield</span> <span class="chip c-cheese">turtle</span></td><td>Hardens your shield — deflects attacks and roughly halves block stamina cost (~10s).</td><td>Night's Cavalry, Weeping Peninsula</td></tr>
+            <tr><td><span class="w" data-item="cragblade">Cragblade</span> <span class="chip c-cheese">flat</span></td><td>Flat +15% <em>physical</em> attack, 60s — a stat-free damage buff for a non-status weapon.</td><td>Teardrop Scarab, Caelid</td></tr>
           </tbody>
         </table>
       </div>
 
       <h3 class="sub">Defense & utility kit</h3>
       <ul class="grab">
-        <li><span class="item">A 100%-physical-block shield with a low Str requirement</span> <span class="where">— e.g. the Beast Crest Heater Shield (Str 8). Block-and-poke is your safety net against physical bosses.</span></li>
-        <li><span class="item">Quickstep → Bloodhound's Step</span> <span class="where">— evasion Ashes of War with generous i-frames. Bloodhound's Step is the single best defensive tool in the game.</span></li>
-        <li><span class="item">Seppuku (Ash of War)</span> <span class="where">— self-inflicts bleed to massively boost your weapon's bleed damage. Use carefully with your small health bar; re-apply from a safe distance.</span></li>
+        <li><span class="item">A 100%-physical-block shield with a low Str requirement</span> <span class="where">— e.g. the <span data-item="beast-crest-heater-shield">Beast Crest Heater Shield</span> (Str 8). Block-and-poke is your safety net against physical bosses.</span></li>
+        <li><span class="item"><span data-item="quickstep">Quickstep</span> → <span data-item="bloodhounds-step">Bloodhound's Step</span></span> <span class="where">— evasion Ashes of War with generous i-frames. Bloodhound's Step is the single best defensive tool in the game.</span></li>
+        <li><span class="item"><span data-item="seppuku">Seppuku</span> (Ash of War)</span> <span class="where">— self-inflicts bleed to massively boost your weapon's bleed damage. Use carefully with your small health bar; re-apply from a safe distance.</span></li>
         <li><span class="item">Greases</span> <span class="where">— Blood Grease / Rot Grease let any weapon carry status. Freezing / Fire Grease for weakness targets.</span></li>
         <li><span class="item">Status pots &amp; bone arrows</span> <span class="where">— your zero-requirement "cast status from range": Rot/Poison/Sleep pots and Rotbone/Poisonbone/Sleepbone/Bloodbone arrows all proc full status with no stat needed. See <a href="#builds">Broken Builds</a>.</span></li>
         <li><span class="item">Cure boluses</span> <span class="where">— Stanching (bleed), Neutralizing (rot/poison), Thawfrost Boluses. Craft a full stack — a status proc on you at RL1 is lethal.</span></li>
-        <li><span class="item">Pickled Turtle Neck &amp; Immunizing Cured Meat</span> <span class="where">— stamina regen and status resistance; keep both active for hard fights.</span></li>
+        <li><span class="item"><span data-item="pickled-turtle-neck">Pickled Turtle Neck</span> &amp; <span data-item="immunizing-cured-meat">Immunizing Cured Meat</span></span> <span class="where">— stamina regen and status resistance; keep both active for hard fights.</span></li>
       </ul>
 
       <h3 class="sub">Spirit Ashes worth upgrading</h3>
       <ul class="grab">
-        <li><span class="item">Lhutel the Headless</span> <span class="where">— early, tanky, teleports and throws spears. Superb aggro-sponge from the Weeping Peninsula catacombs.</span></li>
-        <li><span class="item">Black Knife Tiche</span> <span class="where">— late-game elite; high damage and a HP-cutting effect. Ringleader's Evergaol, Moonlight Altar (Liurnia).</span></li>
-        <li><span class="item">Mimic Tear</span> <span class="where">— copies your gear, so it applies your bleed/rot a second time. Weak health at RL1 but a great status-stacking distraction.</span></li>
+        <li><span class="item" data-item="lhutel">Lhutel the Headless</span> <span class="where">— early, tanky, teleports and throws spears. Superb aggro-sponge from the Weeping Peninsula catacombs.</span></li>
+        <li><span class="item" data-item="black-knife-tiche">Black Knife Tiche</span> <span class="where">— late-game elite; high damage and a HP-cutting effect. Ringleader's Evergaol, Moonlight Altar (Liurnia).</span></li>
+        <li><span class="item" data-item="mimic-tear-ashes">Mimic Tear</span> <span class="where">— copies your gear, so it applies your bleed/rot a second time. Weak health at RL1 but a great status-stacking distraction.</span></li>
         <li><span class="where">Upgrade all of them with Grave/Ghost Glovewort — hand Roderika your Chrysalids' Memento to unlock ash-tuning at the Roundtable Hold.</span></li>
       </ul>
     </section>
@@ -763,13 +776,13 @@
           <caption>Stat armor worth a slot — to reach a requirement</caption>
           <thead><tr><th>Piece</th><th>Bonus</th><th>Cost / downside</th><th>Where · what it reaches</th></tr></thead>
           <tbody>
-            <tr><td class="w">Silver Tear Mask</td><td class="req">+8 Arc</td><td>head · −5% physical</td><td>Nokron (Mimic Tear) · Rivers of Blood (Arc 20), Swarm of Flies (16)</td></tr>
-            <tr><td class="w">Mask of Confidence</td><td class="req">+3 Arc</td><td>head · none</td><td>Inverted Carian Study Hall · cheap Arcane, no penalty</td></tr>
-            <tr><td class="w">Thiollier's Garb <span class="chip c-skip">DLC</span></td><td class="req">+2 Arc</td><td><b>chest</b> · none</td><td>Thiollier's body, Enir-Ilim · the only off-head stat piece — pairs with the White Mask</td></tr>
-            <tr><td class="w">Horned Warrior Helm <span class="chip c-skip">DLC</span></td><td class="req">+5 Str</td><td>head · −7% flask</td><td>Horned Warriors · heavy-weapon Str reqs (×1.5 two-handed)</td></tr>
-            <tr><td class="w">Curseblade Mask <span class="chip c-skip">DLC</span></td><td class="req">+5 Dex</td><td>head · −7% flask</td><td>Curseblade enemies · high-Dex katanas &amp; thrusting swords</td></tr>
-            <tr><td class="w">Twinsage Glintstone Crown</td><td class="req">+6 Int</td><td>head · −9% HP &amp; stamina</td><td>Raya Lucaria (Crystal Crab) · Int spell thresholds</td></tr>
-            <tr><td class="w">Preceptor's Big Hat</td><td class="req">+3 Mnd</td><td>head · −9% stamina</td><td>Seluvis's Rise · a bigger FP pool for casting</td></tr>
+            <tr><td class="w" data-item="silver-tear-mask">Silver Tear Mask</td><td class="req">+8 Arc</td><td>head · −5% physical</td><td>Nokron (Mimic Tear) · Rivers of Blood (Arc 20), Swarm of Flies (16)</td></tr>
+            <tr><td class="w" data-item="mask-of-confidence">Mask of Confidence</td><td class="req">+3 Arc</td><td>head · none</td><td>Inverted Carian Study Hall · cheap Arcane, no penalty</td></tr>
+            <tr><td class="w" data-item="thiolliers-garb">Thiollier's Garb <span class="chip c-skip">DLC</span></td><td class="req">+2 Arc</td><td><b>chest</b> · none</td><td>Thiollier's body, Enir-Ilim · the only off-head stat piece — pairs with the White Mask</td></tr>
+            <tr><td class="w" data-item="horned-warrior-helm">Horned Warrior Helm <span class="chip c-skip">DLC</span></td><td class="req">+5 Str</td><td>head · −7% flask</td><td>Horned Warriors · heavy-weapon Str reqs (×1.5 two-handed)</td></tr>
+            <tr><td class="w" data-item="curseblade-mask">Curseblade Mask <span class="chip c-skip">DLC</span></td><td class="req">+5 Dex</td><td>head · −7% flask</td><td>Curseblade enemies · high-Dex katanas &amp; thrusting swords</td></tr>
+            <tr><td class="w" data-item="twinsage-glintstone-crown">Twinsage Glintstone Crown</td><td class="req">+6 Int</td><td>head · −9% HP &amp; stamina</td><td>Raya Lucaria (Crystal Crab) · Int spell thresholds</td></tr>
+            <tr><td class="w" data-item="preceptors-big-hat">Preceptor's Big Hat</td><td class="req">+3 Mnd</td><td>head · −9% stamina</td><td>Seluvis's Rise · a bigger FP pool for casting</td></tr>
           </tbody>
         </table>
       </div>
@@ -800,12 +813,12 @@
           <caption>Great Runes ranked for a no-level run</caption>
           <thead><tr><th>Great Rune</th><th>Effect at RL1</th><th>Restore at</th><th>Best for</th></tr></thead>
           <tbody>
-            <tr><td class="w">Godrick's</td><td><b>+5 to every attribute</b> — reqs, casting, extra HP &amp; stamina</td><td>Divine Tower of Limgrave</td><td>The default; your only route to all-stats-20</td></tr>
-            <tr><td class="w">Morgott's</td><td>+25% maximum HP</td><td>Divine Tower of East Altus</td><td>Pure-survival walls (Malenia, Consort Radahn)</td></tr>
-            <tr><td class="w">Radahn's</td><td>+15% HP / FP / Stamina</td><td>Divine Tower of Caelid</td><td>More stamina for shield-and-poke; grab it while in Caelid</td></tr>
-            <tr><td class="w">Mohg's</td><td>Blesses your summons — heals &amp; buffs your Spirit Ash</td><td>Divine Tower of East Altus</td><td>Spirit-ash carry runs</td></tr>
-            <tr><td class="w">Rykard's</td><td>Restores HP on every kill</td><td>Divine Tower of West Altus</td><td>Trash-heavy stretches, add clears</td></tr>
-            <tr><td class="w">Malenia's</td><td>Lifesteal on hits — but only after you take damage</td><td>Isolated Divine Tower</td><td>Risky at RL1; generally skip</td></tr>
+            <tr><td class="w" data-item="godricks-great-rune">Godrick's</td><td><b>+5 to every attribute</b> — reqs, casting, extra HP &amp; stamina</td><td>Divine Tower of Limgrave</td><td>The default; your only route to all-stats-20</td></tr>
+            <tr><td class="w" data-item="morgotts-great-rune">Morgott's</td><td>+25% maximum HP</td><td>Divine Tower of East Altus</td><td>Pure-survival walls (Malenia, Consort Radahn)</td></tr>
+            <tr><td class="w" data-item="radahns-great-rune">Radahn's</td><td>+15% HP / FP / Stamina</td><td>Divine Tower of Caelid</td><td>More stamina for shield-and-poke; grab it while in Caelid</td></tr>
+            <tr><td class="w" data-item="mohgs-great-rune">Mohg's</td><td>Blesses your summons — heals &amp; buffs your Spirit Ash</td><td>Divine Tower of East Altus</td><td>Spirit-ash carry runs</td></tr>
+            <tr><td class="w" data-item="rykards-great-rune">Rykard's</td><td>Restores HP on every kill</td><td>Divine Tower of West Altus</td><td>Trash-heavy stretches, add clears</td></tr>
+            <tr><td class="w" data-item="malenias-great-rune">Malenia's</td><td>Lifesteal on hits — but only after you take damage</td><td>Isolated Divine Tower</td><td>Risky at RL1; generally skip</td></tr>
           </tbody>
         </table>
       </div>
@@ -887,13 +900,13 @@
             <span class="lc-stats">Str/Dex 15→20 <span class="mini">(Radagon's + Godrick's)</span></span>
           </header>
           <div class="lc-rows">
-            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item">Uchigatana (Blood) or Rivers of Blood · Seppuku + Corpse Piler</span><span class="lc-buff">Innate bleed; Seppuku self-buffs +80 flat bleed (~60s) and Corpse Piler's multi-hit stacks it fast — a proc is ~15% of the target's max HP.</span></div>
-            <div class="lc-row"><span class="lc-slot">Head</span><span class="lc-item">White Mask</span><span class="lc-buff">+10% attack for 20s after a nearby blood-loss proc.</span></div>
-            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Lord of Blood's Exultation</span><span class="lc-buff">+20% attack for ~20s whenever bleed procs nearby.</span></div>
-            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Shard of Alexander</span><span class="lc-buff">+15% weapon-skill damage — boosts Corpse Piler.</span></div>
-            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Rotten Winged Sword Insignia</span><span class="lc-buff">Successive hits ramp attack — huge on fast multi-hits.</span></div>
-            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Radagon's Soreseal</span><span class="lc-buff">+5 Vig/End/Str/Dex (~26% HP); costs +15% damage taken.</span></div>
-            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item">Godrick's</span><span class="lc-buff">+5 to every attribute — pushes Str/Dex to 20.</span></div>
+            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item"><span data-item="uchigatana">Uchigatana</span> (Blood) or <span data-item="rivers-of-blood">Rivers of Blood</span> · <span data-item="seppuku">Seppuku</span> + Corpse Piler</span><span class="lc-buff">Innate bleed; Seppuku self-buffs +80 flat bleed (~60s) and Corpse Piler's multi-hit stacks it fast — a proc is ~15% of the target's max HP.</span></div>
+            <div class="lc-row"><span class="lc-slot">Head</span><span class="lc-item" data-item="white-mask">White Mask</span><span class="lc-buff">+10% attack for 20s after a nearby blood-loss proc.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item" data-item="lord-of-bloods-exultation">Lord of Blood's Exultation</span><span class="lc-buff">+20% attack for ~20s whenever bleed procs nearby.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item" data-item="shard-of-alexander">Shard of Alexander</span><span class="lc-buff">+15% weapon-skill damage — boosts Corpse Piler.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item" data-item="rotten-winged-sword-insignia">Rotten Winged Sword Insignia</span><span class="lc-buff">Successive hits ramp attack — huge on fast multi-hits.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item" data-item="radagons-soreseal">Radagon's Soreseal</span><span class="lc-buff">+5 Vig/End/Str/Dex (~26% HP); costs +15% damage taken.</span></div>
+            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item" data-item="godricks-great-rune">Godrick's</span><span class="lc-buff">+5 to every attribute — pushes Str/Dex to 20.</span></div>
           </div>
         </article>
 
@@ -903,13 +916,13 @@
             <span class="lc-stats">Str 10 / Dex 20 <span class="mini">(Radagon's + Godrick's)</span></span>
           </header>
           <div class="lc-rows">
-            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item">Antspur Rapier (or any Rot-greased weapon)</span><span class="lc-buff">Innate scarlet rot; poke through your shield and let rot tick the bar down. Rot Grease puts rot on any weapon.</span></div>
+            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item"><span data-item="antspur-rapier">Antspur Rapier</span> (or any Rot-greased weapon)</span><span class="lc-buff">Innate scarlet rot; poke through your shield and let rot tick the bar down. Rot Grease puts rot on any weapon.</span></div>
             <div class="lc-row"><span class="lc-slot">Head</span><span class="lc-item">Poise helm — free</span><span class="lc-buff">No stat to reach (rot buildup is fixed), so spend the slot on poise / absorption.</span></div>
-            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Kindred of Rot's Exultation</span><span class="lc-buff">+20% attack near poison / rot procs.</span></div>
-            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Rotten Winged Sword Insignia</span><span class="lc-buff">Successive hits ramp your attack.</span></div>
-            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Shard of Alexander</span><span class="lc-buff">+15% weapon-skill damage.</span></div>
-            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Radagon's Soreseal</span><span class="lc-buff">+5 Vig/End/Str/Dex; costs +15% damage taken.</span></div>
-            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item">Godrick's</span><span class="lc-buff">+5 all — Dex to 20 to wield the rapier at full.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item" data-item="kindred-of-rots-exultation">Kindred of Rot's Exultation</span><span class="lc-buff">+20% attack near poison / rot procs.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item" data-item="rotten-winged-sword-insignia">Rotten Winged Sword Insignia</span><span class="lc-buff">Successive hits ramp your attack.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item" data-item="shard-of-alexander">Shard of Alexander</span><span class="lc-buff">+15% weapon-skill damage.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item" data-item="radagons-soreseal">Radagon's Soreseal</span><span class="lc-buff">+5 Vig/End/Str/Dex; costs +15% damage taken.</span></div>
+            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item" data-item="godricks-great-rune">Godrick's</span><span class="lc-buff">+5 all — Dex to 20 to wield the rapier at full.</span></div>
           </div>
         </article>
 
@@ -921,9 +934,9 @@
           <div class="lc-rows">
             <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item">Any low-Dex shortbow + Rot/Poison/Sleep pots &amp; bonebolt arrows</span><span class="lc-buff">Zero-stat status from range — pots and bone arrows proc full buildup with no requirement; stack two clouds, or open with a sleep pot for a free crit.</span></div>
             <div class="lc-row"><span class="lc-slot">Head</span><span class="lc-item">Free</span><span class="lc-buff">No stat gate — wear anything.</span></div>
-            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Ritual Sword</span><span class="lc-buff">+10% attack at full HP — near-free for a ranged player who rarely gets hit.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item" data-item="ritual-sword-talisman">Ritual Sword</span><span class="lc-buff">+10% attack at full HP — near-free for a ranged player who rarely gets hit.</span></div>
             <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Survival talismans</span><span class="lc-buff">HP / defense; a Soreseal is optional for the extra HP.</span></div>
-            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item">Godrick's / Morgott's</span><span class="lc-buff">Godrick's +5 all, or Morgott's +25% max HP for survivability.</span></div>
+            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item"><span data-item="godricks-great-rune">Godrick's</span> / <span data-item="morgotts-great-rune">Morgott's</span></span><span class="lc-buff">Godrick's +5 all, or Morgott's +25% max HP for survivability.</span></div>
           </div>
         </article>
 
@@ -933,12 +946,12 @@
             <span class="lc-stats">Fai/Arc 15 <span class="mini">(Marika's)</span> → 20 w/ Godrick's</span>
           </header>
           <div class="lc-rows">
-            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item">Finger Seal → Rotten Breath / Poison Mist / Swarm of Flies</span><span class="lc-buff">Status clouds from range — rot, poison, and (at Arc 20) bleed. Any wieldable seal works; catalyst scaling is irrelevant.</span></div>
-            <div class="lc-row"><span class="lc-slot">Head</span><span class="lc-item">Silver Tear Mask</span><span class="lc-buff">+8 Arcane — helps reach Arc 16 (Swarm of Flies) / Arc 20 (Rivers of Blood).</span></div>
-            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Kindred of Rot's Exultation</span><span class="lc-buff">+20% attack near rot / poison procs.</span></div>
-            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Old Lord's Talisman</span><span class="lc-buff">+30% spell duration — longer-lasting clouds and breaths.</span></div>
-            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Marika's Soreseal</span><span class="lc-buff">+5 Mnd/Int/Fai/Arc (unlocks the casts); costs +15% damage taken.</span></div>
-            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item">Godrick's</span><span class="lc-buff">+5 all — pushes Fai/Arc to 20 for Swarm of Flies.</span></div>
+            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item"><span data-item="finger-seal">Finger Seal</span> → <span data-item="rotten-breath">Rotten Breath</span> / <span data-item="poison-mist">Poison Mist</span> / <span data-item="swarm-of-flies">Swarm of Flies</span></span><span class="lc-buff">Status clouds from range — rot, poison, and (at Arc 20) bleed. Any wieldable seal works; catalyst scaling is irrelevant.</span></div>
+            <div class="lc-row"><span class="lc-slot">Head</span><span class="lc-item" data-item="silver-tear-mask">Silver Tear Mask</span><span class="lc-buff">+8 Arcane — helps reach Arc 16 (Swarm of Flies) / Arc 20 (Rivers of Blood).</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item" data-item="kindred-of-rots-exultation">Kindred of Rot's Exultation</span><span class="lc-buff">+20% attack near rot / poison procs.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item" data-item="old-lords-talisman">Old Lord's Talisman</span><span class="lc-buff">+30% spell duration — longer-lasting clouds and breaths.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item" data-item="marikas-soreseal">Marika's Soreseal</span><span class="lc-buff">+5 Mnd/Int/Fai/Arc (unlocks the casts); costs +15% damage taken.</span></div>
+            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item" data-item="godricks-great-rune">Godrick's</span><span class="lc-buff">+5 all — pushes Fai/Arc to 20 for Swarm of Flies.</span></div>
           </div>
         </article>
 
@@ -948,10 +961,10 @@
             <span class="lc-stats">none <span class="mini">(Hoarfrost Stomp)</span> / Int 15 <span class="mini">(Frozen Armament)</span></span>
           </header>
           <div class="lc-rows">
-            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item">Cold-infused weapon + Hoarfrost Stomp</span><span class="lc-buff">Frostbite bursts HP and raises the target's damage-taken by +20%. Stomp needs no Int or staff; Frozen Armament needs Int 15. Frost first, then your main status.</span></div>
+            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item">Cold-infused weapon + <span data-item="hoarfrost-stomp">Hoarfrost Stomp</span></span><span class="lc-buff">Frostbite bursts HP and raises the target's damage-taken by +20%. Stomp needs no Int or staff; Frozen Armament needs Int 15. Frost first, then your main status.</span></div>
             <div class="lc-row"><span class="lc-slot">Head</span><span class="lc-item">Free</span><span class="lc-buff">No stat gate (frost buildup is fixed).</span></div>
             <div class="lc-row"><span class="lc-slot">Talismans</span><span class="lc-item">Carry your primary build's talismans</span><span class="lc-buff">Frost is a multiplier bolted onto another build — keep that build's loadout.</span></div>
-            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item">Godrick's</span><span class="lc-buff">+5 all — reaches Int 15 for Frozen Armament, if you use it.</span></div>
+            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item" data-item="godricks-great-rune">Godrick's</span><span class="lc-buff">+5 all — reaches Int 15 for Frozen Armament, if you use it.</span></div>
           </div>
         </article>
 
@@ -961,10 +974,10 @@
             <span class="lc-stats">no stats <span class="mini">(skill procs under-req)</span></span>
           </header>
           <div class="lc-rows">
-            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item">Sword of St. Trina (Mists of Slumber) + Sleep pots/arrows + St. Trina's Torch</span><span class="lc-buff">Sleep buildup; a slept boss takes a guaranteed charged critical. The skill procs sleep even under-req.</span></div>
+            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item"><span data-item="sword-of-st-trina">Sword of St. Trina</span> (Mists of Slumber) + Sleep pots/arrows + <span data-item="st-trinas-torch">St. Trina's Torch</span></span><span class="lc-buff">Sleep buildup; a slept boss takes a guaranteed charged critical. The skill procs sleep even under-req.</span></div>
             <div class="lc-row"><span class="lc-slot">Head</span><span class="lc-item">Free</span><span class="lc-buff">No stat gate.</span></div>
             <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Survival talismans</span><span class="lc-buff">HP / defense to reach the crit safely.</span></div>
-            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item">Morgott's</span><span class="lc-buff">+25% max HP — survivability while you set up the sleep.</span></div>
+            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item" data-item="morgotts-great-rune">Morgott's</span><span class="lc-buff">+25% max HP — survivability while you set up the sleep.</span></div>
           </div>
         </article>
 
@@ -974,12 +987,12 @@
             <span class="lc-stats">Str for the shield <span class="mini">(Radagon's)</span></span>
           </header>
           <div class="lc-rows">
-            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item">Fingerprint Stone Shield + a thrusting poke · Barricade Shield</span><span class="lc-buff">100% physical block with elite stability even under-req; poke over the top. Barricade Shield (AoW) hardens it and ~halves block stamina cost.</span></div>
+            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item"><span data-item="fingerprint-stone-shield">Fingerprint Stone Shield</span> + a thrusting poke · <span data-item="barricade-shield">Barricade Shield</span></span><span class="lc-buff">100% physical block with elite stability even under-req; poke over the top. Barricade Shield (AoW) hardens it and ~halves block stamina cost.</span></div>
             <div class="lc-row"><span class="lc-slot">Head</span><span class="lc-item">Heavy poise helm</span><span class="lc-buff">Poise / absorption to shrug off chip damage behind the shield.</span></div>
-            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Great-Jar's Arsenal</span><span class="lc-buff">+19% equip load — wear heavier armor without over-encumbering.</span></div>
-            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Ritual Sword</span><span class="lc-buff">+10% attack at full HP — you rarely get hit behind the shield.</span></div>
-            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Radagon's Soreseal</span><span class="lc-buff">+5 stats (the Str to wield the shield); costs +15% damage taken.</span></div>
-            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item">Radahn's</span><span class="lc-buff">+15% HP / FP / stamina — more stamina for blocking.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item" data-item="great-jars-arsenal">Great-Jar's Arsenal</span><span class="lc-buff">+19% equip load — wear heavier armor without over-encumbering.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item" data-item="ritual-sword-talisman">Ritual Sword</span><span class="lc-buff">+10% attack at full HP — you rarely get hit behind the shield.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item" data-item="radagons-soreseal">Radagon's Soreseal</span><span class="lc-buff">+5 stats (the Str to wield the shield); costs +15% damage taken.</span></div>
+            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item" data-item="radahns-great-rune">Radahn's</span><span class="lc-buff">+15% HP / FP / stamina — more stamina for blocking.</span></div>
           </div>
         </article>
 
@@ -989,7 +1002,7 @@
             <span class="lc-stats">no stats needed</span>
           </header>
           <div class="lc-rows">
-            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item">Serpent-Hunter (found in Rykard's arena)</span><span class="lc-buff">Ignores all stats; its skill stun-locks Rykard regardless of poise — an "I win" button for that one fight. Spam the skill.</span></div>
+            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item"><span data-item="serpent-hunter">Serpent-Hunter</span> (found in Rykard's arena)</span><span class="lc-buff">Ignores all stats; its skill stun-locks Rykard regardless of poise — an "I win" button for that one fight. Spam the skill.</span></div>
             <div class="lc-row"><span class="lc-slot">Gear</span><span class="lc-item">Anything</span><span class="lc-buff">Head, talismans and Great Rune are all irrelevant — a one-fight cheese, nothing else matters.</span></div>
           </div>
         </article>
@@ -1000,11 +1013,11 @@
             <span class="lc-stats">minimal stats</span>
           </header>
           <div class="lc-rows">
-            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item">Your status kit on Mimic Tear / Black Knife Tiche · Golden Vow (AoW)</span><span class="lc-buff">Mimic Tear copies your gear and applies your bleed/rot a second time; Tiche chunks big HP bars. Golden Vow gives +11.5% attack &amp; +7.5% negation to you and the summon.</span></div>
+            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item">Your status kit on <span data-item="mimic-tear-ashes">Mimic Tear</span> / <span data-item="black-knife-tiche">Black Knife Tiche</span> · <span data-item="golden-vow">Golden Vow</span> (AoW)</span><span class="lc-buff">Mimic Tear copies your gear and applies your bleed/rot a second time; Tiche chunks big HP bars. Golden Vow gives +11.5% attack &amp; +7.5% negation to you and the summon.</span></div>
             <div class="lc-row"><span class="lc-slot">Head</span><span class="lc-item">Free</span><span class="lc-buff">No stat gate.</span></div>
-            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Dried Bouquet <span class="chip c-skip">DLC</span></span><span class="lc-buff">+20% attack for 30s after your summon dies.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item"><span data-item="dried-bouquet">Dried Bouquet</span> <span class="chip c-skip">DLC</span></span><span class="lc-buff">+20% attack for 30s after your summon dies.</span></div>
             <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Survival talismans</span><span class="lc-buff">HP / defense.</span></div>
-            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item">Mohg's</span><span class="lc-buff">Blesses your summons — heals &amp; buffs your Spirit Ash.</span></div>
+            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item" data-item="mohgs-great-rune">Mohg's</span><span class="lc-buff">Blesses your summons — heals &amp; buffs your Spirit Ash.</span></div>
           </div>
         </article>
 
@@ -1051,13 +1064,13 @@
         <li><span class="item">Sleep-pot opener</span> <span class="where">— on any sleep-vulnerable boss (Godskins, many humanoids), a thrown Sleep pot buys a guaranteed charged critical to open the fight.</span></li>
         <li><span class="item">Crouch to reset aggro</span> <span class="where">— crouch-walking behind cover drops enemy awareness, letting you reposition, re-summon, or line up a backstab.</span></li>
         <li><span class="item">Disarm the copycats</span> <span class="where">— the Mimic Tear <em>boss</em> in Nokron copies whatever you have equipped. Strip everything before the fog and it spawns in its underwear, punching for nothing (see region 08).</span></li>
-        <li><span class="item">Parry items beat "unblockable" attacks</span> <span class="where">— some special items deflect a boss's signature move regardless of your stats. The Blasphemous Claw parries Maliketh's Black Blade (see region 11).</span></li>
+        <li><span class="item">Parry items beat "unblockable" attacks</span> <span class="where">— some special items deflect a boss's signature move regardless of your stats. The <span data-item="blasphemous-claw">Blasphemous Claw</span> parries Maliketh's Black Blade (see region 11).</span></li>
       </ul>
 
       <h3 class="sub">Stealth & detection</h3>
       <ul class="grab">
-        <li><span class="item">Mimic's Veil</span> <span class="where">— disguise yourself as an object to shed aggro, slip past a room, or reset a bad pull. Great for skipping fights you don't need.</span></li>
-        <li><span class="item">Sentry's Torch</span> <span class="where">— hold it (or two-hand your weapon to sling it on your back) to reveal invisible enemies — the fix for Ordina's Black Knife Assassins.</span></li>
+        <li><span class="item" data-item="mimics-veil">Mimic's Veil</span> <span class="where">— disguise yourself as an object to shed aggro, slip past a room, or reset a bad pull. Great for skipping fights you don't need.</span></li>
+        <li><span class="item" data-item="sentrys-torch">Sentry's Torch</span> <span class="where">— hold it (or two-hand your weapon to sling it on your back) to reveal invisible enemies — the fix for Ordina's Black Knife Assassins.</span></li>
         <li><span class="item">Concealing Veil / crouch-sneak</span> <span class="where">— stay undetected to walk past packs, or line up a free opening backstab.</span></li>
       </ul>
 
@@ -1080,11 +1093,11 @@
 
       <h3 class="sub">Grab these in priority order</h3>
       <ul class="grab">
-        <li><span class="item">1 · Radagon's Soreseal</span> <span class="where">— Fort Faroth, <b>no boss</b>. ~26% more HP plus the Str/Dex to actually wield your kit. Get it almost first (Phase B).</span></li>
+        <li><span class="item">1 · <span data-item="radagons-soreseal">Radagon's Soreseal</span></span> <span class="where">— Fort Faroth, <b>no boss</b>. ~26% more HP plus the Str/Dex to actually wield your kit. Get it almost first (Phase B).</span></li>
         <li><span class="item">2 · Weapon upgrade level</span> <span class="where">— your single biggest damage lever. Smithing Bell Bearing [1] is reachable <b>before Godrick</b> via the Stormhill→Liurnia skip; buy out the stones and keep every weapon at its tier cap. A +6 weapon at Stormveil hits like a much later one.</span></li>
-        <li><span class="item">3 · 100% shield + Bloodhound's Step</span> <span class="where">— the Beast Crest Heater Shield (Stormhill, no boss) blocks all physical; Bloodhound's Step (Liurnia) is your i-frame dodge. Together that's near-total mitigation from the first legacy dungeon onward.</span></li>
-        <li><span class="item">4 · Mimic Tear</span> <span class="where">— the moment the Radahn festival is available (reach Altus, or progress Ranni's quest), rush Radahn → Nokron for it. It doubles your status output and tanks — the biggest mid-game spike.</span></li>
-        <li><span class="item">5 · Exultation talismans + Seppuku</span> <span class="where">— Lord of Blood's / Kindred of Rot's each add +20% attack on a proc; Seppuku's self-bleed multiplies hemorrhage. Flat multipliers on everything you already do.</span></li>
+        <li><span class="item">3 · 100% shield + <span data-item="bloodhounds-step">Bloodhound's Step</span></span> <span class="where">— the <span data-item="beast-crest-heater-shield">Beast Crest Heater Shield</span> (Stormhill, no boss) blocks all physical; Bloodhound's Step (Liurnia) is your i-frame dodge. Together that's near-total mitigation from the first legacy dungeon onward.</span></li>
+        <li><span class="item">4 · <span data-item="mimic-tear-ashes">Mimic Tear</span></span> <span class="where">— the moment the Radahn festival is available (reach Altus, or progress Ranni's quest), rush Radahn → Nokron for it. It doubles your status output and tanks — the biggest mid-game spike.</span></li>
+        <li><span class="item">5 · Exultation talismans + <span data-item="seppuku">Seppuku</span></span> <span class="where">— Lord of Blood's / Kindred of Rot's each add +20% attack on a proc; Seppuku's self-bleed multiplies hemorrhage. Flat multipliers on everything you already do.</span></li>
         <li><span class="item">6 · Maxed Spirit Ashes + flasks</span> <span class="where">— feed Glovewort to your Mimic/Tiche and sweep every Golden Seed &amp; Sacred Tear. Pure free scaling.</span></li>
         <li><span class="item">7 · DLC — Scadutree Blessing + Revered Ashes</span> <span class="where">— the only scaling in the Land of Shadow; top it up before every fight.</span></li>
       </ul>
@@ -1674,7 +1687,7 @@
         a.className = 'step-link';
         a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer';
         a.setAttribute('aria-label', aria);
-        a.innerHTML = '<span class="pin" aria-hidden="true">' + emoji + '</span>' + label;
+        a.innerHTML = '<span class="pin" aria-hidden="true">' + emoji + '</span><span class="lbl">' + label + '</span>';
         a.addEventListener('click', function (e) { e.stopPropagation(); });
         return a;
       };
@@ -1685,6 +1698,98 @@
         if (wiki) titleEl.appendChild(mkStepLink(wiki, 'wiki', '📖', "Open this step's Fextralife wiki page (opens in a new tab)"));
         var pin = MAP_PINS[b.id];
         if (pin) titleEl.appendChild(mkStepLink(MAP + pin, 'map', '📍', 'Show this location on the Fextralife interactive map (opens in a new tab)'));
+      });
+
+      // ---- Reference-item links: the same 📖 wiki + 📍 map pills on every named
+      // equipment / talisman / spell / armor / rune shown outside the checklist
+      // (the Loadout, Attribute-Ceiling & Broken-Builds tables and cards, plus the
+      // prose lists). Any element carrying data-item="<slug>" gets links from ITEMS.
+      // stepRef() reuses an item's already-verified checklist links; refLink() is for
+      // items that never appear as a step (their own verified wiki page + map pin).
+      var stepRef = function (id) {
+        var p = MAP_PINS[id];
+        return { wiki: WIKI_URLS[id] || null, map: p ? (MAP + p) : null };
+      };
+      var refLink = function (wiki, mapQuery) {
+        return { wiki: wiki || null, map: mapQuery ? (MAP + mapQuery) : null };
+      };
+      var ITEMS = {
+        // — reused from checklist steps —
+        "uchigatana": stepRef("b1"),
+        "reduvia": stepRef("b2"),
+        "hookclaws": stepRef("c4"),
+        "bloodhounds-fang": stepRef("b4"),
+        "antspur-rapier": stepRef("f2"),
+        "rivers-of-blood": stepRef("i1"),
+        "bloody-helice": stepRef("f3"),
+        "serpent-hunter": stepRef("f7"),
+        "radagons-soreseal": stepRef("b6"),
+        "radagons-scarseal": stepRef("b7"),
+        "marikas-soreseal": stepRef("k6"),
+        "lord-of-bloods-exultation": stepRef("g1"),
+        "kindred-of-rots-exultation": stepRef("f4"),
+        "rotten-winged-sword-insignia": stepRef("k7"),
+        "shard-of-alexander": stepRef("j6"),
+        "great-jars-arsenal": stepRef("b8"),
+        "old-lords-talisman": stepRef("j7"),
+        "flame-grant-me-strength": stepRef("b21"),
+        "bloodflame-blade": stepRef("d8"),
+        "rotten-breath": stepRef("b19"),
+        "poison-mist": stepRef("b20"),
+        "swarm-of-flies": stepRef("h5"),
+        "frozen-armament": stepRef("d9"),
+        "bloodhounds-step": stepRef("d1"),
+        "seppuku": stepRef("i3"),
+        "hoarfrost-stomp": stepRef("d2"),
+        "golden-vow": stepRef("b23"),
+        "determination": stepRef("b24"),
+        "quickstep": stepRef("b5"),
+        "godricks-great-rune": stepRef("c7"),
+        "beast-crest-heater-shield": stepRef("b13"),
+        "fingerprint-stone-shield": stepRef("g2"),
+        "finger-seal": stepRef("b15"),
+        "sword-of-st-trina": stepRef("b18"),
+        "white-mask": stepRef("h4"),
+        "dried-bouquet": stepRef("m5"),
+        "lhutel": stepRef("b10"),
+        "black-knife-tiche": stepRef("e2"),
+        "mimic-tear-ashes": stepRef("e3"),
+        "blasphemous-claw": stepRef("j2"),
+        // — standalone reference items: each has its own verified Fextralife page + map
+        //   pin. A few (Black Flame is bought from a prayerbook; the Horned Warrior Helm
+        //   and Curseblade Mask are random enemy drops) have no world-pickup pin on the
+        //   wiki, so their map is null and they show only a 📖 wiki link, like the
+        //   pin-less checklist steps.
+        "ritual-sword-talisman": refLink(FEX + "Ritual+Sword+Talisman", "id=5823&lat=-99.71&lng=74.01&code=mapA"),
+        "godfrey-icon": refLink(FEX + "Godfrey+Icon", "id=3354&lat=-109.36719&lng=81.1123&code=mapA"),
+        "black-flame": refLink(FEX + "Black+Flame", null),
+        "royal-knights-resolve": refLink(FEX + "Royal+Knight's+Resolve", "id=4541&lat=-90.92969&lng=65.20087&code=mapA"),
+        "barricade-shield": refLink(FEX + "Barricade+Shield", "id=722&code=mapA"),
+        "cragblade": refLink(FEX + "Cragblade", "id=5205&code=mapA"),
+        "silver-tear-mask": refLink(FEX + "Silver+Tear+Mask", "id=1761&lat=-188.5&lng=128.61356&code=mapB"),
+        "mask-of-confidence": refLink(FEX + "Mask+of+Confidence", "id=2118&lat=-142.73437&lng=82.11316&code=mapA"),
+        "thiolliers-garb": refLink(FEX + "Thiollier's+Garb", "id=659410&code=mapD"),
+        "horned-warrior-helm": refLink(FEX + "Horned+Warrior+Helm", null),
+        "curseblade-mask": refLink(FEX + "Curseblade+Mask", null),
+        "twinsage-glintstone-crown": refLink(FEX + "Twinsage+Glintstone+Crown", "id=2279&lat=-136.476562&lng=54.609104&code=mapA"),
+        "preceptors-big-hat": refLink(FEX + "Preceptor's+Big+Hat", "id=2127&lat=-109.75&lng=52.372118&code=mapA"),
+        "morgotts-great-rune": refLink(FEX + "Morgott's+Great+Rune", "id=3234&lat=-106.210069&lng=121.38241&code=mapA"),
+        "radahns-great-rune": refLink(FEX + "Radahn's+Great+Rune", "id=2408&lat=-183.801563&lng=159.326011&code=mapA"),
+        "mohgs-great-rune": refLink(FEX + "Mohg's+Great+Rune", "id=4678&lat=-181.670312&lng=146.494724&code=mapB"),
+        "rykards-great-rune": refLink(FEX + "Rykard's+Great+Rune", "id=4105&lat=-87.260938&lng=67.449228&code=mapA"),
+        "malenias-great-rune": refLink(FEX + "Malenia's+Great+Rune", "id=6052&lat=-37.7&lng=147.948154&code=mapA"),
+        "st-trinas-torch": refLink(FEX + "St+Trina's+Torch", "id=2964&lat=-76.42&lng=145.84&code=mapA"),
+        "pickled-turtle-neck": refLink(FEX + "Pickled+Turtle+Neck", "id=740&lat=-227.78438&lng=106.9578&code=mapA"),
+        "immunizing-cured-meat": refLink(FEX + "Immunizing+Cured+Meat", "id=713&code=mapA"),
+        "sentrys-torch": refLink(FEX + "Sentry's+Torch", "id=5422&lat=-88.523&lng=106.92&code=mapA"),
+        "mimics-veil": refLink(FEX + "Mimic's+Veil", "id=977&lat=-180.09375&lng=87.168326&code=mapA")
+      };
+      Array.prototype.slice.call(document.querySelectorAll('[data-item]')).forEach(function (el) {
+        var it = ITEMS[el.getAttribute('data-item')];
+        if (!it) return;
+        var name = (el.textContent || 'this item').replace(/\s+/g, ' ').trim();
+        if (it.wiki) el.appendChild(mkStepLink(it.wiki, 'wiki', '📖', 'Open the Fextralife wiki page for ' + name + ' (opens in a new tab)'));
+        if (it.map) el.appendChild(mkStepLink(it.map, 'map', '📍', 'Show ' + name + ' on the Fextralife interactive map (opens in a new tab)'));
       });
 
       var saved = {};

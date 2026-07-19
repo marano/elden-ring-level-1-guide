@@ -353,6 +353,46 @@
   .wrap-req td.req, .wrap-req thead th { white-space: normal; }
   .mini { font-size: .8rem; color: var(--ink-faint); }
 
+  /* ============ Loadout build cards (per-build wear-this) ============ */
+  .loadout-cards { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.2rem; }
+  .lc {
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--edge, var(--gold));
+    background: color-mix(in oklab, var(--edge, var(--gold)) 5%, var(--bg-2));
+    border-radius: 0 var(--r) var(--r) 0;
+    overflow: hidden;
+  }
+  .lc--bleed  { --edge: var(--bleed); }
+  .lc--rot    { --edge: var(--rot); }
+  .lc--frost  { --edge: var(--frost); }
+  .lc--sleep  { --edge: var(--sleep); }
+  .lc--cheese { --edge: var(--gold); }
+  .lc-head {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: .35rem 1rem;
+    padding: .8rem 1.05rem;
+    border-bottom: 1px solid var(--line);
+    background: color-mix(in oklab, var(--edge, var(--gold)) 9%, transparent);
+  }
+  .lc-title { font-size: 1.02rem; }
+  .lc-title b { color: var(--ink); }
+  .lc-stats { margin-left: auto; font-family: var(--font-mono); font-size: .78rem; color: var(--ink-soft); }
+  .lc-rows { display: flex; flex-direction: column; }
+  .lc-row {
+    display: grid;
+    grid-template-columns: 5.5rem minmax(8rem, 1.1fr) minmax(0, 1.55fr);
+    gap: .15rem 1rem;
+    padding: .6rem 1.05rem;
+    align-items: baseline;
+  }
+  .lc-row + .lc-row { border-top: 1px solid var(--line-soft); }
+  .lc-slot { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-faint); }
+  .lc-item { font-weight: 600; color: var(--ink); font-size: .9rem; line-height: 1.45; }
+  .lc-buff { color: var(--ink-soft); font-size: .88rem; line-height: 1.5; }
+  @media (max-width: 640px) {
+    .lc-row { grid-template-columns: 1fr; gap: .1rem; padding: .7rem 1.05rem; }
+    .lc-stats { margin-left: 0; }
+  }
+
   /* ============ Callout block (doctrine tips) ============ */
   .note {
     margin-top: 1.2rem;
@@ -838,23 +878,136 @@
       </div>
 
       <h3 class="sub">Loadout quick-reference — what to wear per build</h3>
-      <p>The cards above explain <em>why</em> each build works; this table is the <em>wear-this</em> summary. Talismans are listed within your four slots (a Soreseal eats one of them), "Head" is the one head slot you'd spend on a stat helm or the White Mask, and the Great Rune is your swappable second buff. Stats listed are the target to wield/cast at full — under-req weapons still proc status.</p>
-      <div class="table-wrap">
-        <table class="wrap-req">
-          <caption>Per-build loadout at a glance</caption>
-          <thead><tr><th>Build</th><th>Stats to reach</th><th>Weapon &amp; skill</th><th>Head</th><th>Talismans (4 slots)</th><th>Great Rune</th></tr></thead>
-          <tbody>
-            <tr><td class="w"><span class="chip c-bleed">bleed</span> Hemorrhage</td><td class="req">Str/Dex 15→20 <span class="mini">(Radagon's + Godrick's)</span></td><td>Uchigatana (Blood) or Rivers of Blood · <b>Seppuku</b> + Corpse Piler</td><td>White Mask</td><td>Lord of Blood's Exultation · Shard of Alexander · Rotten Winged Sword Insignia · <b>Radagon's Soreseal</b></td><td>Godrick's</td></tr>
-            <tr><td class="w"><span class="chip c-rot">rot</span> Scarlet-rot poke</td><td class="req">Str 10 / Dex 20 <span class="mini">(Radagon's + Godrick's)</span></td><td>Antspur Rapier, or any Rot-greased weapon</td><td>free — poise helm</td><td>Kindred of Rot's Exultation · Rotten Winged Sword Insignia · Shard of Alexander · <b>Radagon's Soreseal</b></td><td>Godrick's</td></tr>
-            <tr><td class="w"><span class="chip c-cheese">range</span> Pots &amp; bone arrows</td><td class="req">none</td><td>Any low-Dex shortbow + Rot/Poison/Sleep pots &amp; bonebolt arrows</td><td>free</td><td>Ritual Sword · survival talismans <span class="mini">(Soreseal optional)</span></td><td>Godrick's / Morgott's</td></tr>
-            <tr><td class="w"><span class="chip c-rot">rot</span> Caster clouds <span class="chip c-skip">endgame</span></td><td class="req">Fai/Arc 15 <span class="mini">(Marika's)</span> → 20 w/ Godrick's</td><td>Finger Seal → Rotten Breath / Poison Mist / Swarm of Flies</td><td>Silver Tear Mask <span class="mini">(Arc thresholds)</span></td><td>Kindred of Rot's Exultation · Old Lord's · <b>Marika's Soreseal</b></td><td>Godrick's</td></tr>
-            <tr><td class="w"><span class="chip c-frost">frost</span> Frost multiplier</td><td class="req">none <span class="mini">(Hoarfrost Stomp)</span> / Int 15 <span class="mini">(Frozen Armament, Marika's)</span></td><td>Cold-infused weapon + Hoarfrost Stomp — frost first, then your main status</td><td>free</td><td>(carry your primary build's talismans)</td><td>Godrick's</td></tr>
-            <tr><td class="w"><span class="chip c-sleep">sleep</span> Sleep crit</td><td class="req">none <span class="mini">(skill procs under-req)</span></td><td>Sword of St. Trina (Mists of Slumber) + Sleep pots/arrows + St. Trina's Torch</td><td>free</td><td>survival talismans</td><td>Morgott's</td></tr>
-            <tr><td class="w"><span class="chip c-cheese">turtle</span> Shield &amp; poke</td><td class="req">Str for the shield <span class="mini">(Radagon's)</span></td><td>Fingerprint Stone Shield + a thrusting poke · <b>Barricade Shield</b></td><td>heavy poise helm</td><td>Great-Jar's Arsenal · Ritual Sword · <b>Radagon's Soreseal</b></td><td>Radahn's <span class="mini">(stamina)</span></td></tr>
-            <tr><td class="w"><span class="chip c-cheese">nuke</span> Serpent-Hunter</td><td class="req">none</td><td>Serpent-Hunter (found in Rykard's arena) — spam the skill</td><td>any</td><td>any</td><td>any — one-fight cheese</td></tr>
-            <tr><td class="w"><span class="chip c-cheese">carry</span> Spirit-ash</td><td class="req">minimal</td><td>Your status kit on Mimic Tear / Black Knife Tiche · Golden Vow (AoW) buffs you both</td><td>free</td><td>Dried Bouquet <span class="chip c-skip">DLC</span> · survival</td><td>Mohg's <span class="mini">(blesses summons)</span></td></tr>
-          </tbody>
-        </table>
+      <p>The cards above explain <em>why</em> each build works; these cards are the <em>wear-this</em> summary — every weapon, helm, talisman and Great Rune spelled out with the <em>buff it actually applies</em> to that build. Talismans fill your four slots (a Soreseal eats one of them), "Head" is the one head slot you'd spend on a stat helm or the White Mask, and the Great Rune is your swappable second buff. Stats listed are the target to wield/cast at full — under-req weapons still proc status.</p>
+      <div class="loadout-cards">
+
+        <article class="lc lc--bleed">
+          <header class="lc-head">
+            <span class="lc-title"><span class="chip c-bleed">bleed</span> <b>Hemorrhage</b></span>
+            <span class="lc-stats">Str/Dex 15→20 <span class="mini">(Radagon's + Godrick's)</span></span>
+          </header>
+          <div class="lc-rows">
+            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item">Uchigatana (Blood) or Rivers of Blood · Seppuku + Corpse Piler</span><span class="lc-buff">Innate bleed; Seppuku self-buffs +80 flat bleed (~60s) and Corpse Piler's multi-hit stacks it fast — a proc is ~15% of the target's max HP.</span></div>
+            <div class="lc-row"><span class="lc-slot">Head</span><span class="lc-item">White Mask</span><span class="lc-buff">+10% attack for 20s after a nearby blood-loss proc.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Lord of Blood's Exultation</span><span class="lc-buff">+20% attack for ~20s whenever bleed procs nearby.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Shard of Alexander</span><span class="lc-buff">+15% weapon-skill damage — boosts Corpse Piler.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Rotten Winged Sword Insignia</span><span class="lc-buff">Successive hits ramp attack — huge on fast multi-hits.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Radagon's Soreseal</span><span class="lc-buff">+5 Vig/End/Str/Dex (~26% HP); costs +15% damage taken.</span></div>
+            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item">Godrick's</span><span class="lc-buff">+5 to every attribute — pushes Str/Dex to 20.</span></div>
+          </div>
+        </article>
+
+        <article class="lc lc--rot">
+          <header class="lc-head">
+            <span class="lc-title"><span class="chip c-rot">rot</span> <b>Scarlet-rot poke</b></span>
+            <span class="lc-stats">Str 10 / Dex 20 <span class="mini">(Radagon's + Godrick's)</span></span>
+          </header>
+          <div class="lc-rows">
+            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item">Antspur Rapier (or any Rot-greased weapon)</span><span class="lc-buff">Innate scarlet rot; poke through your shield and let rot tick the bar down. Rot Grease puts rot on any weapon.</span></div>
+            <div class="lc-row"><span class="lc-slot">Head</span><span class="lc-item">Poise helm — free</span><span class="lc-buff">No stat to reach (rot buildup is fixed), so spend the slot on poise / absorption.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Kindred of Rot's Exultation</span><span class="lc-buff">+20% attack near poison / rot procs.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Rotten Winged Sword Insignia</span><span class="lc-buff">Successive hits ramp your attack.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Shard of Alexander</span><span class="lc-buff">+15% weapon-skill damage.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Radagon's Soreseal</span><span class="lc-buff">+5 Vig/End/Str/Dex; costs +15% damage taken.</span></div>
+            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item">Godrick's</span><span class="lc-buff">+5 all — Dex to 20 to wield the rapier at full.</span></div>
+          </div>
+        </article>
+
+        <article class="lc lc--cheese">
+          <header class="lc-head">
+            <span class="lc-title"><span class="chip c-cheese">range</span> <b>Pots &amp; bone arrows</b></span>
+            <span class="lc-stats">no stats needed</span>
+          </header>
+          <div class="lc-rows">
+            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item">Any low-Dex shortbow + Rot/Poison/Sleep pots &amp; bonebolt arrows</span><span class="lc-buff">Zero-stat status from range — pots and bone arrows proc full buildup with no requirement; stack two clouds, or open with a sleep pot for a free crit.</span></div>
+            <div class="lc-row"><span class="lc-slot">Head</span><span class="lc-item">Free</span><span class="lc-buff">No stat gate — wear anything.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Ritual Sword</span><span class="lc-buff">+10% attack at full HP — near-free for a ranged player who rarely gets hit.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Survival talismans</span><span class="lc-buff">HP / defense; a Soreseal is optional for the extra HP.</span></div>
+            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item">Godrick's / Morgott's</span><span class="lc-buff">Godrick's +5 all, or Morgott's +25% max HP for survivability.</span></div>
+          </div>
+        </article>
+
+        <article class="lc lc--rot">
+          <header class="lc-head">
+            <span class="lc-title"><span class="chip c-rot">rot</span> <b>Caster clouds</b> <span class="chip c-skip">endgame</span></span>
+            <span class="lc-stats">Fai/Arc 15 <span class="mini">(Marika's)</span> → 20 w/ Godrick's</span>
+          </header>
+          <div class="lc-rows">
+            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item">Finger Seal → Rotten Breath / Poison Mist / Swarm of Flies</span><span class="lc-buff">Status clouds from range — rot, poison, and (at Arc 20) bleed. Any wieldable seal works; catalyst scaling is irrelevant.</span></div>
+            <div class="lc-row"><span class="lc-slot">Head</span><span class="lc-item">Silver Tear Mask</span><span class="lc-buff">+8 Arcane — helps reach Arc 16 (Swarm of Flies) / Arc 20 (Rivers of Blood).</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Kindred of Rot's Exultation</span><span class="lc-buff">+20% attack near rot / poison procs.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Old Lord's Talisman</span><span class="lc-buff">+30% spell duration — longer-lasting clouds and breaths.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Marika's Soreseal</span><span class="lc-buff">+5 Mnd/Int/Fai/Arc (unlocks the casts); costs +15% damage taken.</span></div>
+            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item">Godrick's</span><span class="lc-buff">+5 all — pushes Fai/Arc to 20 for Swarm of Flies.</span></div>
+          </div>
+        </article>
+
+        <article class="lc lc--frost">
+          <header class="lc-head">
+            <span class="lc-title"><span class="chip c-frost">frost</span> <b>Frost multiplier</b></span>
+            <span class="lc-stats">none <span class="mini">(Hoarfrost Stomp)</span> / Int 15 <span class="mini">(Frozen Armament)</span></span>
+          </header>
+          <div class="lc-rows">
+            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item">Cold-infused weapon + Hoarfrost Stomp</span><span class="lc-buff">Frostbite bursts HP and raises the target's damage-taken by +20%. Stomp needs no Int or staff; Frozen Armament needs Int 15. Frost first, then your main status.</span></div>
+            <div class="lc-row"><span class="lc-slot">Head</span><span class="lc-item">Free</span><span class="lc-buff">No stat gate (frost buildup is fixed).</span></div>
+            <div class="lc-row"><span class="lc-slot">Talismans</span><span class="lc-item">Carry your primary build's talismans</span><span class="lc-buff">Frost is a multiplier bolted onto another build — keep that build's loadout.</span></div>
+            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item">Godrick's</span><span class="lc-buff">+5 all — reaches Int 15 for Frozen Armament, if you use it.</span></div>
+          </div>
+        </article>
+
+        <article class="lc lc--sleep">
+          <header class="lc-head">
+            <span class="lc-title"><span class="chip c-sleep">sleep</span> <b>Sleep crit</b></span>
+            <span class="lc-stats">no stats <span class="mini">(skill procs under-req)</span></span>
+          </header>
+          <div class="lc-rows">
+            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item">Sword of St. Trina (Mists of Slumber) + Sleep pots/arrows + St. Trina's Torch</span><span class="lc-buff">Sleep buildup; a slept boss takes a guaranteed charged critical. The skill procs sleep even under-req.</span></div>
+            <div class="lc-row"><span class="lc-slot">Head</span><span class="lc-item">Free</span><span class="lc-buff">No stat gate.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Survival talismans</span><span class="lc-buff">HP / defense to reach the crit safely.</span></div>
+            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item">Morgott's</span><span class="lc-buff">+25% max HP — survivability while you set up the sleep.</span></div>
+          </div>
+        </article>
+
+        <article class="lc lc--cheese">
+          <header class="lc-head">
+            <span class="lc-title"><span class="chip c-cheese">turtle</span> <b>Shield &amp; poke</b></span>
+            <span class="lc-stats">Str for the shield <span class="mini">(Radagon's)</span></span>
+          </header>
+          <div class="lc-rows">
+            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item">Fingerprint Stone Shield + a thrusting poke · Barricade Shield</span><span class="lc-buff">100% physical block with elite stability even under-req; poke over the top. Barricade Shield (AoW) hardens it and ~halves block stamina cost.</span></div>
+            <div class="lc-row"><span class="lc-slot">Head</span><span class="lc-item">Heavy poise helm</span><span class="lc-buff">Poise / absorption to shrug off chip damage behind the shield.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Great-Jar's Arsenal</span><span class="lc-buff">+19% equip load — wear heavier armor without over-encumbering.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Ritual Sword</span><span class="lc-buff">+10% attack at full HP — you rarely get hit behind the shield.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Radagon's Soreseal</span><span class="lc-buff">+5 stats (the Str to wield the shield); costs +15% damage taken.</span></div>
+            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item">Radahn's</span><span class="lc-buff">+15% HP / FP / stamina — more stamina for blocking.</span></div>
+          </div>
+        </article>
+
+        <article class="lc lc--cheese">
+          <header class="lc-head">
+            <span class="lc-title"><span class="chip c-cheese">nuke</span> <b>Serpent-Hunter</b></span>
+            <span class="lc-stats">no stats needed</span>
+          </header>
+          <div class="lc-rows">
+            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item">Serpent-Hunter (found in Rykard's arena)</span><span class="lc-buff">Ignores all stats; its skill stun-locks Rykard regardless of poise — an "I win" button for that one fight. Spam the skill.</span></div>
+            <div class="lc-row"><span class="lc-slot">Gear</span><span class="lc-item">Anything</span><span class="lc-buff">Head, talismans and Great Rune are all irrelevant — a one-fight cheese, nothing else matters.</span></div>
+          </div>
+        </article>
+
+        <article class="lc lc--cheese">
+          <header class="lc-head">
+            <span class="lc-title"><span class="chip c-cheese">carry</span> <b>Spirit-ash</b></span>
+            <span class="lc-stats">minimal stats</span>
+          </header>
+          <div class="lc-rows">
+            <div class="lc-row"><span class="lc-slot">Weapon</span><span class="lc-item">Your status kit on Mimic Tear / Black Knife Tiche · Golden Vow (AoW)</span><span class="lc-buff">Mimic Tear copies your gear and applies your bleed/rot a second time; Tiche chunks big HP bars. Golden Vow gives +11.5% attack &amp; +7.5% negation to you and the summon.</span></div>
+            <div class="lc-row"><span class="lc-slot">Head</span><span class="lc-item">Free</span><span class="lc-buff">No stat gate.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Dried Bouquet <span class="chip c-skip">DLC</span></span><span class="lc-buff">+20% attack for 30s after your summon dies.</span></div>
+            <div class="lc-row"><span class="lc-slot">Talisman</span><span class="lc-item">Survival talismans</span><span class="lc-buff">HP / defense.</span></div>
+            <div class="lc-row"><span class="lc-slot">Rune</span><span class="lc-item">Mohg's</span><span class="lc-buff">Blesses your summons — heals &amp; buffs your Spirit Ash.</span></div>
+          </div>
+        </article>
+
       </div>
 
       <div class="note">

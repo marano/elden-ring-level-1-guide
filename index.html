@@ -517,15 +517,15 @@
   /* item-reference links (wiki + map) — the same step-link pill, appended after named
      items in the loadout / attribute / build tables, the build cards, and the prose lists */
   [data-item] > .step-link { margin-left: .35rem; }
-  .lc-item .step-link { position: relative; top: -.05em; }
-  /* In the dense reference tables the labelled pill boxes crowd the status chips, so
-     there the wiki/map links collapse to bare 📖/📍 icons — no box, no text (the
-     anchor's aria-label still names the destination for screen readers). */
-  td .step-link { border: none; background: none; padding: 0 .1rem; margin-left: .28rem; gap: 0; }
-  td .step-link .lbl { display: none; }
-  td .step-link .pin { font-size: 1rem; filter: none; opacity: .82; transition: opacity .15s; }
-  td .step-link:hover { background: none; }
-  td .step-link:hover .pin { opacity: 1; }
+  /* In the dense reference tables and the build cards the labelled pill boxes crowd the
+     item names / status chips, so there the wiki/map links collapse to bare 📖/📍 icons
+     — no box, no text (the anchor's aria-label still names the destination). The prose
+     lists and the checklist keep the full labelled pill. */
+  td .step-link, .lc-item .step-link { border: none; background: none; padding: 0 .1rem; margin-left: .28rem; gap: 0; }
+  td .step-link .lbl, .lc-item .step-link .lbl { display: none; }
+  td .step-link .pin, .lc-item .step-link .pin { font-size: 1rem; filter: none; opacity: .82; transition: opacity .15s; }
+  td .step-link:hover, .lc-item .step-link:hover { background: none; }
+  td .step-link:hover .pin, .lc-item .step-link:hover .pin { opacity: 1; }
 
   /* reference-section inline links */
   #builds a, .sec-intro a { color: var(--gold); text-underline-offset: 2px; text-decoration-color: color-mix(in oklab, var(--gold) 45%, transparent); }

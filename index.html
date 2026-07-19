@@ -350,6 +350,7 @@
   tbody tr:hover { background: color-mix(in oklab, var(--gold) 6%, transparent); }
   td .w { font-weight: 600; color: var(--ink); }
   td.req { font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--ink-soft); }
+  .wrap-req td.req, .wrap-req thead th { white-space: normal; }
   .mini { font-size: .8rem; color: var(--ink-faint); }
 
   /* ============ Callout block (doctrine tips) ============ */
@@ -736,7 +737,7 @@
       <h3 class="sub">What a single-stat ceiling unlocks</h3>
       <p>Pour every source into <em>one</em> attribute and it climbs well past 20 — but only one at a time. You have a single head slot (so one stat helm), and the two Soreseals cover different groups: <b>Radagon's</b> raises Vig/End/Str/Dex, <b>Marika's</b> raises Mnd/Int/Fai/Arc. Here's how high each stat reaches and the gear that ceiling — and no lower — makes wieldable or castable. (Below each requirement, remember: a weapon under-req only loses <em>damage scaling</em> and still procs status, but a spell simply won't fire.)</p>
       <div class="table-wrap">
-        <table>
+        <table class="wrap-req">
           <caption>Single-stat ceilings &amp; what each newly reaches</caption>
           <thead><tr><th>Stat</th><th>Ceiling (on top of both Soreseals + Godrick's)</th><th>Newly wieldable / castable</th><th>Still walled off</th></tr></thead>
           <tbody>
@@ -839,7 +840,7 @@
       <h3 class="sub">Loadout quick-reference — what to wear per build</h3>
       <p>The cards above explain <em>why</em> each build works; this table is the <em>wear-this</em> summary. Talismans are listed within your four slots (a Soreseal eats one of them), "Head" is the one head slot you'd spend on a stat helm or the White Mask, and the Great Rune is your swappable second buff. Stats listed are the target to wield/cast at full — under-req weapons still proc status.</p>
       <div class="table-wrap">
-        <table>
+        <table class="wrap-req">
           <caption>Per-build loadout at a glance</caption>
           <thead><tr><th>Build</th><th>Stats to reach</th><th>Weapon &amp; skill</th><th>Head</th><th>Talismans (4 slots)</th><th>Great Rune</th></tr></thead>
           <tbody>

@@ -327,6 +327,7 @@
   ul.grab > li::before { content: "◆"; position: absolute; left: 0; top: .05rem; color: var(--gold); font-size: .7rem; }
   ul.grab .item { font-weight: 600; color: var(--ink); }
   ul.grab .where { color: var(--ink-faint); }
+  .muted { color: var(--ink-faint); font-size: .9em; }
 
   /* ============ Tables ============ */
   .table-wrap { overflow-x: auto; margin-top: 1.2rem; border: 1px solid var(--line); border-radius: var(--r); }
@@ -1086,6 +1087,42 @@
         <li><span class="item">Greyoll (Caelid)</span> <span class="where">— the sleeping dragon in Dragonbarrow. A single kill dumps ~14,000+ runes plus its dragonkin — an enormous early bankroll for buying out your first Smithing Stone tiers.</span></li>
         <li><span class="item">Mohgwyn Palace Albinaurics</span> <span class="where">— from the Palace Approach Ledge-Road grace, sweep an AoE through the crawling Albinaurics on the slope, rest at the grace, repeat. Still one of the fastest farms in the game and completely legit (normal enemy respawns).</span></li>
       </ul>
+
+      <h3 class="sub">Crafting cheat-sheet — the cookbooks behind the cheese</h3>
+      <p>The Crafting Kit (step A3) is only the workbench: <strong>every</strong> consumable below is locked behind its own <em>Cookbook</em> you must find or buy first. The cheese-critical ones are folded into the checklist as steps (marked <span class="chip c-cheese">step</span>); this table is the complete map so nothing's missing. <b>Fire Pot is the one exception</b> — it needs no cookbook, just the Kit.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>Every cheese consumable → the cookbook that unlocks its recipe</caption>
+          <thead><tr><th>Consumable</th><th>Cookbook to grab</th><th>Where to get the cookbook</th></tr></thead>
+          <tbody>
+            <tr><td><span class="chip c-sleep">sleep</span> Sleep Pot</td><td>Fevor's Cookbook [1] <span class="chip c-cheese">step</span></td><td>Corpse S of Summonwater Village Outskirts, Limgrave <em>(step B31)</em></td></tr>
+            <tr><td><span class="chip c-frost">frost</span> Freezing Pot</td><td>Glintstone Craftsman's Cookbook [6] <span class="chip c-cheese">step</span></td><td>Caria Manor, Liurnia <em>(step D13)</em></td></tr>
+            <tr><td>Fire Pot</td><td>— (Crafting Kit default)</td><td>No cookbook needed</td></tr>
+            <tr><td><span class="chip c-rot">poison</span> Poison Pot</td><td>Nomadic Warrior's Cookbook [14]</td><td>Smoldering Church, NE Limgrave</td></tr>
+            <tr><td><span class="chip c-rot">rot</span> Rot Pot <span class="muted">(+ Rot Grease)</span></td><td>Nomadic Warrior's Cookbook [22]</td><td>Chest in the Lake of Rot ruin (underground) — free on the E6 route</td></tr>
+            <tr><td>Alluring Pot <span class="muted">(aggro pull)</span></td><td>Nomadic Warrior's Cookbook [21]</td><td>Volcano Manor</td></tr>
+            <tr><td>Bone Arrow / Bolt</td><td>Nomadic Warrior's Cookbook [1]</td><td>Kalé, Church of Elleh (500 runes)</td></tr>
+            <tr><td><span class="chip c-bleed">bleed</span> Bloodbone Arrow / Bolt</td><td>Nomadic Warrior's Cookbook [6] <span class="chip c-cheese">step</span></td><td>Fort Haight, Limgrave — same book as Blood Grease <em>(step B32)</em></td></tr>
+            <tr><td><span class="chip c-rot">poison</span> Poisonbone Arrow / Bolt</td><td>Nomadic Warrior's Cookbook [3]</td><td>Nomadic Merchant, N Limgrave (500 runes) — same book as Pickled Turtle Neck</td></tr>
+            <tr><td><span class="chip c-rot">rot</span> Rotbone Arrow / Bolt</td><td>Nomadic Warrior's Cookbook [15]</td><td>Nomadic Merchant, S Caelid (4,000 runes)</td></tr>
+            <tr><td><span class="chip c-sleep">sleep</span> Sleepbone Arrow / Bolt</td><td>Fevor's Cookbook [2]</td><td>Isolated Merchant, Raya Lucaria (3,500 runes)</td></tr>
+            <tr><td><span class="chip c-bleed">bleed</span> Blood Grease</td><td>Nomadic Warrior's Cookbook [6] <span class="chip c-cheese">step</span></td><td>Fort Haight, Limgrave <em>(step B32)</em></td></tr>
+            <tr><td><span class="chip c-rot">rot</span> Rot Grease</td><td>Nomadic Warrior's Cookbook [22]</td><td>Chest in the Lake of Rot ruin — same book as Rot Pot</td></tr>
+            <tr><td>Fire Grease</td><td>Armorer's Cookbook [1]</td><td>Kaiden Sellsword camp NE of Agheel Lake North, Limgrave</td></tr>
+            <tr><td><span class="chip c-frost">frost</span> Freezing Grease</td><td>Glintstone Craftsman's Cookbook [2]</td><td>Corpse by the Laskyar Ruins grace, Liurnia</td></tr>
+            <tr><td>Holy Grease</td><td>Missionary's Cookbook [4] <span class="chip c-cheese">step</span></td><td>Minor Erdtree Church, Capital Outskirts <em>(step F14)</em></td></tr>
+            <tr><td><span class="chip c-rot">poison</span> Poison Grease</td><td>Nomadic Warrior's Cookbook [8]</td><td>Tombsward Cave, Weeping Peninsula</td></tr>
+            <tr><td>Neutralizing Boluses <span class="muted">(cure poison + rot)</span></td><td>Armorer's Cookbook [2] <span class="chip c-cheese">step</span></td><td>Nomadic Merchant SE of Coastal Cave, W Limgrave (600 runes) <em>(step B33)</em></td></tr>
+            <tr><td>Stanching Boluses <span class="muted">(cure bleed)</span></td><td>Nomadic Warrior's Cookbook [7] <span class="chip c-cheese">step</span></td><td>Collapsed bridge into Stormveil, Stormhill <em>(step B34)</em></td></tr>
+            <tr><td>Thawfrost Boluses <span class="muted">(cure frost)</span></td><td>Nomadic Warrior's Cookbook [16] <span class="chip c-cheese">step</span></td><td>Hermit Merchant, Ainsel River (2,500 runes) <em>(step E10)</em></td></tr>
+            <tr><td>Clarifying Boluses <span class="muted">(cure sleep + madness)</span></td><td>Frenzied's Cookbook [1] <span class="chip c-cheese">step</span></td><td>Frenzied Flame Village, Liurnia <em>(step D14)</em></td></tr>
+            <tr><td>Immunizing Cured Meat <span class="muted">(immunity buff)</span></td><td>Armorer's Cookbook [5] <span class="chip c-cheese">step</span></td><td>Redmane Castle, Caelid <em>(step B28)</em></td></tr>
+            <tr><td>Pickled Turtle Neck <span class="muted">(stamina regen)</span></td><td>Nomadic Warrior's Cookbook [3] <span class="chip c-cheese">step</span></td><td>Nomadic Merchant, N Limgrave (500 runes) <em>(step B27)</em></td></tr>
+            <tr><td>Clarifying Cured Meat <span class="muted">(focus / madness buff)</span></td><td>Nomadic Warrior's Cookbook [23]</td><td>Consecrated Snowfield</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><b>Base materials — mostly free once set up.</b> Arrows/bolts run on <b>Thin Beast Bones</b> and greases on <b>Root Resin</b>; both become <em>unlimited</em> at the Twin Maidens once you turn in the Bone Peddler's and Greasemonger's Bell Bearings, so those consumables are effectively free late-game. The real pinch points are two finite plants: <b>Trina's Lily</b> (Sleep pots/arrows) and <b>Aeonian Butterfly</b> (Rot pots/arrows/grease) — non-respawning and only a few buyable, so don't burn them on trash. Higher-tier pots (Freezing, Rot, Alluring) also each consume an <b>Empty Ritual Pot</b>, and you can only hold 10 — reserve those for the fights that need them.</p>
     </section>
 
     <!-- ================= POWER PRIORITY ================= -->
@@ -1145,14 +1182,14 @@
         <ul class="steps">
           <li><label class="step"><input type="checkbox" id="a1"><div><div class="step-title">Create a Wretched — keepsake: Golden Seed</div><div class="step-body">The only class that begins at Level 1 with every stat at 10 — the whole premise. Golden Seed grants an extra flask charge from the start. From here on the golden rule: <b>never spend a rune on a level</b> — runes fund upgrades, flasks and consumables only.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="a2"><div><div class="step-title">Grab the Whetstone Knife</div><div class="step-body">Cellar of the ruin just south of <span class="loc">The First Step</span> grace. Unlocks Ashes of War so you can swap skills and apply affinities.</div></div></label></li>
-          <li><label class="step"><input type="checkbox" id="a3"><div><div class="step-title">Buy the Crafting Kit from Kalé</div><div class="step-body"><span class="loc">Church of Elleh</span>. Enables pots, greases and cure boluses — your whole consumable engine.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="a3"><div><div class="step-title">Buy the Crafting Kit from Kalé</div><div class="step-body"><span class="loc">Church of Elleh</span>. The workbench for pots, greases, cure boluses and status arrows — but the Kit alone unlocks only a few base recipes (and Fire Pots); <b>each cheese consumable needs its own Cookbook</b>, found or bought as you go. The key ones are checklist steps below; see the <a href="#cheese-toolkit" style="color:var(--gold)">crafting cheat-sheet</a> for the complete map.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="a4"><div><div class="step-title">Reach the 3rd Grace → meet Melina → Torrent</div><div class="step-body">Unlocks your horse and rune-spending. Torrent is your kiting/escape tool all run — ride past most overworld enemies rather than fighting them.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="a5"><div><div class="step-title">Get the Spirit Calling Bell + Lone Wolf Ashes</div><div class="step-body">Rest until Renna appears at the <span class="loc">Church of Elleh</span> (or buy from the Twin Maidens at Roundtable). Spirit summons are mandatory at RL1 — they tank aggro while your status ticks.</div></div></label></li>
         </ul>
       </details>
 
       <details class="phase-group" id="ph-b" open>
-        <summary><span class="ph-n">B</span><span class="ph-name">Early Power Rush — do before Stormveil</span><span class="ph-badge">0/30</span></summary>
+        <summary><span class="ph-n">B</span><span class="ph-name">Early Power Rush — do before Stormveil</span><span class="ph-badge">0/34</span></summary>
         <ul class="steps">
           <li><label class="step"><input type="checkbox" id="b1"><div><div class="step-title">Loot the Uchigatana <span class="chip c-bleed">bleed</span></div><div class="step-body"><span class="loc">Deathtouched Catacombs</span> (NE Limgrave) — a free pickup, you don't need to kill the catacomb boss. Your main weapon; infuse Blood once you have the Iron Whetblade (Stormveil), and add Seppuku later. Until then a crafted Blood Grease adds bleed.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="b2"><div><div class="step-title">Beat Bloody Finger Nerijus → Reduvia <span class="chip c-bleed">bleed</span></div><div class="step-body">By the <span class="loc">Murkwater</span> river; summon NPC Yura to tank. Its skill throws a ranged blood blade — safe chip + bleed from turn one.</div></div></label></li>
@@ -1184,6 +1221,10 @@
           <li><label class="step"><input type="checkbox" id="b26"><div><div class="step-title">Cragblade (Ash of War) — Caelid <span class="chip c-cheese">flat</span> <span class="chip c-skip">optional</span></div><div class="step-body">From a Teardrop Scarab in <span class="loc">Caelid</span> (grab it on the Soreseal run). Flat <b>+15% physical attack for 60s</b> — a stat-free damage buff for a non-status weapon.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="b27"><div><div class="step-title">Pickled Turtle Neck — stamina-regen snack <span class="chip c-skip">optional</span></div><div class="step-body">A consumable that boosts stamina recovery (~60s). Craft it from Turtle Neck Meat (Nomadic Warrior's Cookbook 3), buy it from the Nomadic Merchant in <span class="loc">north Limgrave</span> (800 runes), or find samples at Castle Morne and Stormveil. Keep it up for shield-heavy fights.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="b28"><div><div class="step-title">Immunizing Cured Meat — status resistance <span class="chip c-skip">optional</span></div><div class="step-body">Raises Immunity (poison/rot resistance) for ~60s. Found at <span class="loc">Waypoint Ruins</span> and caves, bought from a Nomadic Merchant (2,000 runes), or crafted (Armorer's Cookbook 5). A status proc on you at RL1 is lethal — carry a stack for the rot/poison stretches.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b31"><div><div class="step-title">Sleep Pot recipe — Fevor's Cookbook [1] <span class="chip c-sleep">sleep</span></div><div class="step-body">On a corpse in the graveyard on the plateau just south of the <span class="loc">Summonwater Village Outskirts</span> grace (NE Limgrave). Unlocks <b>Sleep Pots</b> — the free charged-critical opener that carries the Godfrey (Golden Shade), Godskin Duo, Hoarah Loux and Rellana cheeses. Craft from Mushroom + Trina's Lily (the lily is finite — see the <a href="#cheese-toolkit" style="color:var(--gold)">crafting cheat-sheet</a>).</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b32"><div><div class="step-title">Blood Grease + Bloodbone Arrow recipes — Nomadic Warrior's Cookbook [6] <span class="chip c-bleed">bleed</span></div><div class="step-body">Looted at <span class="loc">Fort Haight</span> (SE Limgrave — the same fort as the Dectus Medallion (Left)). This is the "crafted Blood Grease" step B1 refers to: bleed on any weapon before you reach the Iron Whetblade, plus Bloodbone Arrows for ranged hemorrhage. Materials (Root Resin, Bloodrose, Thin Beast Bones) are all renewable.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b33"><div><div class="step-title">Neutralizing Boluses recipe — Armorer's Cookbook [2] <span class="chip c-rot">cure</span></div><div class="step-body">Bought for 600 runes from the Nomadic Merchant southeast of <span class="loc">Coastal Cave</span> (west Limgrave). Cures <b>poison and scarlet rot</b> — the safety net for O'Neil (B29), the Lake of Rot (E6), Malenia's Aeonia (K5) and Romina (M26). A rot proc on an RL1 bar is often lethal, so craft a full stack.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="b34"><div><div class="step-title">Stanching Boluses recipe — Nomadic Warrior's Cookbook [7] <span class="chip c-bleed">cure</span></div><div class="step-body">Looted from the corpse at the far end of the collapsed bridge into Stormveil, crossing from <span class="loc">Stormhill</span> (the same crumbled bridge as the early-Liurnia skip in B14). Cures <b>blood loss</b> — most importantly your <em>own</em> build-up from Seppuku, and the hemorrhage that bleed enemies stack on you (Sanguine Noble, Mohg).</div></div></label></li>
         </ul>
       </details>
 
@@ -1203,7 +1244,7 @@
       </details>
 
       <details class="phase-group" id="ph-d">
-        <summary><span class="ph-n">D</span><span class="ph-name">Liurnia &amp; Raya Lucaria</span><span class="ph-badge">0/12</span></summary>
+        <summary><span class="ph-n">D</span><span class="ph-name">Liurnia &amp; Raya Lucaria</span><span class="ph-badge">0/14</span></summary>
         <ul class="steps">
           <li><label class="step"><input type="checkbox" id="d1"><div><div class="step-title">Get Bloodhound's Step (Ash of War)</div><div class="step-body">Dropped by a Night's Cavalry patrolling at night. A near-invincible evasion dash — the best defensive tool in the game; replace Quickstep with it.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="d2"><div><div class="step-title">Get Hoarfrost Stomp (Ash of War) <span class="chip c-frost">frost</span></div><div class="step-body">Teardrop Scarab in the swamp. Ranged frost AoE; frostbite makes targets take <b>+20% damage</b> — open with frost, then bleed into it.</div></div></label></li>
@@ -1217,11 +1258,13 @@
           <li><label class="step"><input type="checkbox" id="d9"><div><div class="step-title">Frozen Armament — Caria Manor <span class="chip c-frost">frost</span> <span class="chip c-skip">caster prep</span></div><div class="step-body">From a Teardrop Scarab behind Caria Manor, reachable once Loretta is down (step D5). Int 15 (Marika's Soreseal) — adds <b>frost (63 buildup) to any weapon</b> for 60s; the sorcery counterpart to Bloodflame Blade. Cast it with the Demi-Human Queen's Staff.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="d10"><div><div class="step-title">Twinsage Glintstone Crown — Raya Lucaria <span class="chip c-frost">int helm</span> <span class="chip c-skip">optional</span></div><div class="step-body">In the <span class="loc">Academy of Raya Lucaria</span> (from a Glintstone Crystal Crab). <b>+6 Intelligence</b> (−9% HP &amp; stamina) — the head slot that pushes Int to its ceiling for a spell threshold like Frozen Armament. Only worth the slot on an Int-gated build.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="d11"><div><div class="step-title">Preceptor's Big Hat — Seluvis's Rise <span class="chip c-skip">optional</span></div><div class="step-body">In a chest atop <span class="loc">Seluvis's Rise</span> (western Liurnia). <b>+3 Mind</b> (−9% stamina) — a deeper FP pool for more casts per flask. Niche, but nearly free if you pass through on Ranni's questline.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="d13"><div><div class="step-title">Freezing Pot recipe — Glintstone Craftsman's Cookbook [6] <span class="chip c-frost">frost</span></div><div class="step-body">In a small room southeast of the gardens in <span class="loc">Caria Manor</span> (grab it on the Loretta clear, step D5). Unlocks <b>Freezing Pots</b> — the hard interrupt for Malenia's Waterfowl Dance (K5) and a frostbite opener everywhere else. Craft from Rimed Crystal Bud ×2 + an Empty Ritual Pot (Ritual pots cap at 10 — see the crafting cheat-sheet).</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="d14"><div><div class="step-title">Clarifying Boluses recipe — Frenzied's Cookbook [1] <span class="chip c-sleep">cure</span></div><div class="step-body">On a body in the <span class="loc">Frenzied Flame Village</span> (northwest Liurnia). Cures <b>sleep and madness</b> — the only cure for madness, which you'll want against the DLC Winter Lanterns and Midra's frenzy beams (M22) and any madness-inflicting area. Easy to overlook, and there's no substitute.</div></div></label></li>
         </ul>
       </details>
 
       <details class="phase-group" id="ph-e">
-        <summary><span class="ph-n">E</span><span class="ph-name">Radahn &amp; the Underground — rush for the Mimic Tear <span class="chip c-cheese">priority</span></span><span class="ph-badge">0/9</span></summary>
+        <summary><span class="ph-n">E</span><span class="ph-name">Radahn &amp; the Underground — rush for the Mimic Tear <span class="chip c-cheese">priority</span></span><span class="ph-badge">0/10</span></summary>
         <ul class="steps">
           <li><label class="step"><input type="checkbox" id="e1"><div><div class="step-title">Boss: Starscourge Radahn — do this ASAP <span class="chip c-cheese">summons</span></div><div class="step-body">The festival opens as soon as you reach Altus <em>or</em> progress Ranni's quest — trigger it early, because his death opens Nokron and the <b>Mimic Tear</b>, your biggest mid-game power spike. <b>Skip his deadly opening arrow barrage</b> by riding away until he despawns off-screen, then returning — he drops straight into melee mode. Summon <b>every</b> NPC sign around the arena to soak aggro, ride Torrent in for bleed, and re-summon fallen signs. Also required to enter the DLC later.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="e2"><div><div class="step-title">Black Knife Tiche — Ringleader's Evergaol</div><div class="step-body"><span class="loc">Moonlight Altar</span>, SW Liurnia. Your strongest solo spirit ash — but you must beat <b>Alecto, Black Knife Ringleader</b> for it, and this is an Evergaol fight, so <b>no Torrent and no summons</b>. She's immune to bleed and only weak to <b>frost</b>: bring a Cold weapon/Hoarfrost Stomp, light-roll (or sprint from) her red-glow Helmsplitter, and punish the whiffs. Upgrade with Ghost Glovewort afterward.</div></div></label></li>
@@ -1232,11 +1275,12 @@
           <li><label class="step"><input type="checkbox" id="e7"><div><div class="step-title">Mask of Confidence — Inverted Carian Study Hall <span class="chip c-bleed">arc helm</span> <span class="chip c-skip">optional</span></div><div class="step-body">On a corpse in the hidden upper area of the <span class="loc">Carian Study Hall</span>, revealed once you flip the hall with the <b>Carian Inverted Statue</b> (a Ranni-questline item — you're already on the path from step D4). <b>+3 Arcane with no penalty</b> — the cheapest nudge toward a bleed-weapon's Arcane requirement.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="e8"><div><div class="step-title">Silver Tear Mask — Nokron <span class="chip c-bleed">arc helm</span> <span class="chip c-skip">optional</span></div><div class="step-body">Dropped by the <span class="loc">Mimic Tear</span> boss in Nokron (strip your gear first — step E4 — so the clone is harmless). <b>+8 Arcane</b> (−5% physical) — the biggest single Arcane helm, enough to reach Rivers of Blood's Arc 20 or Swarm of Flies' Arc 16.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="e9"><div><div class="step-title">Restore Radahn's Great Rune — Divine Tower of Caelid <span class="chip c-cheese">buff</span> <span class="chip c-skip">optional</span></div><div class="step-body">After Radahn falls, restore his rune at the <span class="loc">Divine Tower of Caelid</span> (southeast Caelid). A Rune Arc then grants <b>+15% HP / FP / stamina</b> — extra stamina for shield-and-poke. Worth grabbing while you're in Caelid.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="e10"><div><div class="step-title">Thawfrost Boluses recipe — Nomadic Warrior's Cookbook [16] <span class="chip c-frost">cure</span></div><div class="step-body">Bought for 2,500 runes from the Hermit Merchant in the <span class="loc">Ainsel River</span> (underground — you pass through on Ranni's questline en route to the Lake of Rot and Astel). Cures <b>frostbite</b>, the safety net for the frost bosses (Commander Niall, Malenia's frost lunge, the DLC frost fights).</div></div></label></li>
         </ul>
       </details>
 
       <details class="phase-group" id="ph-f">
-        <summary><span class="ph-n">F</span><span class="ph-name">Altus Plateau &amp; Mt. Gelmir</span><span class="ph-badge">0/13</span></summary>
+        <summary><span class="ph-n">F</span><span class="ph-name">Altus Plateau &amp; Mt. Gelmir</span><span class="ph-badge">0/14</span></summary>
         <ul class="steps">
           <li><label class="step"><input type="checkbox" id="f1"><div><div class="step-title">Ride the Grand Lift of Dectus</div><div class="step-body">Use both medallion halves (Left is at Fort Haight, SE Limgrave; Right you grabbed at Fort Faroth), or climb the Ruin-Strewn Precipice.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="f2"><div><div class="step-title">Antspur Rapier — near The Shaded Castle <span class="chip c-rot">rot</span></div><div class="step-body">Kill Maleigh Marais — approach from the field's western/southern edge so the sleeping Guardian Golem stays down, summon your spirit to split aggro, and stun-lock his low poise (or bow-lure him off a cliff edge for a free kill). The Antspur's innate scarlet rot then earns its keep on later bosses: poke once or twice, retreat behind your shield, and let rot tick their bar down for free.</div></div></label></li>
@@ -1251,6 +1295,7 @@
           <li><label class="step"><input type="checkbox" id="f10"><div><div class="step-title">Royal Knight's Resolve (Ash of War) — Volcano Manor <span class="chip c-cheese">burst</span> <span class="chip c-skip">optional</span></div><div class="step-body">From the <span class="loc">Temple of Eiglay</span> in Volcano Manor (grab it while you're here for Rykard). Buffs your next hit by <b>+80%</b> with heavy stance damage — the bigger sibling of Determination; load it onto a charged heavy or a critical.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="f11"><div><div class="step-title">Restore Rykard's Great Rune — Divine Tower of West Altus <span class="chip c-cheese">buff</span> <span class="chip c-skip">optional</span></div><div class="step-body">After the Serpent-Hunter cheese drops Rykard, restore his rune at the <span class="loc">Divine Tower of West Altus</span>. A Rune Arc then <b>restores HP on every kill</b> — handy through trash-heavy stretches and add clears.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="f12"><div><div class="step-title">Sentry's Torch — Hermit Merchant's Shack <span class="chip c-cheese">reveal</span></div><div class="step-body">Buy it from the Hermit Merchant at the <span class="loc">Hermit Merchant's Shack</span> (northern Altus Plateau) for 7,000 runes. Held, it reveals invisible enemies — the fix for Ordina's Black Knife Assassins (step K2), so pick it up before the Snowfield.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="f14"><div><div class="step-title">Holy Grease recipe — Missionary's Cookbook [4] <span class="chip c-cheese">holy</span></div><div class="step-body">Ground loot at the <span class="loc">Minor Erdtree Church</span> in the Capital Outskirts (on the road to Leyndell). Puts <b>holy</b> on any weapon with no Faith needed — the accessible answer to the DLC Putrescent Knight (M19), which is holy-weak but immune to your usual status kit. Craft from Root Resin + Golden Sunflower (both renewable).</div></div></label></li>
         </ul>
       </details>
 
@@ -1373,7 +1418,7 @@
           <li><label class="step"><input type="checkbox" id="m19"><div><div class="step-title">Cerulean Coast &amp; Charo's Hidden Grave → Putrescent Knight <span class="chip c-rot">rot</span></div><div class="step-body">The southern coast is dense with fragments. Putrescent Knight is <b>immune to bleed, frost, poison, sleep and madness</b> — your usual kit does nothing status-wise. Its only weaknesses are <b>Scarlet Rot, Holy, and Strike</b>: summon a maxed Mimic to tank the cavalry combos, then chip with Rotten Breath/rot arrows or a holy-buffed strike weapon, and <b>jump</b> (don't roll) through the two ghostflame AoEs.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="m20"><div><div class="step-title">Rakshasa's Great Katana — Eastern Nameless Mausoleum <span class="chip c-bleed">bleed</span></div><div class="step-body">Beat Rakshasa for the endgame bleed katana. <b>Cheese her with parries</b> — a Buckler (Str 8 / Dex 10, met at base) or Golden Parry deflects every attack except her Leaping Slash (roll that one), and 2–3 ripostes end it. Its Weed Cutter skill then stacks hemorrhage fast — a straight upgrade for the finale.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="m21"><div><div class="step-title">Jagged Peak → Bayle the Dread <span class="chip c-cheese">poison stall</span></div><div class="step-body">Down the south-east dragon path. <b>Cheese him with Poison Mist:</b> equip Assassin's Gambit (Occult ash, no stat reqs — from Bernahl at Volcano Manor) for near-invisibility, activate a +5-all Great Rune on a Rune Arc for Faith 15 (Poison Mist needs 12), then crouch-creep behind him and spam the non-damaging cloud — poison ticks don't aggro him, so repeated ~745 buildup chews through his ~41k HP at zero risk (~20–30 min). Fighting straight: he takes all four DoTs equally (not frost/rot specially) and is <b>Pierce-weak</b> (10% vs 40% elsewhere) — summon Igon (free, baits his breath) + a maxed Mimic, hug a leg, use a piercing weapon. Optional, but great loot and a Remembrance.</div></div></label></li>
-          <li><label class="step"><input type="checkbox" id="m22"><div><div class="step-title">Abyssal Woods → Midra, Lord of Frenzied Flame <span class="chip c-bleed">bleed</span></div><div class="step-body">Creep past the Winter Lanterns — never let them see you (their song inflicts madness) — to Midra's Manse. Midra himself is a clean bleed fight; dodge the frenzy beams.</div></div></label></li>
+          <li><label class="step"><input type="checkbox" id="m22"><div><div class="step-title">Abyssal Woods → Midra, Lord of Frenzied Flame <span class="chip c-bleed">bleed</span></div><div class="step-body">Creep past the Winter Lanterns — never let them see you (their song inflicts <b>madness</b>) — to Midra's Manse. Keep <b>Clarifying Boluses</b> up (and Clarifying Cured Meat for standing Focus) — they're the <em>only</em> cure for madness, and the safety net for both the Lanterns and Midra's frenzy beams. Midra himself is a clean bleed fight; dodge the frenzy beams.</div></div></label></li>
           <li><label class="step"><input type="checkbox" id="m23"><div><div class="step-title">Finger Ruins of Miyr → Metyr, Mother of Fingers <span class="chip c-bleed">bleed</span></div><div class="step-body">Reached via Count Ymir's questline (Church District). She's a <b>bleed</b> matchup (0% slash negation; strong poison/rot/frost resistance), so bring a Blood weapon + Reduvia. Hug in close so the star-spray and finger-beams sail overhead — but you still must roll her Body Smash and arm slams, it's not a stand-still spot — and target her exposed belly (+50%). A Revered Mimic pulls aggro; dump everything into the guaranteed normal attack she always opens Phase 2 with.</div></div></label></li>
         </ul>
       </details>
@@ -1526,6 +1571,10 @@
         "b28": FEX + "Immunizing+Cured+Meat",
         "b29": FEX + "Commander+O'Neil",
         "b30": FEX + "Fallingstar+Beast",
+        "b31": FEX + "Sleep+Pot",
+        "b32": FEX + "Blood+Grease",
+        "b33": FEX + "Neutralizing+Boluses",
+        "b34": FEX + "Stanching+Boluses",
         "c1": FEX + "Margit,+The+Fell+Omen",
         "c3": FEX + "Iron+Whetblade",
         "c4": FEX + "Hookclaws",
@@ -1545,6 +1594,8 @@
         "d10": FEX + "Twinsage+Glintstone+Crown",
         "d11": FEX + "Preceptor's+Big+Hat",
         "d12": FEX + "Red+Wolf+of+Radagon",
+        "d13": FEX + "Freezing+Pot",
+        "d14": FEX + "Clarifying+Boluses",
         "e1": FEX + "Starscourge+Radahn",
         "e2": FEX + "Black+Knife+Tiche",
         "e3": FEX + "Mimic+Tear+Ashes",
@@ -1554,6 +1605,7 @@
         "e7": FEX + "Mask+of+Confidence",
         "e8": FEX + "Silver+Tear+Mask",
         "e9": FEX + "Radahn's+Great+Rune",
+        "e10": FEX + "Thawfrost+Boluses",
         "f1": FEX + "Grand+Lift+of+Dectus",
         "f2": FEX + "Antspur+Rapier",
         "f3": FEX + "Bloody+Helice",
@@ -1567,6 +1619,7 @@
         "f11": FEX + "Rykard's+Great+Rune",
         "f12": FEX + "Sentry's+Torch",
         "f13": FEX + "Sanguine+Noble",
+        "f14": FEX + "Holy+Grease",
         "g1": FEX + "Lord+of+Blood's+Exultation",
         "g2": FEX + "Fingerprint+Stone+Shield",
         "g3": FEX + "Erdtree's+Favor",
